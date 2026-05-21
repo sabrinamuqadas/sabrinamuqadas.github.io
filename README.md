@@ -1,34 +1,37 @@
-# Sabrina Muqadas — Personal Portfolio
+# Sabrina Muqadas — Portfolio Website
 
-This is the official personal portfolio website of **Sabrina Muqadas**, hosted on GitHub Pages.
+Personal portfolio of **Sabrina Muqadas**, Business Development Representative (BDR), hosted on GitHub Pages.
 
 ## About
 
-Sabrina Muqadas is a **Business Development Representative (BDR)** focused on building strong client relationships, identifying growth opportunities, and supporting business expansion through effective communication and strategic outreach.
+Sabrina is a BDR/Business Development Executive with hands-on experience in lead generation, Upwork bidding, proposal writing, and client engagement across the USA, UK, UAE, and KSA. She was promoted from KYCIER Team Lead to Upwork Bidder at Sigma Digital Solutions, leveraging AI tools, data automation, and market research to drive pipeline growth and client conversions.
 
-## Purpose of This Website
+## What's on the Site
 
-This website serves as a professional portfolio to showcase:
+- Professional summary and contact info
+- Areas of expertise with skill indicators
+- Work experience (Sigma Digital Solutions, DEFT Recruiter)
+- Education background
+- Awards and certifications
+- Contact form (opens email client via mailto)
 
-- Professional background and experience
-- Skills in business development and client engagement
-- Career highlights and achievements
-- Contact information for professional opportunities
+## Tech Stack
 
-## Built With
+- HTML5, CSS3, JavaScript
+- Bootstrap 3
+- Font Awesome icons
+- WOW.js + Animate.css for scroll animations
+- jQuery Parallax
+- Hosted on GitHub Pages (no server-side code)
 
-- HTML5
-- CSS3
-- JavaScript
-- GitHub Pages for hosting
+## Live Site
 
-## Live Website
-
-👉 https://sabrinamuqadas.github.io
+https://sabrinamuqadas.github.io
 
 ## Contact
 
-For professional inquiries or opportunities, feel free to connect via the contact section on the website.
+sabrinamuqadas@gmail.com  
+[linkedin.com/in/sabrinamuqadas](https://www.linkedin.com/in/sabrinamuqadas)
 
 ---
 
