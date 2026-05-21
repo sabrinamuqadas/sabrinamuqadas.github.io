@@ -4,14 +4,12 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-	<url>
-	  <loc>https://xo.bookscent.store/</loc>
-	  <lastmod>2021-05-29T21:24:29+00:00</lastmod>
-	</url>
-
-	<url>
-	  <loc>https://xo.bookscent.store/index.php</loc>
-	  <lastmod>2021-05-29T21:24:29+00:00</lastmod>
-	</url>
-
+    <url>
+        <loc>https://sabrinamuqadas.github.io/</loc>
+        <lastmod>2026-05-21T00:00:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://sabrinamuqadas.github.io/index.html</loc>
+        <lastmod>2026-05-21T00:00:00+00:00</lastmod>
+    </url>
 </urlset>
