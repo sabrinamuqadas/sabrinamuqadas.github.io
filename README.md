@@ -28,7 +28,7 @@ assets/
   resume/                   Put Sabrina-Muqadas-CV.pdf here (see below)
 ```
 
-Each asset folder also contains a small `index.html` that returns a 403-style page. That blocks directory listing on GitHub Pages (which ignores `.htaccess`). Direct links to real files still work.
+Each asset folder also contains a tiny `index.html` (`noindex` + instant redirect to the site root). That blocks directory listing on GitHub Pages (which ignores `.htaccess`). Direct links to real files still work. On Apache/Laragon, `.htaccess` also disables indexes.
 
 How it fits together:
 
