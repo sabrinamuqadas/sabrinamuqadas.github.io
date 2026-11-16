@@ -1,0 +1,147 @@
+/* ==========================================================================
+   Design tokens
+   Every colour, size, radius, shadow and timing used by the site lives here.
+   Dark is the brand identity; light is applied via [data-theme="light"].
+   ========================================================================== */
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Brand palette (raw values) */
+  --navy-950: #0b1220;
+  --navy-900: #111c2e;
+  --navy-800: #152238;
+  --navy-700: #1d2e4a;
+  --teal-400: #2dd4bf;
+  --teal-700: #0f766e;
+  --indigo-400: #818cf8;
+  --indigo-600: #4f46e5;
+  --gold-300: #d4b483;
+  --gold-700: #8a6a3a;
+  --slate-50: #f8fafc;
+  --slate-400: #94a3b8;
+  --slate-600: #475569;
+  --slate-900: #0f172a;
+
+  /* Semantic colours: dark theme */
+  --bg: var(--navy-950);
+  --bg-alt: var(--navy-900);
+  --surface: var(--navy-800);
+  --surface-raised: var(--navy-700);
+  --glass: rgb(17 28 46 / 0.72);
+  --border: rgb(148 163 184 / 0.16);
+  --border-strong: rgb(148 163 184 / 0.32);
+  --text: var(--slate-50);
+  --text-muted: var(--slate-400);
+  --accent: var(--teal-400);
+  --accent-soft: rgb(45 212 191 / 0.12);
+  --accent-2: var(--indigo-400);
+  --accent-2-soft: rgb(129 140 248 / 0.14);
+  --gold: var(--gold-300);
+  --gold-soft: rgb(212 180 131 / 0.14);
+  --btn-bg: var(--teal-400);
+  --btn-ink: #062b27;
+  --danger: #fb7185;
+  --success: var(--teal-400);
+  --grid-line: rgb(148 163 184 / 0.07);
+  --glow-a: rgb(45 212 191 / 0.16);
+  --glow-b: rgb(129 140 248 / 0.18);
+  --map-dot: rgb(148 163 184 / 0.34);
+  --logo-filter: invert(1) hue-rotate(180deg);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.25);
+  --shadow-md: 0 12px 32px -12px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 32px 64px -24px rgb(0 0 0 / 0.6);
+
+  /* Typography */
+  --font-heading: "Manrope", "Manrope Fallback", system-ui, sans-serif;
+  --font-body: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --fs-xs: clamp(0.75rem, 0.73rem + 0.1vw, 0.8125rem);
+  --fs-sm: clamp(0.8125rem, 0.79rem + 0.12vw, 0.9rem);
+  --fs-base: clamp(0.975rem, 0.94rem + 0.18vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + 0.4vw, 1.3rem);
+  --fs-xl: clamp(1.3rem, 1.1rem + 0.9vw, 1.75rem);
+  --fs-2xl: clamp(1.6rem, 1.2rem + 1.8vw, 2.5rem);
+  --fs-3xl: clamp(2rem, 1.3rem + 3vw, 3.75rem);
+  --fs-display: clamp(2.35rem, 1.3rem + 5vw, 5.4rem);
+
+  --lh-tight: 1.08;
+  --lh-snug: 1.25;
+  --lh-body: 1.65;
+  --measure: 62ch;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-pad: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3.5vw, 3rem);
+  --container: 75rem;
+  --header-h: 4.5rem;
+
+  /* Radii */
+  --radius-sm: 0.625rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.18s;
+  --dur-base: 0.4s;
+  --dur-slow: 0.9s;
+  --dur-ambient: 24s;
+  --stagger: 70ms;
+
+  /* Layers */
+  --z-header: 50;
+  --z-menu: 60;
+  --z-modal: 80;
+}
+
+/* Light theme: applied explicitly or via system preference (see early.js) */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: var(--slate-50);
+  --bg-alt: #eef2f8;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --glass: rgb(255 255 255 / 0.78);
+  --border: rgb(15 23 42 / 0.1);
+  --border-strong: rgb(15 23 42 / 0.22);
+  --text: var(--slate-900);
+  --text-muted: var(--slate-600);
+  --accent: var(--teal-700);
+  --accent-soft: rgb(15 118 110 / 0.1);
+  --accent-2: var(--indigo-600);
+  --accent-2-soft: rgb(79 70 229 / 0.1);
+  --gold: var(--gold-700);
+  --gold-soft: rgb(138 106 58 / 0.12);
+  --btn-bg: var(--teal-700);
+  --btn-ink: #ffffff;
+  --danger: #be123c;
+  --success: var(--teal-700);
+  --grid-line: rgb(15 23 42 / 0.06);
+  --glow-a: rgb(45 212 191 / 0.22);
+  --glow-b: rgb(129 140 248 / 0.2);
+  --map-dot: rgb(15 23 42 / 0.2);
+  --logo-filter: none;
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+  --shadow-md: 0 12px 28px -14px rgb(15 23 42 / 0.2);
+  --shadow-lg: 0 28px 56px -24px rgb(15 23 42 / 0.28);
+}

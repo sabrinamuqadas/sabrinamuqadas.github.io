@@ -1,0 +1,246 @@
+/* ==========================================================================
+   Responsive refinements (mobile-first). Structural grid changes live in
+   layout.css; this file adapts components at specific widths.
+   ========================================================================== */
+
+/* ---- Small screens ---- */
+@media (max-width: 39.99rem) {
+  .hero__headline {
+    max-width: none;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .hero__visual {
+    width: min(100%, 24rem);
+  }
+
+  .float-card {
+    max-width: 11.5rem;
+    padding: 0.5rem 0.7rem 0.5rem 0.55rem;
+  }
+
+  .float-card .icon {
+    width: 1.9rem;
+    height: 1.9rem;
+    padding: 0.4rem;
+  }
+
+  .float-card span {
+    display: none;
+  }
+
+  .float-card--one { top: 8%; left: -2%; }
+  .float-card--two { top: 46%; right: -2%; }
+  .float-card--three { bottom: 6%; left: 0; }
+
+  .stat {
+    justify-items: end;
+  }
+
+  .market-strip {
+    padding: var(--space-4);
+  }
+
+  .exp-progress {
+    margin-left: 0;
+  }
+
+  .map-marker__label {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.35rem;
+  }
+
+  .world-map__home-label {
+    display: none;
+  }
+
+  .value-item {
+    grid-template-columns: auto 1fr;
+  }
+
+  .value-item__index {
+    display: none;
+  }
+
+  .stage-tab__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .tool-card__tip {
+    max-width: min(16rem, 80vw);
+  }
+
+  .contact-form__submit {
+    justify-self: stretch;
+  }
+}
+
+/* ---- Below desktop: lifecycle becomes a compact grid of stages ---- */
+@media (max-width: 63.99rem) {
+  .lifecycle__tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .stage-tab {
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-1);
+    width: 100%;
+    padding: 0.6rem 0.4rem;
+    text-align: center;
+  }
+
+  .stage-tab::after {
+    display: none;
+  }
+
+  .stage-tab__label {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .stage-tab .icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .site-nav__cv {
+    width: 100%;
+    margin-top: var(--space-3);
+  }
+
+  .map-marker__label {
+    opacity: 1;
+  }
+}
+
+/* ---- Tablet and up ---- */
+@media (min-width: 40rem) {
+  .field-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-nav__link {
+    font-size: var(--fs-2xl);
+  }
+}
+
+/* ---- Desktop navigation ---- */
+@media (min-width: 64rem) {
+  .menu-toggle,
+  .site-nav__cv {
+    display: none;
+  }
+
+  .header-actions {
+    margin-left: 0;
+  }
+
+  .header-actions__cv {
+    display: inline-flex;
+    padding-inline: 0.8rem;
+  }
+
+  /* Icon-only CV button until there is room for the label */
+  .header-actions__cv [data-cv-label] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .site-nav__list li {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+
+  .site-nav__link {
+    padding: 0.5rem 0.65rem;
+    white-space: nowrap;
+    border-bottom: 0;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .site-nav__link:hover {
+    background: color-mix(in srgb, var(--text) 6%, transparent);
+  }
+
+  .site-nav__indicator {
+    position: absolute;
+    bottom: -0.15rem;
+    left: 0;
+    display: block;
+    width: var(--indicator-w, 0);
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: translateX(var(--indicator-x, 0));
+    transition:
+      transform var(--dur-base) var(--ease-out),
+      width var(--dur-base) var(--ease-out);
+  }
+}
+
+@media (min-width: 80rem) {
+  .header-actions__cv {
+    padding-inline: 1rem;
+  }
+
+  .header-actions__cv [data-cv-label] {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .site-nav__link {
+    padding-inline: 0.8rem;
+  }
+}
+
+/* ---- Very large screens: scale the container and type slightly ---- */
+@media (min-width: 120rem) {
+  :root {
+    --container: 84rem;
+  }
+
+  .container--wide {
+    width: min(100% - var(--gutter) * 2, 90rem);
+  }
+}
+
+/* ---- Light-touch mobile simplifications for ambient motion ---- */
+@media (max-width: 47.99rem) {
+  .hero__glow {
+    filter: blur(60px);
+  }
+
+  .hero-orbit__ring {
+    animation-duration: 120s;
+  }
+}
