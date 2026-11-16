@@ -1,0 +1,29 @@
+{
+  "id": "/",
+  "name": "Sabrina Muqadas",
+  "short_name": "Sabrina Muqadas",
+  "description": "Business development and growth portfolio — B2B lead generation, client acquisition and AI-powered sales processes.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0B1220",
+  "theme_color": "#0B1220",
+  "categories": ["business", "productivity", "portfolio"],
+  "icons": [
+    {
+      "src": "./assets/image/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/image/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

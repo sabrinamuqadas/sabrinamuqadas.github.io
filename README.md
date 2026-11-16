@@ -15,6 +15,8 @@ Built with semantic HTML5, modern CSS (custom properties), vanilla ES modules an
 ```
 index.html                  Static-first page shell (works as readable HTML even before JS runs)
 404.html                    Not-found page
+manifest.json  sw.js        PWA install + offline support
+.htaccess                   Apache: disable directory browsing (Laragon / shared hosting)
 robots.txt  sitemap.xml     SEO
 .nojekyll                   Tells GitHub Pages to serve files as-is
 assets/
@@ -22,9 +24,11 @@ assets/
   js/                       main, config, data, components, navigation, theme, animations, contact, utils, early
   data/portfolio.json       All site content
   fonts/                    Self-hosted variable fonts (Manrope, Inter, JetBrains Mono)
-  image/                    logo, favicon, og-image, icons.svg sprite, tools/ brand marks, illustrations/
+  image/                    logo, favicon, og-image, icons.svg sprite, PWA icons/, tools/, illustrations/
   resume/                   Put Sabrina-Muqadas-CV.pdf here (see below)
 ```
+
+Each asset folder also contains a small `index.html` that returns a 403-style page. That blocks directory listing on GitHub Pages (which ignores `.htaccess`). Direct links to real files still work.
 
 How it fits together:
 
@@ -194,6 +198,16 @@ Animations are CSS-first and triggered by `IntersectionObserver`. They pause off
 - Only city-level location (Islamabad) is published; keep the street address off the site.
 
 ---
+
+## Offline use and install (PWA)
+
+The site is installable on desktop and mobile:
+
+- `manifest.json` defines the app name, colours (`#0B1220`) and icons.
+- `sw.js` precaches the app shell (HTML, CSS, JS, fonts, core images, `portfolio.json`) and uses network-first for navigations / stale-while-revalidate for static assets.
+- After the first successful visit over HTTPS (or localhost), reload once, then the site works offline. Large CV PDFs under `assets/resume/` are intentionally not cached.
+- Browsers show an install prompt (Chrome/Edge: install icon in the address bar; mobile: “Add to Home Screen”).
+- When you change cached assets, bump `VERSION` at the top of `sw.js` (for example `sm-shell-v2`) so clients drop the old cache.
 
 ## Optional analytics
 

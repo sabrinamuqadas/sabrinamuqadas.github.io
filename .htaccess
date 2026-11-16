@@ -1,0 +1,3 @@
+# Prevent directory browsing on Apache (Laragon / shared hosting).
+# GitHub Pages ignores .htaccess; folder index.html files cover that case.
+Options -Indexes

@@ -60,6 +60,21 @@ async function init() {
   if (data) setupCvLinks(data);
 
   loadAnalytics();
+  registerServiceWorker();
+}
+
+/** Registers the offline/installable service worker (HTTPS or localhost only). */
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+
+  const register = () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {
+      // Offline support is optional; a failed registration must not break the site.
+    });
+  };
+
+  if (document.readyState === 'complete') register();
+  else window.addEventListener('load', register);
 }
 
 init();
