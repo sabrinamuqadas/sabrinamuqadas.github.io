@@ -1,6 +1,6 @@
 'use strict';
 
-var VERSION = 'sm-shell-v2';
+var VERSION = 'sm-shell-v3';
 var PRECACHE = VERSION + '-precache';
 var RUNTIME = VERSION + '-runtime';
 

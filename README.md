@@ -119,7 +119,7 @@ After the first deploy, the site is available at `https://sabrinamuqadas.github.
 - **Privacy:** only the city (Islamabad) is published. Keep street or sector details out of the JSON, the HTML, and the structured data.
 - **Folder browsing** is blocked: `.htaccess` on Apache, and redirect `index.html` files in asset folders on GitHub Pages.
 - **Offline:** after the first HTTPS visit the site is installable and works offline. CV PDFs are never cached.
-- **Service worker updates:** when you change a file listed in `SHELL` in `sw.js`, bump `VERSION` (currently `sm-shell-v2`) so visitors pick up the change. Add any new files that should work offline to that list.
+- **Service worker updates:** when you change a file listed in `SHELL` in `sw.js`, bump `VERSION` (currently `sm-shell-v3`) so visitors pick up the change. Add any new files that should work offline to that list.
 
 ## Still to add
 
