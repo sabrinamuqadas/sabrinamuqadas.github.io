@@ -563,3 +563,30 @@ main {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   }
 }
+
+/* ---- Skills matrix and about facts (senior profile refresh) ---- */
+.skills__stage {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.about__facts {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 40rem) {
+  .skills__stage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 80rem) {
+  .skills__stage {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

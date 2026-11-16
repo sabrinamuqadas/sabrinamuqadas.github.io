@@ -1,8 +1,8 @@
 # Sabrina Muqadas
 
-Personal portfolio for **Sabrina Muqadas**, a Business Development & Growth professional based in Islamabad, Pakistan.
+Personal portfolio for **Sabrina Muqadas**, a Growth & Business Development Executive based in Islamabad, Pakistan.
 
-The site is built to present her work clearly and professionally: B2B lead generation, client acquisition, proposal writing, Upwork bidding, and technology-driven growth. It highlights experience across the **USA, UK, UAE, and KSA**, without inventing metrics, testimonials, or projects that are not real.
+The site is built to present her work clearly and professionally: Upwork bidding, LinkedIn and email outreach, cold calling, lead generation, and AI-driven growth workflows. It highlights experience across the **USA, UK, UAE, and KSA**, without inventing metrics, testimonials, or projects that are not real.
 
 **Live site:** [sabrinamuqadas.github.io](https://sabrinamuqadas.github.io/)
 
@@ -28,10 +28,10 @@ Dark theme is the default; visitors can switch to light mode. The choice is reme
 ## What’s on the site
 
 - Hero and positioning
-- About, expertise, and experience timeline
-- Growth strategy lifecycle
+- About, expertise, and a career-path chart with detailed role cards
+- Growth strategy lifecycle across Upwork, LinkedIn, email, and phone
 - Industries and international markets
-- Tools and value proposition
+- Skills and tech stack, plus a filterable tool directory, and value proposition
 - Education, languages, and interests
 - Contact form and social links
 
@@ -51,8 +51,9 @@ Most day-to-day edits happen in one file:
 | Navigation labels | `navigation` |
 | About story and career progression | `about` |
 | Expertise cards | `expertise` |
-| Jobs and responsibilities | `experience` |
-| Tools list | `tools` |
+| Jobs, dates and responsibilities (feeds the career chart) | `experience` |
+| Skill groups and tool directory | `skills`, `tools` |
+| Outreach channels used in the workflow | `channels`, `growthStrategy` |
 | Markets and industries | `markets`, `industries` |
 | Show or hide a section | `sectionVisibility` |
 

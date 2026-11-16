@@ -229,6 +229,8 @@ function renderSocialLinks(list, data) {
 
 const countFor = {
   roles: (data) => data.experience.reduce((total, group) => total + group.roles.length, 0),
+  employers: (data) => data.experience.length,
+  channels: (data) => data.channels.length,
   markets: (data) => data.markets.length,
   industries: (data) => data.industries.length,
   tools: (data) => data.tools.length,
@@ -304,7 +306,7 @@ function renderAboutAside(container, data) {
         ...aside.steps.map((step) =>
           h(
             'li',
-            { class: 'career__step' },
+            { class: step.current ? 'career__step career__step--current' : 'career__step' },
             h('span', { class: 'career__dot', 'aria-hidden': 'true' }),
             h(
               'div',
@@ -324,6 +326,19 @@ function renderAboutAside(container, data) {
 function renderAboutStory(container, data) {
   container.replaceChildren(
     ...data.about.story.map((paragraph, index) => h('p', { class: index === 0 ? 'about__lead' : null, text: paragraph })),
+  );
+}
+
+function renderAboutFacts(container, data) {
+  container.replaceChildren(
+    ...data.about.facts.map((fact) =>
+      h(
+        'div',
+        { class: 'fact' },
+        icon(fact.icon),
+        h('div', {}, h('dt', { class: 'fact__label mono', text: fact.label }), h('dd', { class: 'fact__value', text: fact.value })),
+      ),
+    ),
   );
 }
 
@@ -385,6 +400,85 @@ function renderExpertise(container, data) {
   bindDisclosures(container);
 }
 
+/** "Label: text" bullets get a bold lead-in so recruiters can scan responsibilities quickly. */
+function labelled(text) {
+  const match = text.match(/^([^:.]{3,40}):\s+(.+)$/);
+  return match ? h('span', {}, h('strong', { class: 'check-list__label', text: match[1] }), ` ${match[2]}`) : text;
+}
+
+const roleAnchor = (group, index) => `role-${group.id}-${index}`;
+const monthIndex = (value) => {
+  const [year, month] = value.split('-').map(Number);
+  return year * 12 + (month - 1);
+};
+
+/** Gantt-style overview of every role. Overlapping roles are stacked in separate lanes. */
+function renderCareerChart(data) {
+  const now = new Date();
+  const nowIndex = now.getFullYear() * 12 + now.getMonth();
+  const items = data.experience.flatMap((group) =>
+    group.roles.map((role, index) => ({
+      role,
+      anchor: roleAnchor(group, index),
+      from: monthIndex(role.start),
+      // End months are inclusive, so the bar runs to the end of that month.
+      to: (role.end ? monthIndex(role.end) : nowIndex) + 1,
+    })),
+  );
+
+  const rangeStart = Math.floor(Math.min(...items.map((item) => item.from)) / 12) * 12;
+  const rangeEnd = (Math.floor(nowIndex / 12) + 1) * 12;
+  const span = rangeEnd - rangeStart;
+
+  const laneEnds = [];
+  [...items]
+    .sort((a, b) => a.from - b.from)
+    .forEach((item) => {
+      let lane = laneEnds.findIndex((end) => end <= item.from);
+      if (lane === -1) lane = laneEnds.length;
+      laneEnds[lane] = item.to;
+      item.lane = lane;
+    });
+
+  const years = Array.from({ length: span / 12 }, (_, i) => rangeStart / 12 + i);
+  const percent = (value) => `${((value - rangeStart) / span) * 100}%`;
+  const first = years[0];
+  const last = years[years.length - 1];
+
+  return h(
+    'figure',
+    { class: 'career-chart', dataset: { reveal: 'up' } },
+    h('figcaption', { class: 'career-chart__title mono', text: `Career path, ${first} – ${last}` }),
+    h(
+      'div',
+      { class: 'career-chart__plot', style: { '--lanes': laneEnds.length } },
+      ...years.map((year) =>
+        h('span', { class: 'career-chart__year mono', 'aria-hidden': 'true', style: { '--x': percent(year * 12) }, text: String(year) }),
+      ),
+      h(
+        'ol',
+        { class: 'career-chart__bars' },
+        ...items.map((item) =>
+          h(
+            'li',
+            { style: { '--x': percent(item.from), '--w': `${((item.to - item.from) / span) * 100}%`, '--lane': item.lane } },
+            h(
+              'a',
+              {
+                class: `career-bar${item.role.current ? ' career-bar--current' : ''}${item.role.concurrent ? ' career-bar--concurrent' : ''}`,
+                href: `#${item.anchor}`,
+                title: `${item.role.title} (${item.role.period})`,
+                'aria-label': `${item.role.title}, ${item.role.period}`,
+                text: item.role.short ?? item.role.title,
+              },
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 function renderExperienceRole(group, role, index, groupIndex) {
   // The most recent role starts expanded; the rest are one click away.
   const open = groupIndex === 0 && index === 0;
@@ -397,7 +491,7 @@ function renderExperienceRole(group, role, index, groupIndex) {
     closedLabel: 'Responsibilities & tools',
     content: [
       h('p', { class: 'exp-role__sub mono', text: 'Key responsibilities' }),
-      h('ul', { class: 'check-list' }, ...role.responsibilities.map((item) => h('li', {}, icon('check'), item))),
+      h('ul', { class: 'check-list' }, ...role.responsibilities.map((item) => h('li', {}, icon('check'), labelled(item)))),
       h('p', { class: 'exp-role__sub mono', text: 'Skills' }),
       h('ul', { class: 'tag-list' }, ...role.skills.map((skill) => h('li', { class: 'tag', text: skill }))),
       h('p', { class: 'exp-role__sub mono', text: 'Tools' }),
@@ -407,11 +501,17 @@ function renderExperienceRole(group, role, index, groupIndex) {
 
   return h(
     'article',
-    { class: `exp-role${open ? ' is-open' : ''}`, dataset: { disclosure: '' } },
+    { class: `exp-role${open ? ' is-open' : ''}`, id: roleAnchor(group, index), dataset: { disclosure: '' } },
     h(
       'div',
       { class: 'exp-role__top' },
-      h('span', { class: 'badge', text: role.badge }),
+      h(
+        'div',
+        { class: 'exp-role__badges' },
+        h('span', { class: 'badge', text: role.badge }),
+        role.current && h('span', { class: 'badge badge--live', text: 'Current' }),
+        role.concurrent && h('span', { class: 'badge badge--soft', text: 'Concurrent' }),
+      ),
       h('span', { class: 'exp-role__period mono' }, icon('calendar'), role.period),
     ),
     h('h4', { class: 'exp-role__title', text: role.title }),
@@ -452,11 +552,25 @@ function renderExperience(container, data) {
     );
   });
 
-  container.replaceChildren(
+  const chart = renderCareerChart(data);
+  const timeline = h(
+    'div',
+    { class: 'timeline', dataset: { timeline: '' } },
     h('span', { class: 'timeline__rail', 'aria-hidden': 'true' }, h('span', { class: 'timeline__progress' })),
     h('ol', { class: 'timeline__list' }, ...groups),
   );
+
+  container.replaceChildren(chart, timeline);
   bindDisclosures(container);
+
+  // Chart bars jump to a role card and expand it if it is collapsed.
+  chart.addEventListener('click', (event) => {
+    const bar = event.target.closest('.career-bar');
+    if (!bar) return;
+    const card = document.getElementById(bar.getAttribute('href').slice(1));
+    const toggle = card && qs('.disclosure__toggle', card);
+    if (toggle && toggle.getAttribute('aria-expanded') !== 'true') toggle.click();
+  });
 }
 
 function renderGrowthStrategy(container, data) {
@@ -510,6 +624,15 @@ function renderGrowthStrategy(container, data) {
           h('h3', { class: 'stage-detail__title', text: stage.title }),
         ),
       ),
+      stage.channels?.length > 0 &&
+        h(
+          'ul',
+          { class: 'channel-tags', 'aria-label': 'Channels used in this stage' },
+          ...stage.channels.map((id) => {
+            const channel = data.channels.find((item) => item.id === id);
+            return channel && h('li', { class: 'channel-tag' }, icon(channel.icon), channel.label);
+          }),
+        ),
       h('p', { class: 'stage-detail__description', text: stage.description }),
       h('p', { class: 'mono stage-detail__label', text: 'Key activities' }),
       h('ul', { class: 'check-list' }, ...stage.activities.map((item) => h('li', {}, icon('check'), item))),
@@ -776,6 +899,33 @@ function renderTools(container, data) {
   container.replaceChildren(filters, grid, status);
 }
 
+/** Four skill groups (as on the CV), each with the tools used for that group. */
+function renderSkills(container, data) {
+  container.replaceChildren(
+    ...data.skills.map((group) => {
+      const tools = data.tools.filter((tool) => tool.category === group.title);
+      return h(
+        'article',
+        { class: 'skill-card', dataset: { spotlight: '' } },
+        h(
+          'div',
+          { class: 'skill-card__head' },
+          h('span', { class: 'icon-box icon-box--sm' }, icon(group.icon)),
+          h('h3', { class: 'skill-card__title', text: group.title }),
+        ),
+        h('ul', { class: 'check-list' }, ...group.items.map((item) => h('li', {}, icon('check'), item))),
+        tools.length > 0 &&
+          h(
+            'div',
+            { class: 'skill-card__tools' },
+            h('p', { class: 'skill-card__label mono', text: 'Tools' }),
+            h('ul', { class: 'mini-tools' }, ...tools.map((tool) => h('li', { class: 'mini-tool' }, toolIcon(tool), tool.name))),
+          ),
+      );
+    }),
+  );
+}
+
 function renderValueProposition(container, data) {
   container.replaceChildren(
     ...data.valueProposition.map((item, index) =>
@@ -813,7 +963,13 @@ function renderEducation(container, data) {
         { class: 'lang-card', dataset: { reveal: 'up' } },
         h('span', { class: 'icon-box' }, icon('languages')),
         h('h3', { class: 'lang-card__title', text: 'Languages' }),
-        h('ul', { class: 'lang-list' }, ...data.languages.map((language) => h('li', { text: language.name }))),
+        h(
+          'ul',
+          { class: 'lang-list' },
+          ...data.languages.map((language) =>
+            h('li', {}, language.name, language.level && h('span', { class: 'lang-list__level', text: ` · ${language.level}` })),
+          ),
+        ),
       ),
     ),
   );
@@ -967,8 +1123,10 @@ const renderers = {
   highlights: renderHighlights,
   aboutAside: renderAboutAside,
   aboutStory: renderAboutStory,
+  aboutFacts: renderAboutFacts,
   aboutPillars: renderAboutPillars,
   expertise: renderExpertise,
+  skills: renderSkills,
   experience: renderExperience,
   growthStrategy: renderGrowthStrategy,
   markets: renderMarkets,

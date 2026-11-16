@@ -1,6 +1,6 @@
 'use strict';
 
-var VERSION = 'sm-shell-v1';
+var VERSION = 'sm-shell-v2';
 var PRECACHE = VERSION + '-precache';
 var RUNTIME = VERSION + '-runtime';
 
@@ -34,6 +34,17 @@ var SHELL = [
   './assets/image/favicon.png',
   './assets/image/icons.svg',
   './assets/image/illustrations/world-dots.svg',
+  './assets/image/tools/upwork.svg',
+  './assets/image/tools/linkedin.svg',
+  './assets/image/tools/hubspot.svg',
+  './assets/image/tools/salesforce.svg',
+  './assets/image/tools/openai.svg',
+  './assets/image/tools/googleappsscript.svg',
+  './assets/image/tools/googlesheets.svg',
+  './assets/image/tools/semrush.svg',
+  './assets/image/tools/wappalyzer.svg',
+  './assets/image/tools/canva.svg',
+  './assets/image/tools/google.svg',
   './assets/image/icons/icon-192.png',
   './assets/image/icons/icon-512.png'
 ];

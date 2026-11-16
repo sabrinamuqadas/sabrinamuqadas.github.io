@@ -1,10 +1,17 @@
 {
   "profile": {
     "name": "Sabrina Muqadas",
-    "designation": "Business Development & Growth Professional",
+    "designation": "Growth & Business Development Executive",
     "headline": "Connecting Business Opportunities with Technology-Driven Solutions.",
-    "statement": "I help technology companies identify new opportunities, connect with the right clients, and build sustainable growth through strategic business development, intelligent prospecting, and AI-powered sales processes.",
-    "roles": ["Business Development", "Client Acquisition", "Sales Growth", "Strategic Partnerships"],
+    "statement": "I build multi-channel pipelines for technology companies, from Upwork bids and LinkedIn social selling to email outreach and cold calling, backed by CRM discipline and AI-driven workflows.",
+    "roles": [
+      "Business Development Executive",
+      "Growth & Business Development Executive",
+      "Upwork & Freelancing Platform Bidder",
+      "LinkedIn & Email Outreach Strategist",
+      "Cold Calling Expert"
+    ],
+    "currentLabel": "Now: Growth & Business Development Executive at ISOTOPE (Remote)",
     "location": "Islamabad, Pakistan",
     "mapPosition": { "x": 69.3, "y": 33.6 },
     "photo": null,
@@ -18,8 +25,8 @@
   },
 
   "branding": {
-    "footerStatement": "Sabrina Muqadas — Business Development & Growth Professional",
-    "footerSub": "Helping technology companies find the right opportunities and the right clients."
+    "footerStatement": "Sabrina Muqadas — Growth & Business Development Executive",
+    "footerSub": "Upwork, LinkedIn, email and cold-calling pipelines for technology companies."
   },
 
   "navigation": [
@@ -28,221 +35,348 @@
     { "label": "Expertise", "href": "#expertise", "section": "expertise" },
     { "label": "Experience", "href": "#experience", "section": "experience" },
     { "label": "Growth Strategy", "href": "#strategy", "section": "growthStrategy" },
-    { "label": "Tools", "href": "#tools", "section": "tools" },
+    { "label": "Skills", "href": "#tools", "section": "tools" },
     { "label": "Work", "href": "#work", "section": "projects" },
     { "label": "Education", "href": "#education", "section": "education" },
     { "label": "Contact", "href": "#contact", "section": "contact" }
   ],
 
+  "channels": [
+    { "id": "upwork", "label": "Upwork", "icon": "file-text" },
+    { "id": "linkedin", "label": "LinkedIn", "icon": "brand-linkedin" },
+    { "id": "email", "label": "Email", "icon": "mail" },
+    { "id": "phone", "label": "Cold calling", "icon": "phone" }
+  ],
+
   "highlights": [
     {
       "icon": "briefcase",
-      "title": "B2B & B2C Business Development",
-      "text": "Lead generation, client acquisition and pipeline support across business and consumer segments.",
-      "stat": { "count": "roles", "label": "roles held" }
+      "title": "Growth & business development",
+      "text": "Currently at ISOTOPE (remote): Upwork acquisition, LinkedIn social selling and technical solution pitching.",
+      "stat": { "count": "employers", "label": "employers since 2023" }
+    },
+    {
+      "icon": "send",
+      "title": "Four outreach channels",
+      "text": "Upwork bidding, LinkedIn social selling, email outreach and cold calling, run as one pipeline.",
+      "stat": { "count": "channels", "label": "channels in one pipeline" }
     },
     {
       "icon": "globe",
-      "title": "International Market Experience",
+      "title": "International markets",
       "text": "Research, prospecting and client engagement across the USA, UK, UAE and KSA.",
-      "stat": { "count": "markets", "label": "international markets" }
-    },
-    {
-      "icon": "laptop",
-      "title": "Technology & IT Services",
-      "text": "Software, mobile apps, websites and digital marketing, presented in terms clients understand.",
-      "stat": { "count": "industries", "label": "industries and service areas" }
+      "stat": { "count": "markets", "label": "target markets" }
     },
     {
       "icon": "bot",
-      "title": "AI-Powered Sales Processes",
-      "text": "AI tools and automation applied to research, proposals and data management.",
-      "stat": { "count": "tools", "label": "tools in my workflow" }
+      "title": "CRM, AI & analytics",
+      "text": "HubSpot and Salesforce pipelines, AI-assisted research and campaign ROI review.",
+      "stat": { "count": "tools", "label": "tools in the stack" }
     }
   ],
 
   "about": {
-    "title": "Business development, built on technology fluency.",
+    "title": "Business development, built on research, outreach and technology fluency.",
     "aside": {
       "title": "Career progression",
       "steps": [
-        { "label": "KYCIER", "role": "Team Lead", "period": "Aug 2024 – Jun 2025" },
-        { "label": "Upwork Bidder", "role": "Business Development Executive", "period": "Jun 2025 – Apr 2026" }
+        { "label": "DEFT Recruiter", "role": "Senior Recruiter & Content Manager", "period": "Jan 2023 – Apr 2023" },
+        { "label": "KYCIER", "role": "Team Lead, Lead Generation & Data Management", "period": "Aug 2024 – Jun 2025" },
+        { "label": "Sigma Digital Solutions", "role": "Upwork Bidder / Business Development Executive", "period": "Jun 2025 – Apr 2026" },
+        { "label": "AEITCH", "role": "Business Development Executive (Cold Calling)", "period": "Jun 2026 – Aug 2026" },
+        { "label": "ISOTOPE", "role": "Growth & Business Development Executive", "period": "Jun 2026 – Present", "current": true }
       ],
-      "caption": "From leading lead generation and data management to bidding and business development."
+      "caption": "From recruitment and lead generation to Upwork bidding, cold calling and growth-focused business development."
     },
     "story": [
-      "I'm Sabrina Muqadas, a Business Development Representative and Executive with experience in lead generation, proposal writing, Upwork bidding and client engagement across the USA, UK, UAE and KSA.",
-      "I progressed from KYCIER Team Lead to Upwork Bidder, building real depth in data management, pipeline optimization and sales intelligence along the way.",
-      "My experience spans IT services, software development, mobile applications, websites and digital marketing. I translate client requirements into suitable business and technology solutions, and I use AI tools to streamline research, proposals and decision-making."
+      "I'm Sabrina Muqadas, a Growth & Business Development Executive who builds pipeline across four channels: Upwork bidding, LinkedIn social selling, email outreach and cold calling.",
+      "My focus is multi-channel B2B and B2C lead generation, client acquisition and AI-driven workflow optimization for technology companies in the USA, UK, UAE and KSA.",
+      "My path began in talent acquisition and content at DEFT Recruiter, sourcing and screening candidates for oil and gas roles across the Gulf. That grounding in communication, qualification and the Gulf market still shapes how I approach every prospect.",
+      "At Sigma Digital Solutions I led lead generation and data management as KYCIER Team Lead: qualifying leads with Sales Navigator, Apollo and RocketReach, running UI/UX and SEO audits, and mentoring teammates on pipeline tracking. Strong results in data optimization and client engagement led to my promotion to Upwork Bidder, where I wrote tailored proposals, optimized profiles and catalogs, and used AI tools to move faster.",
+      "In 2026 I broadened into outbound cold calling at AEITCH and joined ISOTOPE as Growth & Business Development Executive, pitching AI products, Python development, DevOps infrastructure and full-stack applications to international clients.",
+      "I translate technical requirements into clear solutions, manage pipelines in HubSpot and Salesforce, and use AI tools such as ChatGPT and Grok to maximize campaign ROI, while keeping the data clean and the conversations human."
+    ],
+    "facts": [
+      { "icon": "map-pin", "label": "Based in", "value": "Islamabad, Pakistan" },
+      { "icon": "briefcase", "label": "Work mode", "value": "Remote, international teams" },
+      { "icon": "globe", "label": "Markets", "value": "USA · UK · UAE · KSA" },
+      { "icon": "languages", "label": "Languages", "value": "English (Professional), Urdu (Native)" }
     ],
     "pillars": [
       {
-        "icon": "compass",
-        "title": "Business mindset",
-        "text": "Growth starts with understanding. I look for the real business need behind a request, then connect it to a suitable solution."
+        "icon": "workflow",
+        "title": "Multi-channel pipeline thinking",
+        "text": "Upwork, LinkedIn, email and phone are not separate jobs. I connect them so every channel feeds the same, well-tracked pipeline."
       },
       {
         "icon": "laptop",
-        "title": "Technology understanding",
-        "text": "From software and mobile apps to websites and digital marketing, I know the services well enough to present them clearly and credibly."
+        "title": "Technical fluency",
+        "text": "I understand web, mobile, AI and DevOps services well enough to pitch them credibly and to turn requirements into the right proposal."
       },
       {
-        "icon": "book-open",
-        "title": "Continuous learning",
-        "text": "Tools and AI workflows keep changing how sales teams work. I keep learning and bring them into research, proposals and decisions."
+        "icon": "bot",
+        "title": "AI-driven efficiency",
+        "text": "ChatGPT, Grok and the Upwork toolkit speed up research and proposals, so more time goes into real conversations."
       },
       {
-        "icon": "handshake",
-        "title": "Values and approach",
-        "text": "Structured, research-led and clear in communication. Clean data, organised pipelines, and helping teammates grow through mentoring."
+        "icon": "users",
+        "title": "Leadership and mentoring",
+        "text": "Experience leading a lead generation team, training teammates and tightening how a team tracks its pipeline."
       }
     ]
   },
 
   "expertise": [
     {
-      "id": "business-development",
-      "title": "Business Development & Sales",
-      "icon": "briefcase",
-      "focus": "Revenue growth",
-      "summary": "Finding, winning and managing opportunities from first contact through close.",
-      "details": "Hands-on B2B and B2C business development: identifying opportunities, engaging prospects, supporting negotiations and keeping the pipeline organised from lead to conversion.",
+      "id": "upwork",
+      "title": "Upwork & Freelance Bidding",
+      "icon": "file-text",
+      "focus": "Freelance platforms",
+      "summary": "Qualified, high-intent bids and optimized profiles that win client contracts.",
+      "details": "End-to-end Upwork acquisition: optimizing profiles, portfolios and catalogs, writing tailored proposals, using strategic boosts and supporting the conversation through to the contract.",
       "items": [
-        "B2B and B2C Business Development",
-        "Lead Generation",
-        "Client Acquisition",
-        "Sales Pipeline Management",
-        "Negotiation and Sales Support",
-        "Strategic Partnerships",
-        "Opportunity Management"
+        "Upwork Bidding & Proposals",
+        "Qualified Proposals & Catalogs",
+        "Profile & Portfolio Optimization",
+        "Strategic Bid Boosts",
+        "Client Discovery & Analysis",
+        "Negotiation Support",
+        "Proposal Win-Rate Improvement"
       ]
     },
     {
-      "id": "prospecting",
-      "title": "Prospecting & Sales Intelligence",
+      "id": "linkedin-email",
+      "title": "LinkedIn & Email Outreach",
+      "icon": "send",
+      "focus": "Social selling",
+      "summary": "Personalized outreach that starts relevant conversations with the right decision-makers.",
+      "details": "Social selling and email campaigns aimed at well-defined ideal customer profiles, supported by case-study content and steady engagement to generate inbound leads and book meetings.",
+      "items": [
+        "LinkedIn Social Selling",
+        "Sales Navigator Prospecting",
+        "ICP-Targeted Messaging",
+        "Case-Study Content Engagement",
+        "Email Outreach Campaigns",
+        "Meeting Booking",
+        "Inbound Lead Generation"
+      ]
+    },
+    {
+      "id": "cold-calling",
+      "title": "Cold Calling & Outbound",
+      "icon": "phone",
+      "focus": "Outbound",
+      "summary": "High-volume calling that turns raw prospect data into qualified discovery meetings.",
+      "details": "Cold calling campaigns with a softphone, prospect data sourced from public listings, outreach metrics tracked in the CRM and service pitches that end in qualified meetings.",
+      "items": [
+        "Cold Calling (SIPERB)",
+        "Prospect Data Extraction",
+        "SQL Generation",
+        "Discovery Meeting Setting",
+        "Service Pitching",
+        "Outreach Metrics in HubSpot"
+      ]
+    },
+    {
+      "id": "lead-generation",
+      "title": "Lead Generation & Sales Intelligence",
       "icon": "scan-search",
       "focus": "Research",
       "summary": "Research that turns raw data into qualified, decision-ready prospects.",
-      "details": "Market research, profiling and data enrichment that make clear who to approach and why, before any outreach begins.",
+      "details": "B2B and B2C lead generation built on market research, profiling and data enrichment, so outreach always starts from who to approach and why.",
       "items": [
+        "B2B / B2C Lead Generation",
         "Market Research",
-        "Ideal Customer Profiling",
-        "Buyer Persona Creation",
-        "KYC Profiling",
         "Lead Qualification",
+        "Apollo.io & ZoomInfo",
+        "RocketReach Enrichment",
         "Decision-Maker Identification",
-        "Data Research and Enrichment"
+        "Client Profiling",
+        "Target Markets: US, UK, UAE, KSA"
+      ]
+    },
+    {
+      "id": "crm-ai",
+      "title": "CRM, AI & Analytics",
+      "icon": "bot",
+      "focus": "Systems",
+      "summary": "Clean pipelines and AI-assisted workflows that make every campaign measurable.",
+      "details": "Pipelines managed in HubSpot and Salesforce, AI assistants for research and proposals, and regular review of performance metrics to improve lead quality and campaign ROI.",
+      "items": [
+        "HubSpot & Salesforce",
+        "AI Automation (ChatGPT, Grok)",
+        "Upwork Toolkit",
+        "Campaign ROI Analysis",
+        "Pipeline Reporting",
+        "Data Management"
+      ]
+    },
+    {
+      "id": "technical-sales",
+      "title": "Technical Sales & Leadership",
+      "icon": "monitor",
+      "focus": "Solutions & teams",
+      "summary": "Technical fluency to pitch complex services, plus the leadership to grow a team.",
+      "details": "Pitching software, AI, Python, DevOps and full-stack solutions, auditing websites for UI/UX and SEO, and leading, training and mentoring team members.",
+      "items": [
+        "IT & Software Pitching",
+        "AI, Python & DevOps Pitching",
+        "Full-Stack Web & Mobile Pitching",
+        "Website Audits (UI/UX, SEO)",
+        "Team Leadership & Training",
+        "Mentoring",
+        "Process Improvement"
+      ]
+    }
+  ],
+
+  "skills": [
+    {
+      "id": "business-development",
+      "title": "Business Development",
+      "icon": "briefcase",
+      "items": [
+        "Upwork Bidding & Proposals",
+        "Qualified Proposals & Catalogs",
+        "B2B/B2C Lead Gen",
+        "Client Discovery & Analysis",
+        "Negotiation & Pipeline Management"
       ]
     },
     {
       "id": "outreach",
-      "title": "Outreach & Client Engagement",
-      "icon": "message-square",
-      "focus": "Engagement",
-      "summary": "Relevant conversations, tailored proposals and clear client communication.",
-      "details": "Multi-channel outreach and proposal work that starts from the client's requirements, from Upwork bids to LinkedIn, email and phone conversations.",
+      "title": "Outreach & Prospecting",
+      "icon": "send",
       "items": [
-        "Upwork Bidding",
-        "Proposal Writing",
-        "LinkedIn Outreach",
-        "Email Outreach",
-        "Client Communication",
-        "Requirement Analysis",
-        "Cold Calling"
+        "Cold Calling (SIPERB)",
+        "Social Selling (LinkedIn)",
+        "Sales Navigator",
+        "Apollo.io & ZoomInfo",
+        "Target Markets: US, UK, UAE, KSA"
       ]
     },
     {
-      "id": "ai-automation",
-      "title": "AI & Business Automation",
-      "icon": "bot",
-      "focus": "Efficiency",
-      "summary": "AI tools and light automation to move faster from research to proposal.",
-      "details": "Using AI assistants and Google Apps Script to speed up research, refine proposals and keep data and sales processes tidy and repeatable.",
+      "id": "crm-ai",
+      "title": "CRM, AI & Analytics",
+      "icon": "bar-chart",
       "items": [
-        "AI-Assisted Research",
-        "Proposal Optimization",
-        "Workflow Automation",
-        "Google Apps Script",
-        "Data Management",
-        "Sales Process Optimization"
+        "HubSpot & Salesforce",
+        "AI Automation (ChatGPT, Grok)",
+        "RocketReach & Upwork Toolkit",
+        "Campaign ROI Analysis"
       ]
     },
     {
-      "id": "technology-services",
-      "title": "Technology & Digital Services",
+      "id": "technical-sales",
+      "title": "Technical Sales",
       "icon": "monitor",
-      "focus": "Service knowledge",
-      "summary": "Enough technical fluency to present services clearly and credibly.",
-      "details": "Working knowledge of software, web and mobile services and website health, so client needs can be matched to the right technology solution.",
       "items": [
-        "Software Development Services",
-        "Web and Mobile Application Services",
-        "Website Auditing",
-        "UI/UX Analysis",
-        "SEO Analysis",
-        "Digital Marketing Services"
-      ]
-    },
-    {
-      "id": "leadership",
-      "title": "Leadership & Management",
-      "icon": "users",
-      "focus": "Teams and process",
-      "summary": "Leading, training and improving how a team works.",
-      "details": "Experience leading a lead generation team, training team members and interns, and running reporting and process improvement.",
-      "items": [
-        "Team Leadership",
-        "Team Training",
-        "Process Improvement",
-        "Reporting and Analytics",
-        "Pipeline Coordination"
+        "Website Audits (UI/UX, SEO)",
+        "IT & Software Pitching",
+        "AI, Python & DevOps Pitching",
+        "Team Leadership & Training"
       ]
     }
   ],
 
   "experience": [
     {
+      "id": "isotope",
+      "company": "ISOTOPE",
+      "location": "Remote",
+      "mark": "IS",
+      "period": "June 2026 – Present",
+      "roles": [
+        {
+          "title": "Growth & Business Development Executive",
+          "short": "ISOTOPE",
+          "start": "2026-06",
+          "end": null,
+          "period": "June 2026 – Present",
+          "current": true,
+          "badge": "Growth & BD",
+          "overview": "Owns Upwork acquisition, LinkedIn social selling and multi-channel lead generation, and pitches high-ticket technical solutions to international clients.",
+          "responsibilities": [
+            "Upwork Acquisition: Optimized profiles, portfolios and catalogs while submitting qualified, high-intent bids and strategic boosts to secure client contracts.",
+            "LinkedIn Social Selling: Targeted high-value ICPs through personalized outreach, case-study content and strategic engagement to generate inbound leads and book meetings.",
+            "Technical Solution Pitching: Pitched high-ticket technical solutions, including AI product-based platforms, Python development, enterprise DevOps infrastructure and full-stack web and mobile applications.",
+            "Multi-Channel Lead Gen: Ran cold campaigns with Sales Navigator, Apollo and ZoomInfo to build top-of-funnel pipeline and schedule qualified interviews.",
+            "CRM & Analytics: Managed sales pipelines in HubSpot and Salesforce and evaluated performance metrics to keep improving lead quality and ROI."
+          ],
+          "skills": ["Upwork Bidding", "LinkedIn Social Selling", "Cold Outreach", "Technical Pitching", "Pipeline Management", "Campaign ROI Analysis"],
+          "tools": ["Upwork", "LinkedIn Sales Navigator", "Apollo.io", "ZoomInfo", "HubSpot", "Salesforce"]
+        }
+      ]
+    },
+    {
+      "id": "aeitch",
+      "company": "AEITCH",
+      "location": "Islamabad, Remote",
+      "mark": "AE",
+      "period": "June 2026 – August 2026",
+      "roles": [
+        {
+          "title": "Business Development Executive (Cold Calling Specialist)",
+          "short": "AEITCH",
+          "start": "2026-06",
+          "end": "2026-08",
+          "period": "June 2026 – August 2026",
+          "concurrent": true,
+          "badge": "Cold calling",
+          "overview": "Ran high-volume outbound calling campaigns that turned prospect data into qualified discovery meetings.",
+          "responsibilities": [
+            "Outbound Outreach: Extracted target prospect data via Yelp and executed high-volume cold calling campaigns with the SIPERB softphone to generate SQLs.",
+            "CRM & Pipeline: Tracked outreach metrics and managed sales pipeline data directly in HubSpot.",
+            "Service Pitching & Meetings: Pitched AI optimization, web development and web revamping services, setting qualified discovery meetings through cold calling."
+          ],
+          "skills": ["Cold Calling", "Prospect Data Extraction", "SQL Generation", "Service Pitching", "Meeting Setting"],
+          "tools": ["SIPERB", "Yelp", "HubSpot"]
+        }
+      ]
+    },
+    {
       "id": "sigma",
       "company": "Sigma Digital Solutions",
       "location": "Islamabad",
       "mark": "SD",
       "period": "August 2024 – April 2026",
-      "progression": "Internal progression: Team Lead to Upwork Bidder",
+      "progression": "Promoted from Team Lead to Upwork Bidder for excellence in data optimization and client engagement",
       "roles": [
         {
           "title": "Upwork Bidder / Business Development Executive",
+          "short": "Upwork Bidder",
+          "start": "2025-06",
+          "end": "2026-04",
           "period": "June 2025 – April 2026",
           "badge": "Business development",
-          "overview": "Owned proposal and Upwork profile optimization, using AI tools to move faster and applying IT knowledge to present technology services to prospective clients.",
+          "overview": "Owned proposals and Upwork profile optimization, using AI tools to move faster and applying IT knowledge to present technology services to international clients.",
           "responsibilities": [
-            "Tailored proposals and optimized Upwork profiles to improve win rates.",
-            "Used AI tools, including ChatGPT, Grok, and the Upwork toolkit, to enhance proposal efficiency.",
-            "Identified relevant projects and potential business opportunities.",
-            "Contacted prospective clients through email and phone.",
-            "Engaged with clients to understand requirements and offer suitable solutions.",
-            "Applied IT knowledge to effectively present technology services and solutions."
+            "Proposals & Profiles: Crafted tailored proposals and optimized Upwork profiles to increase bid win rates.",
+            "AI Utilization & Tech Sales: Used AI tools (Upwork toolkit, Grok, ChatGPT) for proposal efficiency, and engaged international clients to present IT solutions and drive conversions.",
+            "Identified relevant projects and business opportunities, and contacted prospective clients by email and phone.",
+            "Engaged clients to understand requirements and offer suitable solutions."
           ],
           "skills": ["Proposal Writing", "Profile Optimization", "Opportunity Identification", "Client Communication", "Requirement Analysis"],
           "tools": ["Upwork", "ChatGPT", "Grok"]
         },
         {
-          "title": "KYCIER — Lead Generation & Data Management",
+          "title": "KYCIER, Lead Generation & Data Management",
+          "short": "KYCIER",
           "level": "Team Lead",
+          "start": "2024-08",
+          "end": "2025-06",
           "period": "August 2024 – June 2025",
           "badge": "Team lead",
-          "overview": "Led lead generation and data management: researching markets, qualifying leads, building client profiles, delivering website health reports and mentoring the team.",
+          "overview": "Led lead generation and data management: qualifying B2B and B2C leads, auditing websites and mentoring the team on pipeline tracking.",
           "responsibilities": [
-            "Generated and qualified high-potential leads using Google, LinkedIn, and advanced data scraping tools.",
-            "Researched markets and client requirements to improve outreach and conversions.",
-            "Built detailed client profiles using manual research, RocketReach, Sales Navigator, and automation scripts.",
-            "Delivered website health reports covering UI/UX, SEO, and technical quality.",
-            "Streamlined data and pipeline management using Google Sheets, Microsoft Word, and Excel.",
-            "Mentored and trained team members and interns.",
-            "Conducted meetings and process improvement initiatives."
+            "Global Lead Gen & Mentorship: Qualified B2B/B2C leads using Sales Navigator, Apollo and RocketReach, and mentored team members to optimize pipeline tracking.",
+            "Website Audits: Conducted UI/UX and SEO audits with WooRank and SEMrush, and delivered website health reports.",
+            "Built detailed client profiles through manual research, RocketReach, Sales Navigator and automation scripts.",
+            "Streamlined data and pipeline management in Google Sheets and Excel.",
+            "Trained team members and interns, and ran meetings and process improvement initiatives."
           ],
-          "skills": ["Lead Generation", "Lead Qualification", "Market Research", "Client Profiling", "Website Auditing", "Team Leadership", "Process Improvement"],
-          "tools": ["LinkedIn Sales Navigator", "RocketReach", "SEMrush", "WooRank", "Wappalyzer", "WhatFont", "Google Sheets", "Microsoft Excel"]
+          "skills": ["Lead Generation", "Lead Qualification", "Client Profiling", "Website Auditing", "Team Leadership", "Process Improvement"],
+          "tools": ["LinkedIn Sales Navigator", "Apollo.io", "RocketReach", "SEMrush", "WooRank", "Wappalyzer", "Google Sheets", "Microsoft Excel"]
         }
       ]
     },
@@ -255,16 +389,17 @@
       "roles": [
         {
           "title": "Senior Recruiter & Content Manager",
+          "short": "DEFT",
+          "start": "2023-01",
+          "end": "2023-04",
           "period": "January 2023 – April 2023",
           "badge": "Recruitment",
-          "overview": "Supported talent acquisition for the oil and gas industry across Gulf countries, particularly the UAE, alongside content for brand presence.",
+          "overview": "Handled technical sourcing and screening for the oil and gas sector across the Gulf, alongside recruitment content for the agency brand.",
           "responsibilities": [
-            "Supported talent acquisition for the oil and gas industry across Gulf countries, particularly the UAE.",
-            "Managed candidate sourcing, proposals, and candidate meetings.",
-            "Maintained effective professional communication.",
-            "Created engaging visual and written content using Canva to support brand presence."
+            "Talent Acquisition: Drove end-to-end technical sourcing, proposals and candidate screening for the oil and gas sector across Gulf countries (UAE).",
+            "Brand Enhancement: Boosted agency brand presence by creating engaging recruitment materials and visual content in Canva."
           ],
-          "skills": ["Talent Acquisition", "Candidate Sourcing", "Proposals", "Content Creation", "Professional Communication"],
+          "skills": ["Talent Acquisition", "Candidate Sourcing", "Candidate Screening", "Proposals", "Content Creation"],
           "tools": ["Canva"]
         }
       ]
@@ -274,97 +409,105 @@
   "growthStrategy": [
     {
       "id": "research",
-      "title": "Market Research",
+      "title": "Market & Account Research",
       "icon": "search",
-      "description": "Understanding the markets, industries and competitors where a company wants to grow, before a single message is sent.",
+      "channels": ["linkedin", "email", "phone"],
+      "description": "Understanding the markets, industries and accounts where a company wants to grow, before a single message is sent.",
       "activities": [
         "Research target markets across the USA, UK, UAE and KSA",
-        "Map industry trends and competitor positioning",
-        "Identify service demand and segments worth pursuing"
+        "Map industries, competitors and service demand",
+        "Source business data from LinkedIn, Apollo, ZoomInfo and public listings"
       ],
       "outcome": "A clear view of where the best opportunities are, so effort goes to the right markets."
     },
     {
       "id": "icp",
-      "title": "Ideal Customer Profile & Buyer Persona",
+      "title": "ICP & Decision-Maker Mapping",
       "icon": "target",
-      "description": "Defining who the right-fit client is, what they need and who makes the buying decision.",
+      "channels": ["linkedin", "email"],
+      "description": "Defining the right-fit client, what they need and who makes the buying decision.",
       "activities": [
         "Build ideal customer profiles from company data",
-        "Create buyer personas and identify decision-makers",
-        "Profile target accounts before outreach (KYC-style research)"
+        "Identify decision-makers with Sales Navigator",
+        "Profile target accounts before outreach"
       ],
       "outcome": "A shared definition of the right client that sharpens targeting and messaging."
     },
     {
-      "id": "discovery",
-      "title": "Lead Discovery & Qualification",
+      "id": "prospecting",
+      "title": "Prospecting & Data Enrichment",
       "icon": "scan-search",
-      "description": "Finding matching companies and contacts, then qualifying them before anyone is contacted.",
+      "channels": ["linkedin", "email", "phone"],
+      "description": "Finding matching companies and contacts, then enriching and qualifying them before anyone is contacted.",
       "activities": [
-        "Source leads with Google, LinkedIn Sales Navigator and scraping tools",
-        "Enrich contacts with tools such as RocketReach, Apollo and Hunter.io",
-        "Qualify against the profile and keep data clean in Google Sheets"
+        "Build lead lists with Sales Navigator, Apollo and ZoomInfo",
+        "Enrich contacts with RocketReach and verify them",
+        "Qualify against the profile and keep data clean"
       ],
       "outcome": "A verified, prioritised prospect list that keeps the pipeline healthy."
     },
     {
       "id": "outreach",
-      "title": "Outreach & Engagement",
+      "title": "Multi-Channel Outreach",
       "icon": "send",
+      "channels": ["linkedin", "email", "phone"],
       "description": "Starting relevant conversations through the right channel, with a message tailored to the prospect.",
       "activities": [
-        "Personalised LinkedIn and email outreach",
-        "Cold calling where it fits",
-        "Proposal-led engagement on Upwork"
+        "Personalized LinkedIn social selling and email sequences",
+        "Cold calling with a softphone for high-volume campaigns",
+        "Case-study content to earn inbound interest"
       ],
-      "outcome": "Quality conversations with the right decision-makers."
+      "outcome": "Quality conversations with the right decision-makers, from more than one angle."
     },
     {
-      "id": "requirements",
-      "title": "Discovery & Requirement Analysis",
+      "id": "discovery",
+      "title": "Discovery & Qualification",
       "icon": "message-circle",
+      "channels": ["phone", "email", "upwork"],
       "description": "Listening first: understanding goals, constraints and scope before recommending anything.",
       "activities": [
-        "Ask structured discovery questions",
+        "Ask structured discovery questions on calls and in messages",
         "Clarify scope, goals and constraints",
-        "Match requirements to suitable software, web, mobile or marketing services"
+        "Book qualified discovery meetings and interviews"
       ],
       "outcome": "A requirement picture clear enough to propose the right solution."
     },
     {
       "id": "proposal",
-      "title": "Proposal & Negotiation",
+      "title": "Proposals & Negotiation",
       "icon": "pen-line",
-      "description": "Turning requirements into a clear, tailored proposal and supporting the conversation to agreement.",
+      "channels": ["upwork", "email"],
+      "description": "Turning requirements into a clear, tailored proposal and supporting the conversation through to agreement.",
       "activities": [
-        "Write tailored proposals and cover letters",
-        "Position services in the client's own language",
+        "Write tailored Upwork bids, proposals and catalogs",
+        "Pitch AI, Python, DevOps, web and mobile solutions in the client's language",
         "Support negotiation and coordinate with delivery teams"
       ],
-      "outcome": "Relevant, clear proposals and a smoother path to agreement."
+      "outcome": "Relevant, clear proposals and a smoother path to a signed contract."
     },
     {
-      "id": "conversion",
-      "title": "Conversion & Client Relationship",
-      "icon": "handshake",
-      "description": "Moving opportunities over the line and starting the client relationship well.",
+      "id": "pipeline",
+      "title": "CRM & Pipeline Management",
+      "icon": "workflow",
+      "channels": ["upwork", "linkedin", "email", "phone"],
+      "description": "Keeping every opportunity visible, with clean data and timely follow-ups.",
       "activities": [
+        "Track every touchpoint in HubSpot and Salesforce",
         "Follow up and move opportunities toward close",
-        "Coordinate hand-over with the delivery team",
-        "Keep communication open after the sale"
+        "Hand over cleanly to the delivery team"
       ],
-      "outcome": "New clients who start well and stay engaged."
+      "outcome": "Fewer missed follow-ups and a pipeline the whole team can trust."
     },
     {
       "id": "optimization",
-      "title": "Performance Analysis & Optimization",
+      "title": "ROI Analysis & Optimization",
       "icon": "refresh-cw",
+      "channels": ["upwork", "linkedin", "email", "phone"],
       "description": "Reviewing what worked and what did not, then feeding the learning back into the next cycle.",
       "activities": [
-        "Review pipeline and proposal performance",
+        "Review pipeline, proposal and campaign performance",
         "Refine targeting, messaging and profiles",
-        "Automate repeatable steps with scripts and AI tools"
+        "Use AI tools and scripts to automate repeatable steps"
       ],
       "outcome": "Learning that feeds back into stage one, so the process improves each cycle."
     }
@@ -376,21 +519,24 @@
     { "id": "web", "title": "Web Development", "icon": "monitor", "group": "experience" },
     { "id": "mobile", "title": "Mobile App Development", "icon": "laptop", "group": "experience" },
     { "id": "marketing", "title": "Digital Marketing", "icon": "trending-up", "group": "experience" },
-    { "id": "recruitment", "title": "Recruitment & Talent Acquisition", "icon": "users", "group": "experience" },
-    { "id": "saas", "title": "SaaS & Technology Companies", "icon": "layers", "group": "focus" },
-    { "id": "digital-business", "title": "Digital Business Solutions", "icon": "briefcase", "group": "focus" }
+    { "id": "recruitment", "title": "Oil & Gas Recruitment", "icon": "users", "group": "experience" },
+    { "id": "ai", "title": "AI Product Platforms", "icon": "bot", "group": "focus" },
+    { "id": "python", "title": "Python Development", "icon": "cpu", "group": "focus" },
+    { "id": "devops", "title": "DevOps Infrastructure", "icon": "layers", "group": "focus" },
+    { "id": "fullstack", "title": "Full-Stack Web & Mobile Apps", "icon": "monitor", "group": "focus" },
+    { "id": "saas", "title": "SaaS & Technology Companies", "icon": "briefcase", "group": "focus" }
   ],
 
   "industryGroups": [
     {
       "id": "experience",
-      "title": "Professional industry experience",
-      "text": "Sectors and service areas I have worked in directly."
+      "title": "Sectors I have worked in",
+      "text": "Industries and service areas from my professional experience."
     },
     {
       "id": "focus",
-      "title": "Target industries and areas of interest",
-      "text": "Where I'm keen to apply this experience next."
+      "title": "Solutions I pitch and clients I target",
+      "text": "The technical offerings I sell, and the companies they fit best."
     }
   ],
 
@@ -399,218 +545,200 @@
       "id": "us",
       "name": "United States",
       "code": "USA",
-      "text": "Lead generation, proposals and client engagement for US-based clients and prospects.",
+      "text": "Upwork bidding, LinkedIn outreach and client engagement with US-based clients and prospects.",
       "map": { "x": 20.1, "y": 29.3 }
     },
     {
       "id": "uk",
       "name": "United Kingdom",
       "code": "UK",
-      "text": "Market research, outreach and client communication with UK businesses.",
+      "text": "Market research, outbound prospecting and client communication with UK businesses.",
       "map": { "x": 47.6, "y": 19.2 }
     },
     {
       "id": "uae",
       "name": "United Arab Emirates",
       "code": "UAE",
-      "text": "Client engagement and market research, plus oil and gas talent acquisition across the Gulf.",
+      "text": "Outreach and client engagement, plus oil and gas talent acquisition across the Gulf.",
       "map": { "x": 63.9, "y": 40.3 }
     },
     {
       "id": "ksa",
       "name": "Saudi Arabia",
       "code": "KSA",
-      "text": "Market research and client engagement with businesses in the Kingdom.",
+      "text": "Market research, outreach and client engagement with businesses in the Kingdom.",
       "map": { "x": 61.2, "y": 40.6, "label": "bottom" }
     }
   ],
 
   "tools": [
     {
-      "name": "LinkedIn Sales Navigator",
-      "category": "Lead Generation & Prospecting",
-      "icon": "linkedin.svg",
-      "color": "#0A66C2",
-      "description": "Advanced lead and account search on LinkedIn for finding decision-makers and building prospect profiles."
-    },
-    {
-      "name": "Apollo",
-      "category": "Lead Generation & Prospecting",
-      "color": "#F5C400",
-      "description": "B2B contact and company database for prospecting and outreach."
-    },
-    {
-      "name": "RocketReach",
-      "category": "Lead Generation & Prospecting",
-      "color": "#F45A2B",
-      "description": "Contact lookup for finding professional emails and phone numbers of decision-makers."
-    },
-    {
-      "name": "ZoomInfo",
-      "category": "Lead Generation & Prospecting",
-      "color": "#F4503C",
-      "description": "Company and contact intelligence for researching accounts and buying teams."
-    },
-    {
-      "name": "Hunter.io",
-      "category": "Lead Generation & Prospecting",
-      "color": "#F76F4B",
-      "description": "Finds and verifies professional email addresses for outreach."
-    },
-    {
-      "name": "Google Maps Scraper",
-      "category": "Lead Generation & Prospecting",
-      "color": "#34A853",
-      "description": "Collects publicly listed business details from Google Maps to build prospect lists."
-    },
-    {
-      "name": "Salesforce",
-      "category": "CRM & Sales Management",
-      "icon": "salesforce.svg",
-      "color": "#00A1E0",
-      "description": "CRM platform for managing leads, opportunities and the sales pipeline."
-    },
-    {
       "name": "Upwork",
-      "category": "Freelance Business Development",
+      "category": "Business Development",
       "icon": "upwork.svg",
       "color": "#14A800",
       "description": "Freelance marketplace for finding projects, bidding with tailored proposals and winning clients."
     },
     {
+      "name": "LinkedIn Sales Navigator",
+      "category": "Outreach & Prospecting",
+      "icon": "linkedin.svg",
+      "color": "#0A66C2",
+      "description": "Advanced lead and account search for finding decision-makers and running social selling."
+    },
+    {
+      "name": "Apollo.io",
+      "category": "Outreach & Prospecting",
+      "color": "#F5C400",
+      "description": "B2B contact and company database for prospecting and email outreach."
+    },
+    {
+      "name": "ZoomInfo",
+      "category": "Outreach & Prospecting",
+      "color": "#F4503C",
+      "description": "Company and contact intelligence for researching accounts and buying teams."
+    },
+    {
+      "name": "SIPERB",
+      "category": "Outreach & Prospecting",
+      "color": "#6366F1",
+      "description": "Softphone used for high-volume cold calling campaigns."
+    },
+    {
+      "name": "Yelp",
+      "category": "Outreach & Prospecting",
+      "color": "#D32323",
+      "description": "Public business listings used as a source of local-business prospect data."
+    },
+    {
+      "name": "HubSpot",
+      "category": "CRM, AI & Analytics",
+      "icon": "hubspot.svg",
+      "color": "#FF7A59",
+      "description": "CRM for tracking outreach metrics and managing the sales pipeline."
+    },
+    {
+      "name": "Salesforce",
+      "category": "CRM, AI & Analytics",
+      "icon": "salesforce.svg",
+      "color": "#00A1E0",
+      "description": "CRM platform for managing leads, opportunities and pipeline reporting."
+    },
+    {
+      "name": "RocketReach",
+      "category": "CRM, AI & Analytics",
+      "color": "#F45A2B",
+      "description": "Contact lookup for finding professional emails and phone numbers of decision-makers."
+    },
+    {
       "name": "ChatGPT",
-      "category": "AI & Intelligent Automation",
+      "category": "CRM, AI & Analytics",
       "icon": "openai.svg",
       "color": "#10A37F",
-      "description": "AI assistant used to speed up research, proposal drafting and message refinement."
+      "description": "AI assistant for research, proposal drafting and message refinement."
     },
     {
       "name": "Grok",
-      "category": "AI & Intelligent Automation",
+      "category": "CRM, AI & Analytics",
       "color": "#8B93A7",
       "description": "AI assistant used alongside ChatGPT to research and refine proposals."
     },
     {
       "name": "Google Apps Script",
-      "category": "AI & Intelligent Automation",
+      "category": "CRM, AI & Analytics",
       "icon": "googleappsscript.svg",
       "color": "#4285F4",
       "description": "Scripting for Google Workspace, used to automate repetitive data and reporting tasks."
     },
     {
       "name": "Google Sheets",
-      "category": "Data Management & Analytics",
+      "category": "CRM, AI & Analytics",
       "icon": "googlesheets.svg",
       "color": "#34A853",
       "description": "Shared spreadsheets for lead lists, pipeline tracking and reporting."
     },
     {
       "name": "Microsoft Excel",
-      "category": "Data Management & Analytics",
+      "category": "CRM, AI & Analytics",
       "color": "#1D8348",
       "description": "Data cleaning, analysis and reporting for sales and research data."
     },
     {
       "name": "SEMrush",
-      "category": "Website Auditing & SEO",
+      "category": "Technical Sales",
       "icon": "semrush.svg",
       "color": "#FF642D",
       "description": "SEO analysis for website health, keywords and competitor research."
     },
     {
       "name": "WooRank",
-      "category": "Website Auditing & SEO",
+      "category": "Technical Sales",
       "color": "#E5484D",
       "description": "Website review reports covering SEO and usability."
     },
     {
       "name": "Wappalyzer",
-      "category": "Website Auditing & SEO",
+      "category": "Technical Sales",
       "icon": "wappalyzer.svg",
       "color": "#8B5CF6",
       "description": "Identifies the technologies a website is built with, useful for qualifying tech prospects."
     },
     {
-      "name": "WhatFont",
-      "category": "Website Auditing & SEO",
-      "color": "#8B93A7",
-      "description": "Browser extension for identifying fonts on a page during website reviews."
-    },
-    {
       "name": "Canva",
-      "category": "Content & Communication",
+      "category": "Content & Collaboration",
       "icon": "canva.svg",
       "color": "#00C4CC",
-      "description": "Design tool for presentations, visual content and branded materials."
-    },
-    {
-      "name": "Slack",
-      "category": "Content & Communication",
-      "icon": "slack.svg",
-      "color": "#E01E5A",
-      "description": "Team messaging for day-to-day coordination."
-    },
-    {
-      "name": "Microsoft Teams",
-      "category": "Content & Communication",
-      "color": "#6264A7",
-      "description": "Meetings and collaboration with teammates and clients."
+      "description": "Design tool for presentations, catalogs, recruitment materials and branded content."
     },
     {
       "name": "Google Workspace",
-      "category": "Content & Communication",
+      "category": "Content & Collaboration",
       "icon": "google.svg",
       "color": "#4285F4",
       "description": "Email, calendar, documents and meetings in one suite."
-    },
-    {
-      "name": "Windows",
-      "category": "Operating System",
-      "color": "#0078D4",
-      "description": "Primary operating system for day-to-day work."
     }
   ],
 
   "valueProposition": [
     {
+      "icon": "workflow",
+      "title": "Multi-channel pipeline ownership",
+      "text": "Upwork, LinkedIn, email and phone feed one tracked pipeline, so no channel works in isolation."
+    },
+    {
+      "icon": "file-text",
+      "title": "Upwork bids built to win",
+      "text": "Optimized profiles, catalogs and tailored proposals that speak to the client's actual requirements."
+    },
+    {
       "icon": "laptop",
-      "title": "Technology-oriented business development",
-      "text": "I understand what the services are, so conversations with clients stay credible and specific."
+      "title": "Technical fluency in sales conversations",
+      "text": "I can pitch AI, Python, DevOps, web and mobile services credibly, so conversations stay specific."
     },
     {
       "icon": "scan-search",
-      "title": "Research-driven lead generation",
-      "text": "Targeting starts with profiles and data, so your team spends time on prospects that fit."
-    },
-    {
-      "icon": "message-square",
-      "title": "Personalized client engagement",
-      "text": "Messages and proposals that reflect the client's own requirements, not a template."
-    },
-    {
-      "icon": "cpu",
-      "title": "Understanding of software and IT services",
-      "text": "Client needs get matched to suitable software, web, mobile or marketing solutions."
+      "title": "Research-led targeting",
+      "text": "Profiles and data decide who gets contacted, so your team spends time on prospects that fit."
     },
     {
       "icon": "bot",
-      "title": "AI-enabled productivity and automation",
+      "title": "AI-driven workflow optimization",
       "text": "AI tools and scripts take over repetitive research and drafting, leaving more time for conversations."
     },
     {
-      "icon": "workflow",
-      "title": "Structured sales pipeline management",
-      "text": "Clean data and an organised pipeline mean fewer missed follow-ups and clearer reporting."
+      "icon": "bar-chart",
+      "title": "CRM discipline and clean data",
+      "text": "HubSpot and Salesforce pipelines kept tidy, with metrics reviewed to improve lead quality and ROI."
     },
     {
       "icon": "globe",
       "title": "International market familiarity",
-      "text": "Experience across the USA, UK, UAE and KSA helps with context and communication style."
+      "text": "Experience across the USA, UK, UAE and KSA helps with context, timing and communication style."
     },
     {
       "icon": "users",
-      "title": "Team leadership and process improvement",
-      "text": "Experience training teammates and interns and refining how a team works day to day."
+      "title": "Leadership and mentoring",
+      "text": "Experience leading a lead generation team and training teammates and interns."
     }
   ],
 
@@ -635,21 +763,20 @@
   ],
 
   "languages": [
-    { "name": "English" },
-    { "name": "Urdu" }
+    { "name": "English", "level": "Professional" },
+    { "name": "Urdu", "level": "Native" }
   ],
 
   "interests": [
-    { "icon": "plane", "title": "Traveling", "text": "New places, new perspectives." },
     { "icon": "shuttlecock", "title": "Badminton", "text": "Fast rallies and friendly competition." },
     { "icon": "bike", "title": "Cycling", "text": "Steady miles and a clear head." },
     { "icon": "mountain", "title": "Hiking", "text": "Trails, views and fresh air." },
-    { "icon": "clapperboard", "title": "Movies & TV series", "text": "A good story, a good season." }
+    { "icon": "cpu", "title": "Tech Trends", "text": "Following what is next in AI and software." }
   ],
 
   "contact": {
     "heading": "Let's Build Something Meaningful Together.",
-    "message": "I'm interested in connecting with technology companies, ambitious teams, and professionals who are exploring new business opportunities, strategic partnerships, and sustainable growth.",
+    "message": "I'm interested in connecting with technology companies, ambitious teams and professionals exploring new business opportunities, strategic partnerships and sustainable growth.",
     "note": "References available upon request.",
     "email": "sabrinamuqadas@gmail.com",
     "inquiryTypes": [
@@ -664,15 +791,17 @@
       { "id": "phone", "label": "Phone", "icon": "phone", "value": "+92 336 665 8222", "href": "tel:+923366658222", "copy": true },
       { "id": "location", "label": "Location", "icon": "map-pin", "value": "Islamabad, Pakistan" },
       { "id": "linkedin", "label": "LinkedIn", "icon": "brand-linkedin", "value": "linkedin.com/in/sabrinamuqadas", "href": "https://www.linkedin.com/in/sabrinamuqadas", "external": true },
-      { "id": "github", "label": "GitHub", "icon": "brand-github", "value": "github.com/sabrinamuqadas", "href": "https://github.com/sabrinamuqadas", "external": true }
+      { "id": "github", "label": "GitHub", "icon": "brand-github", "value": "sabrinamuqadas.github.io", "href": "https://sabrinamuqadas.github.io", "external": true },
+      { "id": "facebook", "label": "Facebook", "icon": "brand-facebook", "value": "facebook.com/sabrinamuqadas", "href": "https://www.facebook.com/sabrinamuqadas", "external": true },
+      { "id": "instagram", "label": "Instagram", "icon": "brand-instagram", "value": "instagram.com/sabrinamuqaddas", "href": "https://www.instagram.com/sabrinamuqaddas", "external": true }
     ]
   },
 
   "socialLinks": [
     { "id": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/sabrinamuqadas", "icon": "brand-linkedin", "enabled": true },
-    { "id": "github", "label": "GitHub", "url": "https://github.com/sabrinamuqadas", "icon": "brand-github", "enabled": true },
-    { "id": "facebook", "label": "Facebook", "url": "https://www.facebook.com/sabrina.muqadas", "icon": "brand-facebook", "enabled": false },
-    { "id": "x", "label": "X (Twitter)", "url": "https://x.com/sabrinamuqadas", "icon": "brand-x", "enabled": false }
+    { "id": "github", "label": "GitHub Pages", "url": "https://sabrinamuqadas.github.io", "icon": "brand-github", "enabled": true },
+    { "id": "facebook", "label": "Facebook", "url": "https://www.facebook.com/sabrinamuqadas", "icon": "brand-facebook", "enabled": true },
+    { "id": "instagram", "label": "Instagram", "url": "https://www.instagram.com/sabrinamuqaddas", "icon": "brand-instagram", "enabled": true }
   ],
 
   "sectionVisibility": {
