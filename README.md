@@ -194,6 +194,13 @@ Animations are CSS-first and triggered by `IntersectionObserver`. They pause off
 - Title, description, canonical, Open Graph and Twitter tags are in `index.html`.
 - Structured data (`WebSite` + `Person`) is in the JSON-LD block in `index.html`.
 - `og-image.jpg` is 710×638. For best social previews replace it with a 1200×630 image (same filename, or update the meta tags).
+- Drop these favicon files into `assets/image/icons/` (paths already wired in `index.html`):
+  - `favicon.ico`
+  - `favicon-32x32.png`
+  - `favicon-96x96.png`
+  - `favicon.svg`
+  - `favicon.png` (180×180 Apple touch icon)
+  - Plus the existing PWA icons: `icon-192.png`, `icon-512.png`
 - Update `lastmod` in `sitemap.xml` when you publish significant changes.
 - Only city-level location (Islamabad) is published; keep the street address off the site.
 
