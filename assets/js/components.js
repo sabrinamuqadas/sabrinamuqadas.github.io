@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.43';
-import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.43';
+import { CONFIG } from './config.js?v=1.0.47';
+import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.47';
 
 /* ==========================================================================
    DOM helpers. All dynamic content is created with createElement/textContent,
@@ -228,7 +228,7 @@ function disclosure({ id, open, openLabel, closedLabel, content }) {
    ========================================================================== */
 
 function renderNav(list, data) {
-  const items = data.navigation.filter((item) => sectionEnabled(data, item.section));
+  const items = data.navigation.filter((item) => !item.footerOnly && sectionEnabled(data, item.section));
   list.replaceChildren(
     ...items.map((item) => h('li', {}, h('a', { class: 'site-nav__link', href: item.href, text: item.label }))),
   );

@@ -5,7 +5,7 @@
  */
 
 const ASSET_VERSION =
-  (typeof globalThis !== 'undefined' && globalThis.SM_ASSET_VERSION) || '1.0.43';
+  (typeof globalThis !== 'undefined' && globalThis.SM_ASSET_VERSION) || '1.0.47';
 
 function withVersion(url) {
   if (typeof globalThis !== 'undefined' && typeof globalThis.smAssetUrl === 'function') {
@@ -38,7 +38,10 @@ export const CONFIG = Object.freeze({
   }),
   
   contact: Object.freeze({
+    // Empty = mailto fallback. See README "Form delivery" for Formspree / Web3Forms setup.
     endpoint: '',
+    // Public, non-secret fields some services require in the JSON body (e.g. Web3Forms access_key).
+    extraFields: Object.freeze({}),
     subjectPrefix: 'Portfolio inquiry',
     minFillMs: 3000,
     cooldownMs: 30000,

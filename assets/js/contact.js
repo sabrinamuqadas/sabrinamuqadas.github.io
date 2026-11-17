@@ -1,7 +1,7 @@
-import { CONFIG } from './config.js?v=1.0.43';
-import { qs, qsa } from './utils.js?v=1.0.43';
+import { CONFIG } from './config.js?v=1.0.47';
+import { qs, qsa } from './utils.js?v=1.0.47';
 
-const { endpoint, subjectPrefix, minFillMs, cooldownMs } = CONFIG.contact;
+const { endpoint, extraFields = {}, subjectPrefix, minFillMs, cooldownMs } = CONFIG.contact;
 const COOLDOWN_KEY = 'sm-contact-last-sent';
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -40,26 +40,66 @@ function buildPayload(form) {
   };
 }
 
-function buildMailto(email, payload) {
+function payloadLines(payload) {
   const lines = [`Name: ${payload.name}`, `Email: ${payload.email}`];
   if (payload.company) lines.push(`Company: ${payload.company}`);
   lines.push(`Purpose: ${payload.purpose}`, '', payload.message);
-  const body = lines.join('\n');
-
-  return `mailto:${email}?subject=${encodeURIComponent(`${subjectPrefix}: ${payload.purpose}`)}&body=${encodeURIComponent(body)}`;
+  return lines;
 }
 
-function setStatus(element, type, message, extra) {
+let contactEmail = qs('[data-contact-email]')?.dataset.contactEmail ?? '';
+
+/** The address mail falls back to (portfolio.json first, then the static data-contact-email attribute). */
+export const getContactEmail = () => contactEmail;
+
+export function setStatus(element, type, message, extra) {
   element.className = `form-status${type ? ` form-status--${type}` : ''}`;
   element.replaceChildren(message);
   if (extra) element.append(' ', extra);
 }
 
-function emailLink(email) {
+export function emailLink(email = contactEmail) {
   const link = document.createElement('a');
   link.href = `mailto:${email}`;
   link.textContent = email;
   return link;
+}
+
+/**
+ * Shared spam checks for every form that sends a message (contact form, Growth Lab brief).
+ * Returns { ok: true } or { ok: false, silent, message }. A filled honeypot fails silently.
+ */
+export function guardSubmission({ honeypot = '', startedAt = 0 } = {}) {
+  if (honeypot) return { ok: false, silent: true, message: '' };
+  if (startedAt && Date.now() - startedAt < minFillMs) {
+    return { ok: false, silent: false, message: 'That was quick. Please review your message and send it again.' };
+  }
+  const lastSent = Number(sessionStorage.getItem(COOLDOWN_KEY) || 0);
+  if (Date.now() - lastSent < cooldownMs) {
+    return { ok: false, silent: false, message: 'Please wait a moment before sending another message.' };
+  }
+  return { ok: true, silent: false, message: '' };
+}
+
+/**
+ * Delivers a message through CONFIG.contact.endpoint (JSON POST) when configured,
+ * otherwise opens the visitor's email app with a prefilled draft.
+ * Resolves to 'sent' or 'mailto'; rejects when the endpoint request fails.
+ */
+export async function deliverMessage({ subject, lines, payload }) {
+  if (!endpoint) {
+    const href = `mailto:${contactEmail}?subject=${encodeURIComponent(`${subjectPrefix}: ${subject}`)}&body=${encodeURIComponent(lines.join('\n'))}`;
+    window.location.href = href;
+    return 'mailto';
+  }
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({ ...extraFields, subject: `${subjectPrefix}: ${subject}`, ...payload }),
+  });
+  if (!response.ok) throw new Error(`Form service responded with ${response.status}.`);
+  sessionStorage.setItem(COOLDOWN_KEY, String(Date.now()));
+  return 'sent';
 }
 
 /** Contact form: validation, spam prevention and delivery via endpoint or mailto. */
@@ -75,8 +115,7 @@ export function initContact(contact = {}) {
   const submit = qs('[type="submit"]', form);
   const label = qs('.btn__label', submit);
   const purpose = qs('#cf-purpose', form);
-  // Prefer portfolio.json; fall back to the static data-contact-email attribute.
-  const email = contact.email ?? form.dataset.contactEmail ?? '';
+  contactEmail = contact.email ?? form.dataset.contactEmail ?? contactEmail;
   let firstInteraction = 0;
 
   // Inquiry types come from portfolio.json; the static options remain as a fallback.
@@ -117,49 +156,32 @@ export function initContact(contact = {}) {
     }
 
     // Honeypot: real visitors never see or fill this field.
-    if (qs('[name="website"]', form).value) return;
-
-    if (firstInteraction && Date.now() - firstInteraction < minFillMs) {
-      setStatus(status, 'error', 'That was quick. Please review your message and send it again.');
-      return;
-    }
-
-    const lastSent = Number(sessionStorage.getItem(COOLDOWN_KEY) || 0);
-    if (Date.now() - lastSent < cooldownMs) {
-      setStatus(status, 'error', 'Please wait a moment before sending another message.');
+    const guard = guardSubmission({ honeypot: qs('[name="website"]', form).value, startedAt: firstInteraction });
+    if (!guard.ok) {
+      if (!guard.silent) setStatus(status, 'error', guard.message);
       return;
     }
 
     const payload = buildPayload(form);
-
-    if (!endpoint) {
-      setBusy(true, 'Opening email…');
-      window.location.href = buildMailto(email, payload);
-      window.setTimeout(() => setBusy(false, 'Send message'), 1500);
-      setStatus(
-        status,
-        'info',
-        'Your email app should open with this message ready to send. Nothing is sent until you press send there. If it does not open, email me directly at',
-        emailLink(email),
-      );
-      return;
-    }
-
-    setBusy(true, 'Sending…');
+    setBusy(true, endpoint ? 'Sending…' : 'Opening email…');
     try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      if (!response.ok) throw new Error(`Form service responded with ${response.status}.`);
-      sessionStorage.setItem(COOLDOWN_KEY, String(Date.now()));
-      form.reset();
-      setStatus(status, 'success', 'Thank you. Your message has been sent and I will be in touch soon.');
+      const result = await deliverMessage({ subject: payload.purpose, lines: payloadLines(payload), payload });
+      if (result === 'mailto') {
+        setStatus(
+          status,
+          'info',
+          'Your email app should open with this message ready to send. Nothing is sent until you press send there. If it does not open, email me directly at',
+          emailLink(),
+        );
+      } else {
+        form.reset();
+        setStatus(status, 'success', 'Thank you. Your message has been sent and I will be in touch soon.');
+      }
     } catch {
-      setStatus(status, 'error', 'Sorry, your message could not be sent. Please try again, or email me directly at', emailLink(email));
+      setStatus(status, 'error', 'Sorry, your message could not be sent. Please try again, or email me directly at', emailLink());
     } finally {
-      setBusy(false, 'Send message');
+      if (endpoint) setBusy(false, 'Send message');
+      else window.setTimeout(() => setBusy(false, 'Send message'), 1500);
     }
   });
 }

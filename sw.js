@@ -1,8 +1,8 @@
 "use strict";
 
-importScripts("./assets/js/version.js?v=1.0.43");
+importScripts("./assets/js/version.js?v=1.0.47");
 
-var ASSETVRN = self.SM_ASSET_VERSION || "1.0.43";
+var ASSETVRN = self.SM_ASSET_VERSION || "1.0.47";
 var AVERSION = "sabrina-shell-" + ASSETVRN;
 var PRECACHE = AVERSION + "-precache";
 var RUN_TIME = AVERSION + "-runtime";
@@ -23,6 +23,8 @@ var SHELL = [
     withVersion("./assets/css/components.css"),
     withVersion("./assets/css/animations.css"),
     withVersion("./assets/css/responsive.css"),
+    withVersion("./assets/css/growth-lab.css"),
+    withVersion("./assets/css/welcome.css"),
     withVersion("./assets/js/version.js"),
     withVersion("./assets/js/early.js"),
     withVersion("./assets/js/main.js"),
@@ -34,7 +36,15 @@ var SHELL = [
     withVersion("./assets/js/theme.js"),
     withVersion("./assets/js/contact.js"),
     withVersion("./assets/js/utils.js"),
+    withVersion("./assets/js/welcome.js"),
+    withVersion("./assets/js/growth-lab/index.js"),
+    withVersion("./assets/js/growth-lab/modal.js"),
+    withVersion("./assets/js/growth-lab/calc.js"),
+    withVersion("./assets/js/growth-lab/format.js"),
+    withVersion("./assets/js/growth-lab/ui.js"),
+    withVersion("./assets/js/growth-lab/state.js"),
     withVersion("./assets/content/portfolio.json"),
+    withVersion("./assets/content/growth-lab.json"),
     withVersion("./assets/fonts/manrope-latin-wght-normal.woff2"),
     withVersion("./assets/fonts/inter-latin-wght-normal.woff2"),
     withVersion("./assets/fonts/jetbrains-mono-latin-wght-normal.woff2"),

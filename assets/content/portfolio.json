@@ -38,7 +38,8 @@
     { "label": "Growth Strategy", "href": "#strategy", "section": "growthStrategy" },
     { "label": "Skills", "href": "#tools", "section": "tools" },
     { "label": "Work", "href": "#work", "section": "projects" },
-    { "label": "Education", "href": "#education", "section": "education" },
+    { "label": "Growth Lab", "href": "#growth-lab", "section": "growthLab" },
+    { "label": "Education", "href": "#education", "section": "education", "footerOnly": true },
     { "label": "Contact", "href": "#contact", "section": "contact" }
   ],
 
@@ -745,6 +746,74 @@
     }
   ],
 
+  "growthLab": {
+    "tools": [
+      {
+        "id": "pipeline",
+        "icon": "trending-up",
+        "preview": "bars",
+        "title": "Pipeline & Revenue Calculator",
+        "description": "Estimate how many prospects, conversations and deals an outreach plan could produce.",
+        "action": "Calculate Pipeline",
+        "modalDescription": "Model expected responses, opportunities, clients and revenue from your own assumptions."
+      },
+      {
+        "id": "readiness",
+        "icon": "gauge",
+        "preview": "ring",
+        "title": "Growth Readiness Assessment",
+        "description": "Score how ready your business development process is to scale, with clear next steps.",
+        "action": "Start Assessment",
+        "modalDescription": "Ten quick questions across eight areas of your business development process."
+      },
+      {
+        "id": "funnel",
+        "icon": "filter",
+        "preview": "funnel",
+        "title": "Funnel Simulator",
+        "description": "See where prospects drop off and which stage improvement moves revenue most.",
+        "action": "Simulate Funnel",
+        "modalDescription": "Adjust stage conversion rates and compare a baseline funnel with an improved one."
+      },
+      {
+        "id": "channels",
+        "icon": "bar-chart",
+        "preview": "columns",
+        "title": "Outreach ROI & Channel Comparison",
+        "description": "Compare LinkedIn, email, calling and Upwork on cost, response and acquisition cost.",
+        "action": "Compare Channels",
+        "modalDescription": "Enter your own channel numbers to compare cost efficiency and return side by side."
+      },
+      {
+        "id": "cases",
+        "icon": "book-open",
+        "preview": "stack",
+        "title": "BD Case Studies",
+        "description": "How real outreach, lead generation and bidding work was researched, planned and run.",
+        "action": "View Case Studies",
+        "modalDescription": "Process-focused case studies based on roles I have held. Metrics are not published."
+      },
+      {
+        "id": "outreach",
+        "icon": "message-square",
+        "preview": "chat",
+        "title": "Outreach Message Examples",
+        "description": "LinkedIn, email, calling and Upwork templates, with notes on why each one works.",
+        "action": "View Examples",
+        "modalDescription": "A filterable library of example messages, structure notes and personalization tips."
+      },
+      {
+        "id": "brief",
+        "icon": "calendar",
+        "preview": "steps",
+        "title": "Discovery Call / Strategy Brief",
+        "description": "Share your goals, channels and challenges so a first conversation starts focused.",
+        "action": "Start a Strategy Brief",
+        "modalDescription": "A short brief about your business development goals. Nothing is sent until you submit it."
+      }
+    ]
+  },
+
   "projects": [],
 
   "education": [
@@ -847,6 +916,7 @@
     "markets": true,
     "tools": true,
     "valueProposition": true,
+    "growthLab": true,
     "projects": false,
     "education": true,
     "interests": true,

@@ -15,6 +15,7 @@ She builds pipeline for technology companies across four channels: **Upwork bidd
 - **Skills and tech stack:** four skill groups, each paired with its tools, plus a filterable tool directory.
 - **Growth workflow:** eight stages from research to optimization, tagged with the channels used in each.
 - **International markets:** an interactive map of the USA, UK, UAE, and KSA.
+- **Growth Lab:** seven business development tools in one shared dialog: a pipeline and revenue calculator, a growth readiness assessment, a funnel simulator, an outreach channel ROI comparison, process case studies, an outreach message library, and a strategy brief. Calculations run in the browser, and nothing is sent unless the visitor submits a brief.
 - **Light and dark themes:** dark by default, and the visitor's choice is remembered.
 - **Installable and offline:** it works as a PWA once visited over HTTPS.
 - **Accessible and responsive:** keyboard-friendly, reduced-motion aware, and tested from 320px to 1920px wide.
@@ -32,7 +33,9 @@ Shipped on **GitHub Pages**. No framework, no bundler, no backend, and no instal
 | --- | --- |
 | `index.html` | Page structure plus real fallback text for search engines and no-JS visitors |
 | `assets/content/portfolio.json` | All editable site content |
+| `assets/content/growth-lab.json` | Growth Lab defaults, assessment questions, case studies and outreach examples |
 | `assets/js/` | Data loading and validation, rendering, theme, navigation, animation, contact form |
+| `assets/js/growth-lab/` | Growth Lab: pure maths (`calc.js`, `format.js`), shared dialog, and one module per tool in `tools/` |
 | `assets/css/` | Design tokens, layout, components, motion, responsive rules |
 | `manifest.json` + `sw.js` | Installable PWA and offline support |
 | `404.html` | Branded not-found page (served automatically by GitHub Pages) |
@@ -60,6 +63,8 @@ Almost every edit happens in one file:
 | Value proposition, education, languages, interests | `valueProposition`, `education`, `languages`, `interests` |
 | Email, phone, social links | `contact`, `socialLinks` |
 | Show or hide a section | `sectionVisibility` |
+| Growth Lab cards | `growthLab` (tool content is in `growth-lab.json`, see below) |
+| Footer-only links | add `"footerOnly": true` to a `navigation` item |
 
 Things to know when editing:
 
@@ -91,10 +96,47 @@ Until the CV PDF exists, the CV buttons show "Request CV" and open an email inst
 
 Only publish outcomes and details that are accurate and cleared to share.
 
-### Contact form
+### Contact form and strategy brief (form delivery)
 
-By default the form opens the visitor's email app (mailto).
-To send through Formspree or Web3Forms instead, set `contact.endpoint` in `assets/js/config.js`.
+The contact form and the Growth Lab strategy brief share the same delivery code (`deliverMessage` in `assets/js/contact.js`).
+
+By default both open the visitor's email app (mailto) with the message prefilled. Nothing is sent until the visitor presses send in their email app, and the site never claims a message was delivered.
+
+To deliver messages directly instead, set `contact.endpoint` in `assets/js/config.js`. Messages are sent as a JSON `POST`, and success is only shown when the service responds with a 2xx status.
+
+- **Formspree:** create a form at formspree.io and set `endpoint: 'https://formspree.io/f/<form-id>'`. No other change is needed.
+- **Web3Forms:** set `endpoint: 'https://api.web3forms.com/submit'` and `extraFields: Object.freeze({ access_key: '<your access key>' })`. Web3Forms access keys are designed to be public. Never put private API keys or passwords in this file, because everything in `assets/` is downloaded by visitors.
+
+Both services are already allowed by the Content Security Policy in `index.html` (`connect-src` and `form-action`). Using a different service means adding its origin there too.
+
+### Growth Lab
+
+The section and its cards come from `growthLab.tools` in `portfolio.json` (title, description, button label, icon and preview style). Hide the whole section with `sectionVisibility.growthLab`, and remove the "Growth Lab" entry from `navigation` at the same time.
+
+Everything inside the tools lives in [`assets/content/growth-lab.json`](assets/content/growth-lab.json):
+
+| You want to… | Edit |
+| --- | --- |
+| Change calculator example values | `pipeline.defaults`, `funnel.defaults`, `channels.demo` (they are labelled as hypothetical in the UI) |
+| Change scenario multipliers or "what if" presets | `pipeline.scenarios`, `funnel.whatIfs` |
+| Edit assessment questions, scores or recommendations | `readiness.questions` (each option scores 0–3; options below 3 need a `recommendation`) |
+| Add or edit a case study | `caseStudies.items`. Only use real roles and work, and keep `results.metricsStatus` as "Metrics not published" until figures are approved. |
+| Add outreach examples or comparisons | `outreach.examples`, `outreach.comparisons` (use `[brackets]` for placeholders; they are highlighted) |
+| Brief form options | `brief.inquiryTypes`, `brief.challenges`, `brief.timelines`, `brief.budgets` |
+
+Tools can be linked directly with `?tool=<id>`, for example `https://sabrinamuqadas.github.io/?tool=pipeline#growth-lab`. The ids are `pipeline`, `readiness`, `funnel`, `channels`, `cases`, `outreach` and `brief`. Any element with `data-open-tool="<id>"` also opens a tool.
+
+Inputs are saved in `sessionStorage` only, so they clear when the tab closes. Results from a calculator are attached to a strategy brief only when the visitor ticks the opt-in box.
+
+### Welcome popup (development)
+
+The floating welcome card appears once per browser profile, about three seconds after first load. To see it again while developing, run this in the browser console (it does not clear theme or other site data):
+
+```js
+localStorage.removeItem('sm-welcome-v1')
+```
+
+Then refresh the page.
 
 ---
 
@@ -121,7 +163,7 @@ After the first deploy, the site is available at `https://sabrinamuqadas.github.
 - **Privacy:** only the city (Islamabad) is published. Keep street or sector details out of the JSON, the HTML, and the structured data.
 - **Folder browsing** is blocked: `.htaccess` on Apache, and redirect `index.html` files in asset folders on GitHub Pages.
 - **Offline:** after the first HTTPS visit the site is installable and works offline. CV PDFs are never cached.
-- **Asset versioning:** set `SM_ASSET_VERSION` once in [`assets/js/version.js`](assets/js/version.js) (currently `1.0.43`). That value drives JSON/sprite/map URLs in JS and the service worker cache name (`sm-1.0.43`). Mirror the same number in HTML/CSS `?v=` query strings and ES module import URLs (search the repo for the previous version and replace). Add any new offline files to `SHELL` in `sw.js`.
+- **Asset versioning:** set `SM_ASSET_VERSION` once in [`assets/js/version.js`](assets/js/version.js) (currently `1.0.47`). That value drives JSON/sprite/map URLs in JS and the service worker cache name (`sm-1.0.47`). Mirror the same number in HTML/CSS `?v=` query strings and ES module import URLs (search the repo for the previous version and replace). Add any new offline files to `SHELL` in `sw.js`.
 
 ## Still to add
 

@@ -1,11 +1,13 @@
-import { CONFIG } from './config.js?v=1.0.43';
-import { loadPortfolio } from './data.js?v=1.0.43';
-import { renderPortfolio, setupCvLinks, showDataNotice } from './components.js?v=1.0.43';
-import { initAnimations } from './animations.js?v=1.0.43';
-import { initNavigation } from './navigation.js?v=1.0.43';
-import { initTheme } from './theme.js?v=1.0.43';
-import { initContact } from './contact.js?v=1.0.43';
-import { qs, qsa } from './utils.js?v=1.0.43';
+import { CONFIG } from './config.js?v=1.0.47';
+import { loadPortfolio } from './data.js?v=1.0.47';
+import { renderPortfolio, setupCvLinks, showDataNotice } from './components.js?v=1.0.47';
+import { initAnimations } from './animations.js?v=1.0.47';
+import { initNavigation } from './navigation.js?v=1.0.47';
+import { initTheme } from './theme.js?v=1.0.47';
+import { initContact } from './contact.js?v=1.0.47';
+import { initGrowthLab } from './growth-lab/index.js?v=1.0.47';
+import { initWelcome } from './welcome.js?v=1.0.47';
+import { qs, qsa } from './utils.js?v=1.0.47';
 
 /** Loads an optional, privacy-friendly analytics script only when explicitly enabled in config.js. */
 function loadAnalytics() {
@@ -98,12 +100,20 @@ async function init() {
     showDataNotice();
   }
 
+  try {
+    if (data) initGrowthLab(data);
+  } catch (error) {
+    console.error('Growth Lab could not be initialised.', error);
+  }
+
   initNavigation();
   animations.refresh();
   realignHash();
 
   initContact(data?.contact);
   if (data) setupCvLinks(data);
+
+  initWelcome();
 
   loadAnalytics();
   registerServiceWorker();

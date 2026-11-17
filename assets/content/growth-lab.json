@@ -1,0 +1,687 @@
+{
+  "meta": {
+    "demoNotice": "Example values are hypothetical and for illustration only. Replace them with your own numbers.",
+    "estimateNotice": "Results are estimates based on your assumptions, not guarantees. Revenue from new clients is not necessarily recognised in the same month the outreach happens."
+  },
+
+  "pipeline": {
+    "defaults": {
+      "prospects": 800,
+      "responseRate": 6,
+      "qualificationRate": 40,
+      "winRate": 25,
+      "dealValue": 2500,
+      "acquisitionCost": 1500,
+      "salesCycleDays": 45,
+      "currency": "USD"
+    },
+    "scenarios": { "conservative": 0.75, "base": 1, "optimistic": 1.25 }
+  },
+
+  "funnel": {
+    "defaults": {
+      "prospects": 1000,
+      "rates": [8, 50, 60, 55, 30],
+      "dealValue": 2500,
+      "currency": "USD"
+    },
+    "whatIfs": [
+      {
+        "id": "proposal-pp",
+        "label": "Meeting-to-proposal conversion improves by 10 percentage points",
+        "stage": 3,
+        "type": "pp",
+        "amount": 10
+      },
+      {
+        "id": "qualify-relative",
+        "label": "Response-to-qualified conversion improves by 20% (relative), with no extra prospecting",
+        "stage": 1,
+        "type": "relative",
+        "amount": 20
+      },
+      {
+        "id": "close-pp",
+        "label": "Proposal win rate improves by 5 percentage points",
+        "stage": 4,
+        "type": "pp",
+        "amount": 5
+      },
+      {
+        "id": "response-relative",
+        "label": "Positive response rate improves by 25% (relative) through better targeting",
+        "stage": 0,
+        "type": "relative",
+        "amount": 25
+      }
+    ]
+  },
+
+  "channels": {
+    "available": [
+      { "id": "linkedin", "label": "LinkedIn Outreach" },
+      { "id": "email", "label": "Cold Email" },
+      { "id": "calling", "label": "Cold Calling" },
+      { "id": "upwork", "label": "Upwork" }
+    ],
+    "demo": {
+      "currency": "USD",
+      "grossMargin": 40,
+      "rows": [
+        { "id": "linkedin", "prospects": 300, "spend": 80, "hours": 25, "hourlyRate": 10, "responses": 36, "qualified": 12, "customers": 2, "revenue": 7000 },
+        { "id": "email", "prospects": 1200, "spend": 150, "hours": 15, "hourlyRate": 10, "responses": 48, "qualified": 14, "customers": 2, "revenue": 6000 },
+        { "id": "calling", "prospects": 600, "spend": 120, "hours": 40, "hourlyRate": 10, "responses": 45, "qualified": 10, "customers": 1, "revenue": 3500 },
+        { "id": "upwork", "prospects": 80, "spend": 160, "hours": 30, "hourlyRate": 10, "responses": 12, "qualified": 8, "customers": 3, "revenue": 9000 }
+      ]
+    }
+  },
+
+  "readiness": {
+    "disclaimer": "This is a directional diagnostic based on simple, transparent rules. It is not a validated scientific scoring system.",
+    "categories": [
+      { "id": "icp", "label": "Ideal customer profile" },
+      { "id": "leadgen", "label": "Lead generation consistency" },
+      { "id": "outreach", "label": "Prospecting & outreach" },
+      { "id": "crm", "label": "CRM & pipeline" },
+      { "id": "followup", "label": "Follow-up system" },
+      { "id": "tracking", "label": "Conversion tracking" },
+      { "id": "channels", "label": "Channel measurement" },
+      { "id": "growth", "label": "Growth strategy & scalability" }
+    ],
+    "questions": [
+      {
+        "id": "icp-definition",
+        "category": "icp",
+        "prompt": "How clearly is your ideal customer profile defined?",
+        "options": [
+          { "label": "We sell to anyone who is interested", "score": 0, "recommendation": "Write a one-page ICP: industry, company size, region, buying trigger and the decision-maker's role. Use your best three current clients as the template." },
+          { "label": "We have a rough idea, but it is not written down", "score": 1, "recommendation": "Turn the rough idea into a written ICP and share it with everyone who prospects, so lists and messaging follow the same definition." },
+          { "label": "It is documented, but not used to filter prospects", "score": 2, "recommendation": "Apply the ICP as a filter when building lead lists (industry, size, region, role) so outreach time goes to right-fit accounts only." },
+          { "label": "It is documented, reviewed and used to filter every list", "score": 3 }
+        ]
+      },
+      {
+        "id": "lead-volume",
+        "category": "leadgen",
+        "prompt": "How consistent is your flow of new leads each month?",
+        "options": [
+          { "label": "Mostly referrals or luck; some months bring nothing", "score": 0, "recommendation": "Add one outbound channel with a fixed weekly target (for example 50 researched prospects a week) so lead flow no longer depends on referrals alone." },
+          { "label": "It varies a lot from month to month", "score": 1, "recommendation": "Set a minimum weekly prospecting quota and protect time for it in the calendar, even in busy delivery weeks." },
+          { "label": "Fairly steady, but with occasional gaps", "score": 2, "recommendation": "Identify what causes the gaps (delivery peaks, holidays, list exhaustion) and build a reserve of researched prospects for those periods." },
+          { "label": "Predictable, with weekly targets we meet", "score": 3 }
+        ]
+      },
+      {
+        "id": "list-quality",
+        "category": "leadgen",
+        "prompt": "How are prospect lists built and verified?",
+        "options": [
+          { "label": "We buy or scrape lists and use them as they are", "score": 0, "recommendation": "Verify emails and roles before sending, and remove contacts that do not match the ICP. Unverified lists damage deliverability and reputation." },
+          { "label": "Some manual research, no verification step", "score": 1, "recommendation": "Add a verification step (email checker plus a LinkedIn role check) before any contact enters a sequence." },
+          { "label": "Researched and verified, but enrichment is inconsistent", "score": 2, "recommendation": "Standardise the fields every lead must have (role, company size, trigger, source) so personalisation and reporting are reliable." },
+          { "label": "Researched, verified and enriched to a standard", "score": 3 }
+        ]
+      },
+      {
+        "id": "personalisation",
+        "category": "outreach",
+        "prompt": "How personalised is your outreach?",
+        "options": [
+          { "label": "One generic message for everyone", "score": 0, "recommendation": "Segment prospects by industry or role and write one message per segment that references a specific problem that segment has." },
+          { "label": "First name and company name only", "score": 1, "recommendation": "Add one researched line per prospect (a recent hire, launch, post or tech-stack signal) that explains why you are reaching out now." },
+          { "label": "Segment-level messaging with some individual research", "score": 2, "recommendation": "Prioritise individual research for your top-tier accounts and keep segment messaging for the rest, so effort matches account value." },
+          { "label": "Researched, relevant messaging for every priority account", "score": 3 }
+        ]
+      },
+      {
+        "id": "crm-usage",
+        "category": "crm",
+        "prompt": "Where does your sales pipeline live?",
+        "options": [
+          { "label": "In inboxes and people's memory", "score": 0, "recommendation": "Move every active deal into a CRM or, at minimum, a shared sheet with stage, next step and next-step date." },
+          { "label": "In a spreadsheet that is rarely updated", "score": 1, "recommendation": "Define pipeline stages with clear entry criteria and update the sheet or CRM at the end of each working day." },
+          { "label": "In a CRM, but stages and data are inconsistent", "score": 2, "recommendation": "Agree stage definitions and required fields, then run a weekly 20-minute pipeline review to clean stale deals." },
+          { "label": "In a CRM with defined stages and a weekly review", "score": 3 }
+        ]
+      },
+      {
+        "id": "follow-up",
+        "category": "followup",
+        "prompt": "What happens when a prospect does not reply?",
+        "options": [
+          { "label": "Usually nothing", "score": 0, "recommendation": "Create a simple follow-up sequence: three to four touches over two to three weeks, each adding something new rather than just 'bumping' the thread." },
+          { "label": "We follow up once, when someone remembers", "score": 1, "recommendation": "Schedule follow-ups as CRM tasks at the moment of first contact so they do not depend on memory." },
+          { "label": "A planned sequence, but it is not tailored by channel", "score": 2, "recommendation": "Mix channels in the sequence (email, LinkedIn, call) and vary the angle at each step: insight, example, direct question." },
+          { "label": "A multi-channel sequence with value at each step", "score": 3 }
+        ]
+      },
+      {
+        "id": "conversion-tracking",
+        "category": "tracking",
+        "prompt": "Do you know your conversion rate at each stage of the funnel?",
+        "options": [
+          { "label": "No, we only know total sales", "score": 0, "recommendation": "Start counting four numbers each month: prospects contacted, positive responses, qualified opportunities and won clients." },
+          { "label": "We track a few numbers, irregularly", "score": 1, "recommendation": "Track the same stage counts every month in one place so conversion rates can be compared over time." },
+          { "label": "We track stages monthly, but rarely act on them", "score": 2, "recommendation": "Pick the stage with the weakest conversion each month and run one deliberate improvement on it (message, targeting or offer)." },
+          { "label": "We track every stage and act on the weakest one", "score": 3 }
+        ]
+      },
+      {
+        "id": "channel-measurement",
+        "category": "channels",
+        "prompt": "How do you measure the performance of each acquisition channel?",
+        "options": [
+          { "label": "We do not separate results by channel", "score": 0, "recommendation": "Tag every lead with its source channel so responses, opportunities and clients can be attributed." },
+          { "label": "We know where leads come from, not what they cost", "score": 1, "recommendation": "Record spend and hours per channel each month so you can calculate acquisition cost per client." },
+          { "label": "We know cost and results, but compare them rarely", "score": 2, "recommendation": "Review channel acquisition cost and revenue-to-cost monthly and shift effort toward the channel with the best evidence." },
+          { "label": "We compare cost, conversion and revenue per channel monthly", "score": 3 }
+        ]
+      },
+      {
+        "id": "playbook",
+        "category": "growth",
+        "prompt": "Is your business development process documented?",
+        "options": [
+          { "label": "No, it lives in one person's head", "score": 0, "recommendation": "Document the basics: ICP, list-building steps, message templates and pipeline stages, so the process survives holidays and new hires." },
+          { "label": "Partly, in scattered notes", "score": 1, "recommendation": "Consolidate the notes into one playbook and keep it next to the CRM where people actually work." },
+          { "label": "Documented, but not kept up to date", "score": 2, "recommendation": "Assign an owner to the playbook and update it after each monthly review with what worked and what did not." },
+          { "label": "Documented, owned and updated regularly", "score": 3 }
+        ]
+      },
+      {
+        "id": "scalability",
+        "category": "growth",
+        "prompt": "If you doubled your outreach next quarter, what would happen?",
+        "options": [
+          { "label": "Quality would drop and things would break", "score": 0, "recommendation": "Before scaling volume, fix the foundations: a written ICP, a verified list source and a CRM with defined stages." },
+          { "label": "We could do it, but only by working much longer hours", "score": 1, "recommendation": "Identify the most time-consuming manual steps (research, data entry, follow-up) and template or automate them first." },
+          { "label": "Mostly fine, with some bottlenecks", "score": 2, "recommendation": "Name the bottleneck (list building, personalisation or meeting capacity) and solve it with process, tools or an additional person." },
+          { "label": "Our process, tools and team could handle it", "score": 3 }
+        ]
+      }
+    ]
+  },
+
+  "brief": {
+    "inquiryTypes": [
+      "Business Development / Growth Strategy",
+      "Lead Generation & Prospecting",
+      "Sales Pipeline Optimization",
+      "Agency or Technology Partnership",
+      "Recruitment / Employment Opportunity",
+      "Other Professional Inquiry"
+    ],
+    "challenges": [
+      "Inconsistent lead generation",
+      "Low response rates",
+      "Poor lead qualification",
+      "Weak follow-up process",
+      "Low sales conversion",
+      "Unclear acquisition strategy",
+      "CRM or pipeline challenges",
+      "Other"
+    ],
+    "timelines": ["As soon as possible", "Within 1 month", "1–3 months", "3–6 months", "Just exploring"],
+    "budgets": ["Prefer not to say", "Under $1,000 / month", "$1,000–$3,000 / month", "$3,000–$5,000 / month", "Over $5,000 / month", "Not applicable"]
+  },
+
+  "caseStudies": {
+    "notice": "Case studies are based on the roles listed in my professional experience. Client names and internal figures are not published, so outcomes are described qualitatively.",
+    "items": [
+      {
+        "id": "isotope-multichannel",
+        "title": "Multi-channel pipeline for technical services",
+        "organisation": "ISOTOPE",
+        "role": "Growth & Business Development Executive",
+        "period": "June 2026 – Present",
+        "category": "Technology services · Multi-channel acquisition",
+        "channels": ["Upwork", "LinkedIn", "Cold email"],
+        "tools": ["Upwork", "LinkedIn Sales Navigator", "Apollo.io", "ZoomInfo", "HubSpot", "Salesforce"],
+        "skills": ["Upwork bidding", "LinkedIn social selling", "Technical pitching", "Pipeline management", "Campaign ROI analysis"],
+        "tabs": {
+          "challenge": "Build pipeline for high-ticket technical services (AI product platforms, Python development, enterprise DevOps infrastructure and full-stack web and mobile applications) with international clients, where buyers expect technical credibility from the first message.",
+          "audience": "High-value ideal customer profiles: international companies and decision-makers who need AI, Python, DevOps or full-stack delivery.",
+          "research": [
+            "Defined high-value ICPs to target on LinkedIn and in cold campaigns.",
+            "Built top-of-funnel lists with Sales Navigator, Apollo and ZoomInfo.",
+            "Reviewed Upwork profiles, portfolios and catalogs to see how the offer was presented to buyers."
+          ],
+          "strategy": [
+            "Run Upwork, LinkedIn and cold campaigns as one pipeline rather than separate activities.",
+            "Lead with qualified, high-intent Upwork bids and strategic boosts instead of bidding broadly.",
+            "Use case-study content and personalised outreach on LinkedIn to earn inbound interest."
+          ],
+          "execution": [
+            { "step": "Upwork acquisition", "detail": "Optimised profiles, portfolios and catalogs, then submitted qualified, high-intent bids with strategic boosts." },
+            { "step": "LinkedIn social selling", "detail": "Targeted ICP decision-makers with personalised outreach, case-study content and strategic engagement to generate inbound leads and book meetings." },
+            { "step": "Technical solution pitching", "detail": "Translated AI, Python, DevOps and full-stack capabilities into clear solutions for each prospect's requirements." },
+            { "step": "Multi-channel lead generation", "detail": "Ran cold campaigns from Sales Navigator, Apollo and ZoomInfo lists to build pipeline and schedule qualified interviews." },
+            { "step": "CRM & analytics", "detail": "Managed the pipeline in HubSpot and Salesforce and reviewed performance metrics to improve lead quality and ROI." }
+          ],
+          "results": {
+            "metricsStatus": "Metrics not published",
+            "points": [
+              "One coordinated pipeline across Upwork, LinkedIn and cold outreach, tracked in HubSpot and Salesforce.",
+              "Performance metrics reviewed regularly to improve lead quality and campaign ROI.",
+              "Quantified results (contracts, meetings, revenue) can be added here once they are approved for publication."
+            ]
+          },
+          "learnings": [
+            "Technical buyers respond to specifics: the clearer the solution is framed against their requirement, the easier the first conversation.",
+            "Channels work better as one system: LinkedIn content supports Upwork credibility, and cold campaigns fill gaps in inbound flow.",
+            "Reviewing metrics by channel keeps effort on the work that produces qualified conversations."
+          ]
+        }
+      },
+      {
+        "id": "aeitch-cold-calling",
+        "title": "Cold calling from public data to discovery meetings",
+        "organisation": "AEITCH",
+        "role": "Business Development Executive (Cold Calling Specialist)",
+        "period": "June 2026 – August 2026",
+        "category": "Digital services · Outbound calling",
+        "channels": ["Cold calling"],
+        "tools": ["SIPERB", "Yelp", "HubSpot"],
+        "skills": ["Cold calling", "Prospect data extraction", "SQL generation", "Service pitching", "Meeting setting"],
+        "tabs": {
+          "challenge": "Turn publicly listed businesses into qualified discovery meetings for AI optimisation, web development and website revamp services through high-volume outbound calling.",
+          "audience": "Local and small businesses discoverable through public listings that could benefit from AI optimisation, a new website or a revamp.",
+          "research": [
+            "Extracted target prospect data from Yelp listings.",
+            "Organised prospects for high-volume calling campaigns."
+          ],
+          "strategy": [
+            "Use public listing data to reach businesses directly by phone.",
+            "Pitch a focused set of services (AI optimisation, web development, revamping) and aim for a discovery meeting rather than a same-call sale."
+          ],
+          "execution": [
+            { "step": "Data extraction", "detail": "Pulled prospect data from Yelp to build calling lists." },
+            { "step": "High-volume calling", "detail": "Ran outbound campaigns with the SIPERB softphone to generate sales-qualified leads." },
+            { "step": "Service pitching", "detail": "Pitched AI optimisation, web development and web revamping services on the call." },
+            { "step": "Meeting setting", "detail": "Booked qualified discovery meetings for interested prospects." },
+            { "step": "CRM tracking", "detail": "Tracked outreach metrics and managed pipeline data directly in HubSpot." }
+          ],
+          "results": {
+            "metricsStatus": "Metrics not published",
+            "points": [
+              "A repeatable calling workflow from public data to booked discovery meetings.",
+              "Outreach metrics and pipeline data kept in HubSpot rather than in notes.",
+              "Call volumes, connect rates and meetings booked can be added once approved for publication."
+            ]
+          },
+          "learnings": [
+            "On a cold call, a meeting is a more realistic goal than a sale.",
+            "Logging every call outcome in the CRM is what makes calling performance measurable."
+          ]
+        }
+      },
+      {
+        "id": "sigma-upwork",
+        "title": "Upwork proposals and profile optimisation",
+        "organisation": "Sigma Digital Solutions",
+        "role": "Upwork Bidder / Business Development Executive",
+        "period": "June 2025 – April 2026",
+        "category": "IT services · Freelance platform acquisition",
+        "channels": ["Upwork", "Email", "Phone"],
+        "tools": ["Upwork", "ChatGPT", "Grok"],
+        "skills": ["Proposal writing", "Profile optimisation", "Opportunity identification", "Client communication", "Requirement analysis"],
+        "tabs": {
+          "challenge": "Win IT services work on Upwork, where every proposal competes with many others and buyers decide quickly.",
+          "audience": "International clients posting IT and technology projects on Upwork, plus prospective clients contacted directly by email and phone.",
+          "research": [
+            "Identified relevant projects and business opportunities on the platform.",
+            "Engaged clients to understand their requirements before proposing a solution."
+          ],
+          "strategy": [
+            "Tailor every proposal to the specific job post instead of sending a template.",
+            "Optimise the Upwork profile so it supports the proposals being sent.",
+            "Use AI tools to speed up proposal drafting while keeping each one specific."
+          ],
+          "execution": [
+            { "step": "Opportunity selection", "detail": "Identified relevant projects and business opportunities to bid on." },
+            { "step": "Tailored proposals", "detail": "Crafted proposals for each opportunity and optimised Upwork profiles to improve bid win rates." },
+            { "step": "AI-assisted drafting", "detail": "Used the Upwork toolkit, Grok and ChatGPT to make proposal work more efficient." },
+            { "step": "Direct outreach", "detail": "Contacted prospective clients by email and phone." },
+            { "step": "Solution fit", "detail": "Engaged clients to understand requirements and offered suitable IT solutions." }
+          ],
+          "results": {
+            "metricsStatus": "Metrics not published",
+            "points": [
+              "Moved into this role through a promotion from Team Lead (KYCIER), recognised for excellence in data optimisation and client engagement.",
+              "A tailored, AI-assisted proposal process in place of generic bidding.",
+              "Bid volumes, win rates and contract values can be added once approved for publication."
+            ]
+          },
+          "learnings": [
+            "AI speeds up drafting, but the proposal still has to reflect the client's actual requirement.",
+            "A strong profile and a tailored proposal reinforce each other."
+          ]
+        }
+      },
+      {
+        "id": "kycier-leadgen",
+        "title": "Lead generation, data management and team mentoring",
+        "organisation": "Sigma Digital Solutions (KYCIER)",
+        "role": "Team Lead, Lead Generation & Data Management",
+        "period": "August 2024 – June 2025",
+        "category": "B2B & B2C lead generation · Data operations",
+        "channels": ["LinkedIn", "Email"],
+        "tools": ["LinkedIn Sales Navigator", "Apollo.io", "RocketReach", "SEMrush", "WooRank", "Wappalyzer", "Google Sheets", "Microsoft Excel"],
+        "skills": ["Lead generation", "Lead qualification", "Client profiling", "Website auditing", "Team leadership", "Process improvement"],
+        "tabs": {
+          "challenge": "Produce qualified B2B and B2C leads at a consistent standard while keeping lead data clean and helping a team of members and interns work the same way.",
+          "audience": "Global B2B and B2C prospects, profiled for outreach and, where relevant, for website improvement services.",
+          "research": [
+            "Built detailed client profiles through manual research, RocketReach, Sales Navigator and automation scripts.",
+            "Ran UI/UX and SEO audits with WooRank and SEMrush to understand each prospect's website health."
+          ],
+          "strategy": [
+            "Qualify leads before they reach outreach, using Sales Navigator, Apollo and RocketReach.",
+            "Use website audits as a concrete, relevant reason to start a conversation.",
+            "Standardise data and pipeline tracking so the whole team follows one process."
+          ],
+          "execution": [
+            { "step": "Qualification", "detail": "Qualified B2B and B2C leads with Sales Navigator, Apollo and RocketReach." },
+            { "step": "Client profiling", "detail": "Built detailed profiles through manual research and automation scripts." },
+            { "step": "Website audits", "detail": "Delivered UI/UX and SEO health reports using WooRank and SEMrush." },
+            { "step": "Data management", "detail": "Streamlined data and pipeline management in Google Sheets and Excel." },
+            { "step": "Mentoring", "detail": "Trained team members and interns, ran meetings and led process improvement initiatives." }
+          ],
+          "results": {
+            "metricsStatus": "Metrics not published",
+            "points": [
+              "Promoted to Upwork Bidder for excellence in data optimisation and client engagement.",
+              "A shared, documented approach to qualification and pipeline tracking across the team.",
+              "Lead volumes and qualification rates can be added once approved for publication."
+            ]
+          },
+          "learnings": [
+            "Clean, consistent data is what makes every later sales step faster.",
+            "Mentoring and simple process standards scale a team's output better than individual effort alone."
+          ]
+        }
+      },
+      {
+        "id": "deft-recruitment",
+        "title": "Technical recruitment for the Gulf oil and gas sector",
+        "organisation": "DEFT Recruiter",
+        "role": "Senior Recruiter & Content Manager",
+        "period": "January 2023 – April 2023",
+        "category": "Recruitment · Talent acquisition",
+        "channels": ["Direct sourcing", "Content"],
+        "tools": ["Canva"],
+        "skills": ["Talent acquisition", "Candidate sourcing", "Candidate screening", "Proposals", "Content creation"],
+        "tabs": {
+          "challenge": "Source and screen technical candidates for oil and gas roles across Gulf countries (UAE), while building the agency's brand presence.",
+          "audience": "Oil and gas employers in the Gulf and the technical candidates who could fill their roles.",
+          "research": [
+            "Researched technical role requirements in the oil and gas sector.",
+            "Sourced candidates against those requirements."
+          ],
+          "strategy": [
+            "Run sourcing, proposals and screening end to end so candidate quality is controlled at each step.",
+            "Support recruitment with visual content that raises the agency's brand presence."
+          ],
+          "execution": [
+            { "step": "Sourcing", "detail": "Drove end-to-end technical sourcing for oil and gas roles." },
+            { "step": "Proposals", "detail": "Prepared proposals as part of the recruitment process." },
+            { "step": "Screening", "detail": "Screened candidates against the role requirements." },
+            { "step": "Brand content", "detail": "Created recruitment materials and visual content in Canva." }
+          ],
+          "results": {
+            "metricsStatus": "Metrics not published",
+            "points": [
+              "End-to-end ownership of technical sourcing and screening for Gulf roles.",
+              "Recruitment content created to strengthen the agency's brand presence.",
+              "Placement figures can be added once approved for publication."
+            ]
+          },
+          "learnings": [
+            "Qualification in recruitment and in sales follows the same discipline: understand the requirement first, then match.",
+            "Experience with the Gulf market still shapes how I approach UAE and KSA prospects today."
+          ]
+        }
+      }
+    ]
+  },
+
+  "outreach": {
+    "notice": "All messages are illustrative examples written to demonstrate structure and tone. They are not claims of specific results. Replace the [bracketed] details with real research.",
+    "personas": [
+      { "id": "founder", "label": "Founder / CEO" },
+      { "id": "agency", "label": "Agency owner" },
+      { "id": "sales", "label": "Head of sales" },
+      { "id": "hiring", "label": "Hiring manager" }
+    ],
+    "categories": [
+      { "id": "linkedin-connect", "label": "LinkedIn connection" },
+      { "id": "linkedin-followup", "label": "LinkedIn follow-up" },
+      { "id": "cold-email", "label": "Cold email" },
+      { "id": "call-opener", "label": "Cold call opener" },
+      { "id": "upwork", "label": "Upwork proposal" },
+      { "id": "objection", "label": "Objection handling" },
+      { "id": "meeting-followup", "label": "Meeting follow-up" }
+    ],
+    "examples": [
+      {
+        "id": "li-connect-founder",
+        "category": "linkedin-connect",
+        "personas": ["founder"],
+        "title": "Connection request after a product launch",
+        "body": "Hi [First name], congrats on launching [product] last week. I work with software teams on the business development side, mainly Upwork, LinkedIn and outbound pipeline. Would be good to connect and follow what you're building.",
+        "why": "It references a specific, recent event, states who you are in one line and asks for nothing beyond the connection.",
+        "personalization": "Replace the launch with any genuine trigger: funding, a new hire, a feature release or a post they wrote.",
+        "cta": "Accept the connection (no meeting ask yet).",
+        "followUp": "Engage with one of their posts in the next week before sending a first message."
+      },
+      {
+        "id": "li-connect-sales",
+        "category": "linkedin-connect",
+        "personas": ["sales", "agency"],
+        "title": "Connection request to a sales leader",
+        "body": "Hi [First name], I saw [Company] is hiring SDRs for the [region] market. I spend most of my week on outbound for tech services across the USA, UK and Gulf, so I'm always interested in how other teams structure it. Happy to connect.",
+        "why": "A hiring signal shows active pipeline investment, and the shared-interest framing feels peer-to-peer rather than a pitch.",
+        "personalization": "Use the exact role or region from their job post.",
+        "cta": "Accept the connection.",
+        "followUp": "If they accept, share one relevant observation about outbound in their market, without attaching a meeting request."
+      },
+      {
+        "id": "li-followup-value",
+        "category": "linkedin-followup",
+        "personas": ["founder", "agency"],
+        "title": "First message after connecting",
+        "body": "Thanks for connecting, [First name]. I noticed [Company] lists [service] on the website but the case studies page is mostly [industry]. Are you actively trying to win more [target industry] clients this quarter, or is [current industry] still the focus?",
+        "why": "It shows research, asks a genuine question the prospect can answer easily and avoids a calendar link in the first message.",
+        "personalization": "Base the observation on their website, recent posts or job listings, not on a generic assumption.",
+        "cta": "A short reply to a specific question.",
+        "followUp": "If they answer, offer one relevant idea or example; if not, follow up once in 5–7 days with a different angle."
+      },
+      {
+        "id": "li-followup-nudge",
+        "category": "linkedin-followup",
+        "personas": ["sales", "founder"],
+        "title": "Second follow-up with a new angle",
+        "body": "Hi [First name], one more thought on this. Teams selling [service] into [industry] often find the bottleneck is qualification rather than response volume: lots of replies, few real budgets. If that sounds familiar, I'm happy to share how I structure qualification questions. If not, no worries at all.",
+        "why": "It adds a new idea instead of 'just bumping', and gives an easy way out, which lowers pressure and often raises reply quality.",
+        "personalization": "Choose the bottleneck based on what you learned about their funnel.",
+        "cta": "Reply if the problem is relevant.",
+        "followUp": "Stop after this message if there is no response; revisit only if a new trigger appears."
+      },
+      {
+        "id": "email-founder-trigger",
+        "category": "cold-email",
+        "personas": ["founder"],
+        "title": "Trigger-based cold email",
+        "subject": "[Company]'s expansion into [region]",
+        "subjectAlternatives": ["Question about [region] pipeline", "[First name], quick idea for [Company]"],
+        "body": "Hi [First name],\n\nI saw [Company] recently [opened a UAE office / announced a KSA partnership]. Entering a new region usually means building pipeline from zero: new lists, new decision-makers and different buying cycles.\n\nI run multi-channel business development (LinkedIn, email, calling and Upwork) for technology companies selling into the USA, UK, UAE and KSA.\n\nWould a 15-minute call next week to compare notes on [region] outreach be useful?\n\nBest,\nSabrina",
+        "why": "The opening line proves the email is not generic, the second paragraph names a real problem the trigger creates, and the ask is small and specific.",
+        "personalization": "The trigger must be real and recent; link to the source in your notes so you can reference it on the call.",
+        "cta": "A 15-minute call next week.",
+        "followUp": "Follow up after 3–4 business days with a short example of a regional challenge, then once more on LinkedIn."
+      },
+      {
+        "id": "email-agency-partnership",
+        "category": "cold-email",
+        "personas": ["agency"],
+        "title": "Partnership email to an agency owner",
+        "subject": "Overflow pipeline for [Agency]",
+        "subjectAlternatives": ["Partnership idea: [service] leads", "[Agency] + outbound support"],
+        "body": "Hi [First name],\n\nMost agencies I speak with have strong delivery teams but rely on referrals for new work, which makes revenue uneven month to month.\n\nI focus on outbound and Upwork acquisition for development and AI service companies. For [Agency], that could mean a steady flow of qualified conversations in [service], without your team spending delivery hours on prospecting.\n\nIs new-client acquisition a priority for you this quarter?\n\nSabrina",
+        "why": "It names a common agency problem without exaggeration, connects it to a concrete outcome and ends with a yes/no question that is easy to answer.",
+        "personalization": "Mention the service line they seem to want more of, based on their website or recent posts.",
+        "cta": "A yes/no reply about priorities.",
+        "followUp": "If yes, propose a short discovery call; if no, ask whether it would be worth reconnecting next quarter."
+      },
+      {
+        "id": "email-hiring",
+        "category": "cold-email",
+        "personas": ["hiring"],
+        "title": "Application-style email to a hiring manager",
+        "subject": "Business Development Executive role at [Company]",
+        "subjectAlternatives": ["[Role] application: multi-channel BD experience"],
+        "body": "Hi [First name],\n\nI saw the [Role] opening at [Company]. My background is multi-channel business development for technology services: Upwork bidding, LinkedIn social selling, cold email and cold calling, with pipelines managed in HubSpot and Salesforce.\n\nThe part of the job description that stood out was [specific requirement]. That matches my recent work on [relevant responsibility].\n\nMy portfolio and CV are at sabrinamuqadas.github.io. Would you be open to a short conversation?\n\nSabrina Muqadas",
+        "why": "It links one real requirement from the job post to real experience, which is more convincing than a list of adjectives.",
+        "personalization": "Quote the requirement accurately and choose the experience that matches it best.",
+        "cta": "A short conversation.",
+        "followUp": "Follow up once after a week, then connect on LinkedIn with a brief note."
+      },
+      {
+        "id": "call-opener-permission",
+        "category": "call-opener",
+        "personas": ["founder", "agency"],
+        "title": "Permission-based opener",
+        "body": "Hi [First name], this is Sabrina. I know I'm calling out of the blue, so I'll be brief. Can I take 30 seconds to explain why I called, and then you can decide if it's worth continuing?",
+        "why": "Acknowledging the interruption and asking permission lowers defensiveness and gives the prospect control.",
+        "personalization": "Use their name and, if you have one, mention the trigger in the next sentence.",
+        "cta": "Permission to continue for 30 seconds.",
+        "followUp": "If they agree: one sentence on the problem you help with, then a question about whether it applies to them."
+      },
+      {
+        "id": "call-opener-research",
+        "category": "call-opener",
+        "personas": ["founder"],
+        "title": "Research-based opener for a local business",
+        "body": "Hi, is this [Owner name]? This is Sabrina. I was looking at [Business] on [listing site] and noticed the website doesn't show [online booking / recent work / mobile layout]. I help businesses fix exactly that. Is the website something you're thinking about this year?",
+        "why": "A specific observation proves the call is not random, and the closing question qualifies interest quickly.",
+        "personalization": "Check the website before dialling and pick one visible, fixable issue.",
+        "cta": "A yes/no answer that qualifies interest.",
+        "followUp": "If interested, book a discovery meeting rather than pitching the full service on the first call."
+      },
+      {
+        "id": "upwork-ai",
+        "category": "upwork",
+        "personas": ["founder", "sales"],
+        "title": "Proposal opening for an AI integration job",
+        "body": "Hi [Client name],\n\nYou mentioned you need [the chatbot to answer from your product documentation] and that [response accuracy] matters most. Our team has built AI integrations for that kind of use case, starting with a small retrieval prototype so you can test accuracy on your own documents before committing to the full build.\n\nTwo quick questions so I can give you a realistic estimate:\n1. Roughly how many documents or pages will it need to use?\n2. Will it run on your website, inside your app, or both?\n\nHappy to share a short plan once I know this.",
+        "why": "It mirrors the client's own words, proposes a low-risk first step and asks questions that show understanding of the real scope.",
+        "personalization": "Quote the client's stated priority and adjust the first step to the job's actual scope.",
+        "cta": "Answers to two scoping questions.",
+        "followUp": "If the client views the proposal but does not reply, send one short message with a relevant example after 2–3 days."
+      },
+      {
+        "id": "upwork-web",
+        "category": "upwork",
+        "personas": ["founder", "agency"],
+        "title": "Proposal opening for a website rebuild",
+        "body": "Hi [Client name],\n\nI read your post: the current site is [slow on mobile and hard to update], and you want [the team to edit pages without a developer]. We would start with a short audit of the current site (speed, structure and content) so the rebuild fixes the real issues rather than only changing the design.\n\nIs the content staying largely the same, or is a content refresh part of this project too?",
+        "why": "It restates the problem precisely, explains the first step and ends with a question that affects scope and price.",
+        "personalization": "Pull exact phrases from the job post; do not paste a generic company introduction first.",
+        "cta": "An answer about content scope.",
+        "followUp": "Offer a brief call once scope is clear."
+      },
+      {
+        "id": "objection-budget",
+        "category": "objection",
+        "personas": ["founder", "agency"],
+        "title": "\"We don't have budget right now\"",
+        "body": "That's completely fair. Can I ask whether it's a timing question, meaning budgets reopen next quarter, or whether outbound isn't a priority at all this year? If it's timing, I'm happy to send a short plan now so you have it ready when budgets are set.",
+        "why": "It respects the objection, separates timing from priority and offers something useful without pressure.",
+        "personalization": "Reference their planning cycle if you know it (fiscal year, quarter).",
+        "cta": "Clarify timing vs priority.",
+        "followUp": "If it is timing, set a CRM reminder for the month before budgets reopen."
+      },
+      {
+        "id": "objection-agency",
+        "category": "objection",
+        "personas": ["sales", "founder"],
+        "title": "\"We already work with an agency\"",
+        "body": "Good to hear you already have support. Out of curiosity, is it covering every channel you'd like, or mainly one? Some teams keep their agency for [email] and add someone dedicated to [LinkedIn or Upwork], where results depend more on individual relationships.",
+        "why": "It does not criticise the incumbent, and explores whether there is a gap instead of competing head-on.",
+        "personalization": "Mention the channel you can genuinely add value in.",
+        "cta": "Identify any uncovered channel.",
+        "followUp": "If there is no gap, thank them and stay connected on LinkedIn."
+      },
+      {
+        "id": "objection-send-info",
+        "category": "objection",
+        "personas": ["founder", "hiring", "sales"],
+        "title": "\"Just send me some information\"",
+        "body": "Of course. So I don't send you something generic, which part is most relevant: how I build lead lists, how outreach is structured across channels, or how results are tracked? I'll keep it to one page.",
+        "why": "It accepts the request but turns it into a qualifying question, so the follow-up material is actually read.",
+        "personalization": "Offer options that match what you discussed.",
+        "cta": "Choose the most relevant topic.",
+        "followUp": "Send the one-pager the same day and suggest a 15-minute call to walk through it."
+      },
+      {
+        "id": "meeting-followup-recap",
+        "category": "meeting-followup",
+        "personas": ["founder", "sales", "agency"],
+        "title": "Recap after a discovery call",
+        "subject": "Recap: [Company] & next steps",
+        "body": "Hi [First name],\n\nThanks for the time today. A quick recap so we're aligned:\n\n- Goal: [more qualified meetings with UK SaaS companies]\n- Current gap: [replies are coming in, but few are qualified]\n- Next step: I'll send a short outreach plan for [segment] by [day]\n\nIf I've missed anything, let me know and I'll include it.\n\nBest,\nSabrina",
+        "why": "A short recap confirms understanding, creates a written record and commits to a dated next step.",
+        "personalization": "Use the prospect's own words for the goal and the gap.",
+        "cta": "Confirm or correct the recap.",
+        "followUp": "Deliver the promised item on the stated day; that reliability is part of the pitch."
+      },
+      {
+        "id": "meeting-followup-noshow",
+        "category": "meeting-followup",
+        "personas": ["founder", "sales", "hiring"],
+        "title": "After a missed meeting",
+        "subject": "Rescheduling our call",
+        "body": "Hi [First name], it looks like today's call didn't work out, which happens. Would [two specific time options] suit better? If priorities have changed, just let me know and I'll follow up later instead.",
+        "why": "It is non-judgemental, offers concrete options and gives an easy way to say 'not now'.",
+        "personalization": "Offer times in the prospect's time zone.",
+        "cta": "Pick a new time.",
+        "followUp": "One more attempt after a week; then move the deal to a later nurture stage."
+      }
+    ],
+    "comparisons": [
+      {
+        "id": "compare-linkedin",
+        "title": "LinkedIn message",
+        "generic": "Hi, I hope you're doing well! We are a leading software company providing world-class web, mobile and AI solutions. We have helped many clients grow their business. Can we schedule a quick call this week to discuss how we can help you?",
+        "personalized": "Hi [First name], I noticed [Company] is hiring two React developers while also launching the [new client portal]. When teams are stretched like that, outsourcing one workstream can protect the launch date. Is that something you're considering, or is the team covering it in-house?",
+        "improvements": [
+          "Starts with a real, recent observation instead of a pleasantry.",
+          "Replaces vague claims ('world-class', 'helped many clients') with a specific situation.",
+          "Asks an easy, relevant question instead of requesting a call immediately."
+        ]
+      },
+      {
+        "id": "compare-email",
+        "title": "Cold email",
+        "generic": "Subject: Partnership opportunity\n\nDear Sir/Madam,\n\nWe offer lead generation services at affordable prices. Our team is experienced and dedicated. Please let us know if you are interested.",
+        "personalized": "Subject: Pipeline for [Agency]'s new AI service\n\nHi [First name],\n\nI saw [Agency] added AI automation to its services last month. New service lines usually need their own pipeline, because existing clients rarely cover the demand.\n\nI build outbound pipeline for development and AI service companies. Would it help to see how I'd approach the first 50 target accounts for that service?",
+        "improvements": [
+          "Uses a name and a subject line tied to the recipient's own business.",
+          "Explains why the message is relevant now.",
+          "Offers a concrete, low-commitment next step instead of 'let us know'."
+        ]
+      },
+      {
+        "id": "compare-upwork",
+        "title": "Upwork proposal opening",
+        "generic": "Hello, I have read your job post and I am very interested. I have 5+ years of experience and can do this job perfectly. Please check my profile and let's discuss.",
+        "personalized": "Hi [Client name], you mentioned the dashboard needs to load data from [Stripe and HubSpot] and that the current version is slow. I'd start by checking whether the delay comes from the API calls or the front end, because the fix is very different. Do you already have API access set up for both?",
+        "improvements": [
+          "Proves the job post was actually read by restating the specific problem.",
+          "Shows expertise through a diagnostic approach rather than a claim of years.",
+          "Ends with a technical question that starts a real conversation."
+        ]
+      }
+    ]
+  }
+}
