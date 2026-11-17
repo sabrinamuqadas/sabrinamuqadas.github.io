@@ -5,7 +5,7 @@
  */
 
 const ASSET_VERSION =
-  (typeof globalThis !== 'undefined' && globalThis.SM_ASSET_VERSION) || '1.0.21';
+  (typeof globalThis !== 'undefined' && globalThis.SM_ASSET_VERSION) || '1.0.26';
 
 function withVersion(url) {
   if (typeof globalThis !== 'undefined' && typeof globalThis.smAssetUrl === 'function') {
@@ -33,16 +33,10 @@ export const CONFIG = Object.freeze({
   }),
 
   theme: Object.freeze({
-    storageKey: 'sm-theme',
+    storageKey: 'sabrina-muqadas',
     metaColors: Object.freeze({ dark: '#0B1220', light: '#F8FAFC' }),
   }),
-
-  /**
-   * Contact form delivery.
-   * - endpoint empty  -> opens the visitor's email app with a prefilled message (mailto).
-   * - endpoint set    -> POSTs JSON to a form service (e.g. https://formspree.io/f/xxxx).
-   *   Remember to allow the endpoint in the Content-Security-Policy meta tag in index.html.
-   */
+  
   contact: Object.freeze({
     endpoint: '',
     subjectPrefix: 'Portfolio inquiry',

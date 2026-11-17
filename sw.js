@@ -1,8 +1,8 @@
 "use strict";
 
-importScripts("./assets/js/version.js?v=1.0.21");
+importScripts("./assets/js/version.js?v=1.0.26");
 
-var ASSETVRN = self.SM_ASSET_VERSION || "1.0.21";
+var ASSETVRN = self.SM_ASSET_VERSION || "1.0.26";
 var AVERSION = "sabrina-shell-" + ASSETVRN;
 var PRECACHE = AVERSION + "-precache";
 var RUN_TIME = AVERSION + "-runtime";
@@ -38,11 +38,11 @@ var SHELL = [
     withVersion("./assets/fonts/manrope-latin-wght-normal.woff2"),
     withVersion("./assets/fonts/inter-latin-wght-normal.woff2"),
     withVersion("./assets/fonts/jetbrains-mono-latin-wght-normal.woff2"),
-  withVersion("./assets/image/logo.svg"),
-  withVersion("./assets/image/favicon.svg"),
-  withVersion("./assets/image/icons.svg"),
-  withVersion("./assets/image/covers/hero.jpg"),
-  withVersion("./assets/image/covers/about.jpg"),
+    withVersion("./assets/image/logo.svg"),
+    withVersion("./assets/image/favicon.svg"),
+    withVersion("./assets/image/icons.svg"),
+    withVersion("./assets/image/covers/hero.png"),
+    withVersion("./assets/image/covers/about.png"),
     withVersion("./assets/image/illustrations/world-dots.svg"),
     withVersion("./assets/image/tools/upwork.svg"),
     withVersion("./assets/image/tools/linkedin.svg"),
@@ -57,7 +57,7 @@ var SHELL = [
     withVersion("./assets/image/tools/google.svg"),
     withVersion("./assets/image/icons/icon-192.png"),
     withVersion("./assets/image/icons/icon-512.png"),
-    withVersion("./assets/image/icons/icon-maskable-512.png"),
+    withVersion("./assets/image/icons/icma-512.png"),
 ];
 
 function sameOrigin(url) {

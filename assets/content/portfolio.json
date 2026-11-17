@@ -14,7 +14,7 @@
     "currentLabel": "Now: Growth & Business Development Executive at ISOTOPE (Remote)",
     "location": "Islamabad, Pakistan",
     "mapPosition": { "x": 69.3, "y": 33.6 },
-    "photo": "./assets/image/covers/hero.jpg",
+    "photo": "./assets/image/covers/hero.png",
     "photoAlt": "Portrait of Sabrina Muqadas",
     "cv": {
       "file": "assets/resume/Sabrina-Muqadas-CV.pdf",
@@ -77,7 +77,7 @@
 
   "about": {
     "title": "Business development, built on research, outreach and technology fluency.",
-    "visual": "./assets/image/covers/about.jpg",
+    "visual": "./assets/image/covers/about.png",
     "visualAlt": "Sabrina Muqadas at work",
     "aside": {
       "title": "Career progression",
@@ -774,7 +774,6 @@
       "icon": "plane",
       "title": "Traveling",
       "tag": "Explore",
-      "featured": true,
       "text": "New cities, cultures and conversations. Travel keeps my market sense sharp and my curiosity wide open."
     },
     {
@@ -790,16 +789,9 @@
       "text": "Steady miles for clear thinking. Rhythm on the road, focus when I get back to the desk."
     },
     {
-      "icon": "shuttlecock",
-      "title": "Badminton",
-      "tag": "Active",
-      "text": "Fast rallies and friendly competition. Good for reflexes, better for unwinding with people."
-    },
-    {
       "icon": "camera",
       "title": "Photography",
       "tag": "Create",
-      "featured": true,
       "text": "Framing light, detail and atmosphere. It trains the same eye I use when reading a market or a brand."
     },
     {
@@ -830,8 +822,6 @@
     ],
     "items": [
       { "id": "email", "label": "Email", "icon": "mail", "value": "sabrinamuqadas@gmail.com", "href": "mailto:sabrinamuqadas@gmail.com", "copy": true },
-      { "id": "phone", "label": "Phone", "icon": "phone", "value": "+92 336 665 8222", "href": "tel:+923366658222", "copy": true },
-      { "id": "phone-alt", "label": "Phone", "icon": "phone", "value": "+92 306 665 8222", "href": "tel:+923066658222", "copy": true },
       { "id": "location", "label": "Location", "icon": "map-pin", "value": "Islamabad, Pakistan" },
       { "id": "linkedin", "label": "LinkedIn", "icon": "brand-linkedin", "value": "linkedin.com/in/sabrinamuqadas", "href": "https://www.linkedin.com/in/sabrinamuqadas", "external": true },
       { "id": "github", "label": "GitHub", "icon": "brand-github", "value": "sabrinamuqadas.github.io", "href": "https://sabrinamuqadas.github.io", "external": true },

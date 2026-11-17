@@ -74,7 +74,7 @@ Things to know when editing:
 | Asset | Location |
 | --- | --- |
 | CV / résumé PDF | `assets/resume/Sabrina-Muqadas-CV.pdf` |
-| Hero / about photos | `assets/image/covers/hero.jpg`, `assets/image/covers/about.jpg` (paths in `profile.photo` and `about.visual`) |
+| Hero / about photos | `assets/image/covers/hero.png`, `assets/image/covers/about.png` (paths in `profile.photo` and `about.visual`) |
 | Favicon and PWA icon PNGs | `assets/image/icons/` |
 | Logo and favicon | `assets/image/logo.svg`, `assets/image/favicon.svg` (PNG/ICO icons in `assets/image/icons/` are generated from the favicon) |
 | Brand wordmark | Inline SVG in the header and footer of `index.html` and `404.html`, set in the heading font (Manrope) |
@@ -121,7 +121,7 @@ After the first deploy, the site is available at `https://sabrinamuqadas.github.
 - **Privacy:** only the city (Islamabad) is published. Keep street or sector details out of the JSON, the HTML, and the structured data.
 - **Folder browsing** is blocked: `.htaccess` on Apache, and redirect `index.html` files in asset folders on GitHub Pages.
 - **Offline:** after the first HTTPS visit the site is installable and works offline. CV PDFs are never cached.
-- **Asset versioning:** set `SM_ASSET_VERSION` once in [`assets/js/version.js`](assets/js/version.js) (currently `1.0.21`). That value drives JSON/sprite/map URLs in JS and the service worker cache name (`sm-1.0.21`). Mirror the same number in HTML/CSS `?v=` query strings and ES module import URLs (search the repo for the previous version and replace). Add any new offline files to `SHELL` in `sw.js`.
+- **Asset versioning:** set `SM_ASSET_VERSION` once in [`assets/js/version.js`](assets/js/version.js) (currently `1.0.26`). That value drives JSON/sprite/map URLs in JS and the service worker cache name (`sm-1.0.26`). Mirror the same number in HTML/CSS `?v=` query strings and ES module import URLs (search the repo for the previous version and replace). Add any new offline files to `SHELL` in `sw.js`.
 
 ## Still to add
 

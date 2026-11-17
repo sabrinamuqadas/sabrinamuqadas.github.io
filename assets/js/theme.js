@@ -1,17 +1,7 @@
-import { CONFIG } from './config.js?v=1.0.21';
-import { qs } from './utils.js?v=1.0.21';
+import { CONFIG } from './config.js?v=1.0.26';
+import { qs } from './utils.js?v=1.0.26';
 
 const { storageKey, metaColors } = CONFIG.theme;
-const systemLight = window.matchMedia('(prefers-color-scheme: light)');
-
-function readSaved() {
-  try {
-    const value = localStorage.getItem(storageKey);
-    return value === 'light' || value === 'dark' ? value : null;
-  } catch {
-    return null;
-  }
-}
 
 function save(theme) {
   try {
@@ -38,6 +28,7 @@ function applyTheme(theme, toggle) {
 export function initTheme() {
   const root = document.documentElement;
   const toggle = qs('[data-theme-toggle]');
+  // Dark is the site default. Light only sticks after an explicit toggle (saved in localStorage).
   applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark', toggle);
 
   if (toggle) {
@@ -50,9 +41,4 @@ export function initTheme() {
       window.setTimeout(() => root.classList.remove('theme-transition'), 600);
     });
   }
-
-  // Follow the operating system only while the visitor has not chosen a theme.
-  systemLight.addEventListener('change', (event) => {
-    if (!readSaved()) applyTheme(event.matches ? 'light' : 'dark', toggle);
-  });
 }
