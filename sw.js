@@ -1,8 +1,8 @@
 "use strict";
 
-importScripts("./assets/js/version.js?v=1.0.33");
+importScripts("./assets/js/version.js?v=1.0.34");
 
-var ASSETVRN = self.SM_ASSET_VERSION || "1.0.33";
+var ASSETVRN = self.SM_ASSET_VERSION || "1.0.34";
 var AVERSION = "sabrina-shell-" + ASSETVRN;
 var PRECACHE = AVERSION + "-precache";
 var RUN_TIME = AVERSION + "-runtime";
