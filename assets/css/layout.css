@@ -94,6 +94,7 @@ main {
   align-items: center;
   gap: var(--space-4);
   width: 100%;
+  min-width: 0;
   height: var(--header-h);
   padding-inline: max(var(--gutter), calc((100% - var(--container)) / 2));
   pointer-events: auto;
@@ -409,10 +410,16 @@ main {
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-3) var(--space-5);
+  min-width: 0;
   padding-top: var(--space-5);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-size: var(--fs-sm);
+}
+
+.site-footer__bottom > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* ==========================================================================

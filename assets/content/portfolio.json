@@ -14,7 +14,7 @@
     "currentLabel": "Now: Growth & Business Development Executive at ISOTOPE (Remote)",
     "location": "Islamabad, Pakistan",
     "mapPosition": { "x": 69.3, "y": 33.6 },
-    "photo": null,
+    "photo": "./assets/image/covers/hero.jpg",
     "photoAlt": "Portrait of Sabrina Muqadas",
     "cv": {
       "file": "assets/resume/Sabrina-Muqadas-CV.pdf",
@@ -77,6 +77,8 @@
 
   "about": {
     "title": "Business development, built on research, outreach and technology fluency.",
+    "visual": "./assets/image/covers/about.jpg",
+    "visualAlt": "Sabrina Muqadas at work",
     "aside": {
       "title": "Career progression",
       "steps": [

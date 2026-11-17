@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.16';
-import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.16';
+import { CONFIG } from './config.js?v=1.0.19';
+import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.19';
 
 /* ==========================================================================
    DOM helpers. All dynamic content is created with createElement/textContent,
@@ -99,17 +99,36 @@ function applySectionVisibility(data) {
   });
 }
 
+/** Photos sit over a monogram placeholder; a photo that fails to load is dropped so the placeholder shows. */
+function keepPlaceholderOnError(img, onFail) {
+  const fail = () => {
+    img.remove();
+    onFail?.();
+  };
+  if (img.complete && img.naturalWidth === 0) fail();
+  else img.addEventListener('error', fail, { once: true });
+}
+
 /** Hero: profile photo (when provided) and the rotating role labels. */
 function bindHero(data) {
   const { photo, photoAlt, roles } = data.profile;
 
-  if (photo) {
-    const portrait = qs('.hero__visual .portrait');
-    portrait?.replaceChildren(
-      h('img', { class: 'portrait__img', src: photo, alt: photoAlt, decoding: 'async', fetchpriority: 'high' }),
-    );
-    portrait?.classList.add('has-photo');
-    portrait?.removeAttribute('aria-hidden');
+  const portrait = qs('.hero__visual .portrait');
+  if (photo && portrait) {
+    const src = CONFIG.assets.withVersion(photo);
+    let img = qs('.portrait__img', portrait);
+    if (!img) {
+      img = h('img', { class: 'portrait__img', decoding: 'async', fetchpriority: 'high' });
+      portrait.append(img);
+    }
+    if (img.getAttribute('src') !== src) img.setAttribute('src', src);
+    img.alt = photoAlt || '';
+    portrait.classList.add('has-photo');
+    portrait.removeAttribute('aria-hidden');
+    keepPlaceholderOnError(img, () => {
+      portrait.classList.remove('has-photo');
+      portrait.setAttribute('aria-hidden', 'true');
+    });
   }
 
   const rotator = qs('[data-role-rotator]');
@@ -281,12 +300,22 @@ function renderHighlights(container, data) {
 }
 
 function renderAboutAside(container, data) {
-  const { photo, photoAlt, name } = data.profile;
-  const { aside } = data.about;
+  const { name } = data.profile;
+  const { aside, visual, visualAlt } = data.about;
+  const cover = visual || data.profile.photo;
+  const coverAlt = visualAlt || data.profile.photoAlt || name;
 
-  const frameContent = photo
-    ? h('img', { src: photo, alt: photoAlt, loading: 'lazy', decoding: 'async' })
-    : h('span', { class: 'monogram', 'aria-hidden': 'true', text: initialsOf(name) });
+  const coverImg = cover
+    ? h('img', {
+        src: CONFIG.assets.withVersion(cover),
+        alt: coverAlt,
+        loading: 'lazy',
+        decoding: 'async',
+      })
+    : null;
+  if (coverImg) keepPlaceholderOnError(coverImg);
+
+  const frameContent = [h('span', { class: 'monogram', 'aria-hidden': 'true', text: initialsOf(name) }), coverImg];
 
   container.replaceChildren(
     h(
