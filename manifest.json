@@ -1,41 +1,41 @@
 {
-  "id": "/",
-  "name": "Sabrina Muqadas",
-  "short_name": "Sabrina Muqadas",
-  "description": "Portfolio of Sabrina Muqadas, Growth & Business Development Executive: Upwork bidding, LinkedIn and email outreach, cold calling and AI-driven lead generation.",
-  "lang": "en",
-  "dir": "ltr",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "any",
-  "background_color": "#0B1220",
-  "theme_color": "#0B1220",
-  "categories": ["business", "productivity", "portfolio"],
-  "icons": [
-    {
-      "src": "./assets/image/icons/icon-192.png?v=1.0.16",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/image/icons/icon-512.png?v=1.0.16",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/image/icons/icon-maskable-512.png?v=1.0.16",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "./assets/image/favicon.svg?v=1.0.16",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
-  ]
+    "id": "/",
+    "name": "Sabrina Muqadas",
+    "short_name": "Sabrina Muqadas",
+    "description": "Portfolio of Sabrina Muqadas, Growth & Business Development Executive.",
+    "lang": "en",
+    "dir": "ltr",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#0B1220",
+    "theme_color": "#0B1220",
+    "categories": ["business", "productivity", "portfolio"],
+    "icons": [
+        {
+            "src": "./assets/image/icons/icon-192.png?v=1.0.16",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./assets/image/icons/icon-512.png?v=1.0.16",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./assets/image/icons/icma-512.png?v=1.0.16",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "./assets/image/favicon.svg?v=1.0.16",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ]
 }
