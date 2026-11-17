@@ -2543,6 +2543,14 @@ a.contact-item__value:hover {
   margin-bottom: 0;
 }
 
+.site-footer__connect-lead {
+  margin: 0;
+  max-width: 28ch;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+}
+
 .site-footer__contact {
   display: grid;
   gap: 0.35rem;
@@ -2587,9 +2595,7 @@ a.contact-item__value:hover {
   color: var(--accent);
   font: inherit;
   font-weight: 600;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
+  text-decoration: none;
   cursor: pointer;
   pointer-events: auto;
   position: relative;
@@ -2672,7 +2678,7 @@ a.contact-item__value:hover {
 .inixio-modal__logo {
   display: block;
   width: auto;
-  height: 4.15rem;
+  height: 3.0rem;
   object-fit: contain;
 }
 
@@ -3121,6 +3127,7 @@ a.contact-item__value:hover {
 
 .tools__heading {
   margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
   color: var(--text-muted);
 }
 

@@ -5,7 +5,7 @@
  */
 
 const ASSET_VERSION =
-  (typeof globalThis !== 'undefined' && globalThis.SM_ASSET_VERSION) || '1.0.40';
+  (typeof globalThis !== 'undefined' && globalThis.SM_ASSET_VERSION) || '1.0.43';
 
 function withVersion(url) {
   if (typeof globalThis !== 'undefined' && typeof globalThis.smAssetUrl === 'function') {
