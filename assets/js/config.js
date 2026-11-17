@@ -1,16 +1,35 @@
 /**
  * Central configuration: URLs, feature flags and tunable settings.
- * Content (copy, links, tools, experience) lives in assets/data/portfolio.json.
+ * Content (copy, links, tools, experience) lives in assets/content/portfolio.json.
+ * Cache-busting version lives in assets/js/version.js (SM_ASSET_VERSION).
  */
+
+const ASSET_VERSION =
+  (typeof globalThis !== 'undefined' && globalThis.SM_ASSET_VERSION) || '1.0.13';
+
+function withVersion(url) {
+  if (typeof globalThis !== 'undefined' && typeof globalThis.smAssetUrl === 'function') {
+    return globalThis.smAssetUrl(url);
+  }
+  if (!url || !ASSET_VERSION) return url;
+  const hashAt = url.indexOf('#');
+  const hash = hashAt >= 0 ? url.slice(hashAt) : '';
+  const base = hashAt >= 0 ? url.slice(0, hashAt) : url;
+  const join = base.includes('?') ? '&' : '?';
+  return `${base}${join}v=${ASSET_VERSION}${hash}`;
+}
+
 export const CONFIG = Object.freeze({
   siteUrl: 'https://sabrinamuqadas.github.io/',
-  dataUrl: './assets/data/portfolio.json',
+  version: ASSET_VERSION,
+  dataUrl: withVersion('./assets/content/portfolio.json'),
   dataTimeoutMs: 8000,
 
   assets: Object.freeze({
-    sprite: './assets/image/icons.svg',
+    sprite: withVersion('./assets/image/icons.svg'),
     toolIcons: './assets/image/tools/',
-    worldMap: './assets/image/illustrations/world-dots.svg',
+    worldMap: withVersion('./assets/image/illustrations/world-dots.svg'),
+    withVersion,
   }),
 
   theme: Object.freeze({

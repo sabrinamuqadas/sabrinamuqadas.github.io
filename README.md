@@ -31,7 +31,7 @@ Shipped on **GitHub Pages**. No framework, no bundler, no backend, and no instal
 | Piece | Role |
 | --- | --- |
 | `index.html` | Page structure plus real fallback text for search engines and no-JS visitors |
-| `assets/data/portfolio.json` | All editable site content |
+| `assets/content/portfolio.json` | All editable site content |
 | `assets/js/` | Data loading and validation, rendering, theme, navigation, animation, contact form |
 | `assets/css/` | Design tokens, layout, components, motion, responsive rules |
 | `manifest.json` + `sw.js` | Installable PWA and offline support |
@@ -43,7 +43,7 @@ Shipped on **GitHub Pages**. No framework, no bundler, no backend, and no instal
 
 Almost every edit happens in one file:
 
-**[`assets/data/portfolio.json`](assets/data/portfolio.json)**
+**[`assets/content/portfolio.json`](assets/content/portfolio.json)**
 
 | You want to… | Edit |
 | --- | --- |
@@ -75,8 +75,10 @@ Things to know when editing:
 | --- | --- |
 | CV / résumé PDF | `assets/resume/Sabrina-Muqadas-CV.pdf` |
 | Profile photo | Set `profile.photo` in `portfolio.json` |
-| Favicons and PWA icons | `assets/image/icons/` |
-| Logo and social preview image | `assets/image/logo.png`, `assets/image/og-image.jpg` |
+| Favicon and PWA icon PNGs | `assets/image/icons/` |
+| Logo and favicon | `assets/image/logo.svg`, `assets/image/favicon.svg` (PNG/ICO icons in `assets/image/icons/` are generated from the favicon) |
+| Brand wordmark | Inline SVG in the header and footer of `index.html` and `404.html`, set in the heading font (Manrope) |
+| Social preview image | `assets/image/og-image.jpg` |
 | Colours, spacing, type scale | `assets/css/variables.css` |
 | Form endpoint and feature flags | `assets/js/config.js` |
 
@@ -119,11 +121,10 @@ After the first deploy, the site is available at `https://sabrinamuqadas.github.
 - **Privacy:** only the city (Islamabad) is published. Keep street or sector details out of the JSON, the HTML, and the structured data.
 - **Folder browsing** is blocked: `.htaccess` on Apache, and redirect `index.html` files in asset folders on GitHub Pages.
 - **Offline:** after the first HTTPS visit the site is installable and works offline. CV PDFs are never cached.
-- **Service worker updates:** when you change a file listed in `SHELL` in `sw.js`, bump `VERSION` (currently `sm-shell-v3`) so visitors pick up the change. Add any new files that should work offline to that list.
+- **Asset versioning:** set `SM_ASSET_VERSION` once in [`assets/js/version.js`](assets/js/version.js) (currently `1.0.13`). That value drives JSON/sprite/map URLs in JS and the service worker cache name (`sm-1.0.13`). Mirror the same number in HTML/CSS `?v=` query strings and ES module import URLs (search the repo for the previous version and replace). Add any new offline files to `SHELL` in `sw.js`.
 
 ## Still to add
 
 - [ ] CV PDF at `assets/resume/Sabrina-Muqadas-CV.pdf`
 - [ ] Profile photo, then set `profile.photo`
-- [ ] Favicon and PWA icons in `assets/image/icons/`
 - [ ] Real case studies, if and when they can be shared

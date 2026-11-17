@@ -1,11 +1,11 @@
-import { CONFIG } from './config.js';
-import { loadPortfolio } from './data.js';
-import { renderPortfolio, setupCvLinks, showDataNotice } from './components.js';
-import { initAnimations } from './animations.js';
-import { initNavigation } from './navigation.js';
-import { initTheme } from './theme.js';
-import { initContact } from './contact.js';
-import { qsa } from './utils.js';
+import { CONFIG } from './config.js?v=1.0.13';
+import { loadPortfolio } from './data.js?v=1.0.13';
+import { renderPortfolio, setupCvLinks, showDataNotice } from './components.js?v=1.0.13';
+import { initAnimations } from './animations.js?v=1.0.13';
+import { initNavigation } from './navigation.js?v=1.0.13';
+import { initTheme } from './theme.js?v=1.0.13';
+import { initContact } from './contact.js?v=1.0.13';
+import { qs, qsa } from './utils.js?v=1.0.13';
 
 /** Loads an optional, privacy-friendly analytics script only when explicitly enabled in config.js. */
 function loadAnalytics() {
@@ -33,11 +33,57 @@ function realignHash() {
   requestAnimationFrame(() => target.scrollIntoView({ behavior: 'auto', block: 'start' }));
 }
 
+/** Keeps copyright and Inixio dialog version labels in sync with SM_ASSET_VERSION. */
+function bindAssetVersion() {
+  const label = `v${CONFIG.version}`;
+  qsa('[data-asset-version]').forEach((element) => {
+    element.textContent = label;
+  });
+}
+
+/** Developer credit dialog: open from the footer, close via button, backdrop or Escape. */
+function initInixioModal() {
+  const dialog = qs('[data-inixio-modal]');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+
+  const closeBtn = qs('[data-close]', dialog);
+  let lastTrigger = null;
+
+  const open = (trigger) => {
+    lastTrigger = trigger || null;
+    document.body.classList.add('is-locked');
+    if (!dialog.open) dialog.showModal();
+    closeBtn?.focus();
+  };
+
+  const unlock = () => {
+    document.body.classList.remove('is-locked');
+    if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+    lastTrigger = null;
+  };
+
+  // Delegated so the footer credit stays clickable even if the node is re-rendered.
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-open-inixio]');
+    if (!trigger) return;
+    event.preventDefault();
+    open(trigger);
+  });
+
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog || event.target.closest('[data-close]')) dialog.close();
+  });
+
+  dialog.addEventListener('close', unlock);
+}
+
 async function init() {
   initTheme();
   qsa('[data-year]').forEach((element) => {
     element.textContent = String(new Date().getFullYear());
   });
+  bindAssetVersion();
+  initInixioModal();
 
   // Static hero content is already in the HTML, so its entrance can start before the data arrives.
   const animations = initAnimations();
@@ -68,7 +114,7 @@ function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
 
   const register = () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {
+    navigator.serviceWorker.register(`./sw.js?v=${CONFIG.version}`).catch(() => {
       // Offline support is optional; a failed registration must not break the site.
     });
   };

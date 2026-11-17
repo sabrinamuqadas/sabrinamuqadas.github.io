@@ -25,34 +25,35 @@
         <link
             rel="icon"
             type="image/x-icon"
-            href="assets/image/icons/favicon.ico"
+            href="assets/image/icons/favicon.ico?v=1.0.13"
         />
         <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="assets/image/icons/favicon-32x32.png"
+            href="assets/image/icons/favicon-32x32.png?v=1.0.13"
         />
         <link
             rel="icon"
             type="image/svg+xml"
             sizes="any"
-            href="assets/image/icons/favicon.svg"
+            href="assets/image/favicon.svg?v=1.0.13"
         />
         <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="assets/image/icons/favicon.png"
+            href="assets/image/icons/favicon.png?v=1.0.13"
         />
         <link
             rel="preload"
-            href="assets/fonts/manrope-latin-wght-normal.woff2"
+            href="assets/fonts/manrope-latin-wght-normal.woff2?v=1.0.13"
             as="font"
             type="font/woff2"
             crossorigin
         />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <script src="assets/js/early.js"></script>
+        <link rel="stylesheet" href="assets/css/main.css?v=1.0.13" />
+        <script src="assets/js/version.js?v=1.0.13"></script>
+        <script src="assets/js/early.js?v=1.0.13"></script>
     </head>
     <body>
         <main class="not-found" id="main">
@@ -63,13 +64,21 @@
             </div>
             <div class="not-found__inner">
                 <a class="brand" href="./" aria-label="Sabrina Muqadas, home">
-                    <img
-                        class="brand__logo"
-                        src="assets/image/logo.png"
-                        width="876"
-                        height="141"
-                        alt="Sabrina Muqadas"
-                    />
+                    <svg
+                        class="brand__mark"
+                        viewBox="0 0 48 48"
+                        aria-hidden="true"
+                    >
+                        <use href="assets/image/logo.svg?v=1.0.13#sm-mark"></use>
+                    </svg>
+                    <svg
+                        class="brand__wordmark"
+                        viewBox="0 0 210 44"
+                        aria-hidden="true"
+                    >
+                        <text class="brand__name" x="0" y="24" textLength="210" lengthAdjust="spacing">Sabrina Muqadas</text>
+                        <text class="brand__role" x="0" y="40" textLength="210" lengthAdjust="spacing">BUSINESS DEVELOPMENT EXECUTIVE</text>
+                    </svg>
                 </a>
                 <p class="not-found__code text-gradient" aria-hidden="true">
                     404

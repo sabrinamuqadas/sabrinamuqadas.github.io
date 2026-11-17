@@ -113,13 +113,16 @@
     height: 1.3rem;
   }
 
+  .map-marker__label {
+    opacity: 1;
+  }
+}
+
+/* ---- Below the inline nav: links live in the menu drawer ---- */
+@media (max-width: 71.99rem) {
   .site-nav__cv {
     width: 100%;
     margin-top: var(--space-3);
-  }
-
-  .map-marker__label {
-    opacity: 1;
   }
 }
 
@@ -134,8 +137,8 @@
   }
 }
 
-/* ---- Desktop navigation ---- */
-@media (min-width: 64rem) {
+/* ---- Desktop navigation: from 72rem so eight links and the brand fit inline ---- */
+@media (min-width: 72rem) {
   .menu-toggle,
   .site-nav__cv {
     display: none;
@@ -165,6 +168,10 @@
     display: flex;
     align-items: center;
     gap: 0.1rem;
+    padding: 0.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--text) 4%, transparent);
   }
 
   .site-nav__list li {
@@ -174,7 +181,9 @@
   }
 
   .site-nav__link {
-    padding: 0.5rem 0.65rem;
+    position: relative;
+    z-index: 1;
+    padding: 0.45rem 0.5rem;
     white-space: nowrap;
     border-bottom: 0;
     border-radius: var(--radius-pill);
@@ -185,18 +194,26 @@
   }
 
   .site-nav__link:hover {
-    background: color-mix(in srgb, var(--text) 6%, transparent);
+    color: var(--text);
   }
 
+  .site-nav__link[aria-current="true"] {
+    color: var(--accent);
+  }
+
+  /* Sliding pill behind the active link */
   .site-nav__indicator {
     position: absolute;
-    bottom: -0.15rem;
+    top: 0.25rem;
+    bottom: 0.25rem;
     left: 0;
+    z-index: 0;
     display: block;
     width: var(--indicator-w, 0);
-    height: 2px;
-    border-radius: 2px;
-    background: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    pointer-events: none;
     transform: translateX(var(--indicator-x, 0));
     transition:
       transform var(--dur-base) var(--ease-out),
@@ -217,6 +234,22 @@
     overflow: visible;
     clip-path: none;
   }
+}
+
+@media (min-width: 90rem) {
+  .header-actions__talk {
+    display: inline-flex;
+  }
+
+  .site-nav__link {
+    padding-inline: 0.65rem;
+  }
+}
+
+@media (min-width: 96rem) {
+  .site-header__inner {
+    gap: var(--space-6);
+  }
 
   .site-nav__link {
     padding-inline: 0.8rem;
@@ -225,12 +258,18 @@
 
 /* ---- Very large screens: scale the container and type slightly ---- */
 @media (min-width: 120rem) {
-  :root {
-    --container: 84rem;
+  html {
+    font-size: 112.5%;
   }
 
-  .container--wide {
-    width: min(100% - var(--gutter) * 2, 90rem);
+  :root {
+    --container: 112rem;
+  }
+}
+
+@media (min-width: 160rem) {
+  html {
+    font-size: 125%;
   }
 }
 

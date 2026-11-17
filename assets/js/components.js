@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js';
-import { getPath, qs, qsa, reducedMotion } from './utils.js';
+import { CONFIG } from './config.js?v=1.0.13';
+import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.13';
 
 /* ==========================================================================
    DOM helpers. All dynamic content is created with createElement/textContent,
@@ -655,7 +655,57 @@ function renderGrowthStrategy(container, data) {
     }
   };
 
-  const select = (index, { focus = false } = {}) => {
+  const AUTO_MS = 2000;
+  let current = 0;
+  let timer = null;
+  const pauseReasons = new Set();
+
+  const lifecycle = h(
+    'div',
+    {
+      class: 'lifecycle',
+      dataset: { reveal: 'up' },
+      style: { '--auto-ms': `${AUTO_MS}ms` },
+    },
+    tablist,
+    panel,
+  );
+
+  const restartProgress = () => {
+    lifecycle.classList.remove('is-playing');
+    // Force a reflow so the progress animation restarts from zero.
+    void lifecycle.offsetWidth;
+    if (!pauseReasons.size && !document.hidden) lifecycle.classList.add('is-playing');
+  };
+
+  const stopAuto = () => {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+    lifecycle.classList.remove('is-playing');
+  };
+
+  const startAuto = () => {
+    stopAuto();
+    if (pauseReasons.size || document.hidden) return;
+    restartProgress();
+    timer = window.setInterval(() => {
+      current = (current + 1) % stages.length;
+      select(current);
+    }, AUTO_MS);
+  };
+
+  const setPaused = (reason, paused) => {
+    if (paused) pauseReasons.add(reason);
+    else pauseReasons.delete(reason);
+    lifecycle.classList.toggle('is-paused', pauseReasons.size > 0);
+    if (pauseReasons.size || document.hidden) stopAuto();
+    else startAuto();
+  };
+
+  const select = (index, { focus = false, user = false } = {}) => {
+    current = index;
     tabs.forEach((tab, i) => {
       tab.setAttribute('aria-selected', String(i === index));
       tab.tabIndex = i === index ? 0 : -1;
@@ -663,34 +713,59 @@ function renderGrowthStrategy(container, data) {
     drawPanel(index);
     container.style.setProperty('--stage', index);
     if (focus) tabs[index].focus();
+    if (user) setPaused('interact', true);
+    else restartProgress();
   };
 
   tablist.addEventListener('click', (event) => {
     const tab = event.target.closest('[role="tab"]');
-    if (tab) select(tabs.indexOf(tab));
+    if (!tab) return;
+    select(tabs.indexOf(tab), { user: true });
   });
 
   tablist.addEventListener('keydown', (event) => {
-    const current = tabs.indexOf(document.activeElement);
-    if (current < 0) return;
+    const active = tabs.indexOf(document.activeElement);
+    if (active < 0) return;
     const last = tabs.length - 1;
     const moves = {
-      ArrowDown: current === last ? 0 : current + 1,
-      ArrowRight: current === last ? 0 : current + 1,
-      ArrowUp: current === 0 ? last : current - 1,
-      ArrowLeft: current === 0 ? last : current - 1,
+      ArrowDown: active === last ? 0 : active + 1,
+      ArrowRight: active === last ? 0 : active + 1,
+      ArrowUp: active === 0 ? last : active - 1,
+      ArrowLeft: active === 0 ? last : active - 1,
       Home: 0,
       End: last,
     };
     if (!(event.key in moves)) return;
     event.preventDefault();
-    select(moves[event.key], { focus: true });
+    select(moves[event.key], { focus: true, user: true });
   });
 
-  container.replaceChildren(
-    h('div', { class: 'lifecycle', dataset: { reveal: 'up' } }, tablist, panel),
-  );
+  // Hover or keyboard focus pauses autoplay; leaving the block resumes it.
+  lifecycle.addEventListener('pointerenter', () => setPaused('hover', true));
+  lifecycle.addEventListener('pointerleave', () => {
+    setPaused('hover', false);
+    setPaused('interact', false);
+  });
+  lifecycle.addEventListener('focusin', () => setPaused('focus', true));
+  lifecycle.addEventListener('focusout', (event) => {
+    if (lifecycle.contains(event.relatedTarget)) return;
+    setPaused('focus', false);
+    setPaused('interact', false);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAuto();
+    else if (!pauseReasons.size) startAuto();
+  });
+
+  container.replaceChildren(lifecycle);
   select(0);
+  // Autoplay is off when the visitor prefers reduced motion; tabs still work manually.
+  if (!reducedMotion.matches) startAuto();
+  reducedMotion.addEventListener?.('change', () => {
+    if (reducedMotion.matches) stopAuto();
+    else if (!pauseReasons.size) startAuto();
+  });
 }
 
 /** Marker positions are percentages of the map; arcs are drawn in the map's 1000 x 397 coordinate space. */
@@ -810,7 +885,8 @@ function toolIcon(tool) {
   const box = h('span', { class: 'tool-icon', 'aria-hidden': 'true', style: { '--brand': tool.color } });
   if (tool.icon) {
     box.classList.add('tool-icon--mask');
-    box.style.setProperty('--icon-url', `url("${new URL(CONFIG.assets.toolIcons + tool.icon, document.baseURI).href}")`);
+    const iconHref = CONFIG.assets.withVersion(CONFIG.assets.toolIcons + tool.icon);
+    box.style.setProperty('--icon-url', `url("${new URL(iconHref, document.baseURI).href}")`);
   } else {
     box.append(h('span', { class: 'tool-icon__mono', text: toolMonogram(tool.name) }));
   }
@@ -980,10 +1056,18 @@ function renderInterests(container, data) {
     ...data.interests.map((interest) =>
       h(
         'article',
-        { class: 'interest-card' },
-        h('span', { class: 'interest-card__icon' }, icon(interest.icon)),
+        {
+          class: `interest-card${interest.featured ? ' interest-card--featured' : ''}`,
+          dataset: { spotlight: '' },
+        },
+        h(
+          'div',
+          { class: 'interest-card__top' },
+          h('span', { class: 'interest-card__icon' }, icon(interest.icon)),
+          interest.tag && h('span', { class: 'interest-card__tag mono', text: interest.tag }),
+        ),
         h('h3', { class: 'interest-card__title', text: interest.title }),
-        h('p', { class: 'text-muted', text: interest.text }),
+        h('p', { class: 'interest-card__text text-muted', text: interest.text }),
       ),
     ),
   );

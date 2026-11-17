@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js';
-import { qs, qsa } from './utils.js';
+import { CONFIG } from './config.js?v=1.0.13';
+import { qs, qsa } from './utils.js?v=1.0.13';
 
 const { endpoint, subjectPrefix, minFillMs, cooldownMs } = CONFIG.contact;
 const COOLDOWN_KEY = 'sm-contact-last-sent';

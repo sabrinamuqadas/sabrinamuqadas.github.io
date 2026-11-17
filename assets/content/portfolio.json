@@ -25,8 +25,8 @@
   },
 
   "branding": {
-    "footerStatement": "Sabrina Muqadas — Growth & Business Development Executive",
-    "footerSub": "Upwork, LinkedIn, email and cold-calling pipelines for technology companies."
+    "footerStatement": "I build multi-channel growth systems that turn outreach into qualified pipeline for technology companies.",
+    "footerSub": "I combine Upwork bidding, LinkedIn social selling, email outreach and cold calling into one coordinated pipeline — researching accounts, personalizing every touch, and moving qualified conversations into HubSpot and Salesforce. Across the USA, UK, UAE and KSA I use sales intelligence and AI tools to work faster without sounding automated, so technology companies get steady, well-qualified opportunities instead of noise."
   },
 
   "navigation": [
@@ -80,13 +80,13 @@
     "aside": {
       "title": "Career progression",
       "steps": [
-        { "label": "DEFT Recruiter", "role": "Senior Recruiter & Content Manager", "period": "Jan 2023 – Apr 2023" },
-        { "label": "KYCIER", "role": "Team Lead, Lead Generation & Data Management", "period": "Aug 2024 – Jun 2025" },
-        { "label": "Sigma Digital Solutions", "role": "Upwork Bidder / Business Development Executive", "period": "Jun 2025 – Apr 2026" },
+        { "label": "ISOTOPE", "role": "Growth & Business Development Executive", "period": "Jun 2026 – Present", "current": true },
         { "label": "AEITCH", "role": "Business Development Executive (Cold Calling)", "period": "Jun 2026 – Aug 2026" },
-        { "label": "ISOTOPE", "role": "Growth & Business Development Executive", "period": "Jun 2026 – Present", "current": true }
+        { "label": "Sigma Digital Solutions", "role": "Upwork Bidder / Business Development Executive", "period": "Jun 2025 – Apr 2026" },
+        { "label": "KYCIER", "role": "Team Lead, Lead Generation & Data Management", "period": "Aug 2024 – Jun 2025" },
+        { "label": "DEFT Recruiter", "role": "Senior Recruiter & Content Manager", "period": "Jan 2023 – Apr 2023" }
       ],
-      "caption": "From recruitment and lead generation to Upwork bidding, cold calling and growth-focused business development."
+      "caption": "Newest first: from growth-focused business development back through cold calling, Upwork bidding, lead generation and recruitment."
     },
     "story": [
       "I'm Sabrina Muqadas, a Growth & Business Development Executive who builds pipeline across four channels: Upwork bidding, LinkedIn social selling, email outreach and cold calling.",
@@ -768,10 +768,50 @@
   ],
 
   "interests": [
-    { "icon": "shuttlecock", "title": "Badminton", "text": "Fast rallies and friendly competition." },
-    { "icon": "bike", "title": "Cycling", "text": "Steady miles and a clear head." },
-    { "icon": "mountain", "title": "Hiking", "text": "Trails, views and fresh air." },
-    { "icon": "cpu", "title": "Tech Trends", "text": "Following what is next in AI and software." }
+    {
+      "icon": "plane",
+      "title": "Traveling",
+      "tag": "Explore",
+      "featured": true,
+      "text": "New cities, cultures and conversations. Travel keeps my market sense sharp and my curiosity wide open."
+    },
+    {
+      "icon": "mountain",
+      "title": "Hiking",
+      "tag": "Outdoors",
+      "text": "Quiet trails and long views. A reset that makes the next outreach week feel lighter."
+    },
+    {
+      "icon": "bike",
+      "title": "Cycling",
+      "tag": "Outdoors",
+      "text": "Steady miles for clear thinking. Rhythm on the road, focus when I get back to the desk."
+    },
+    {
+      "icon": "shuttlecock",
+      "title": "Badminton",
+      "tag": "Active",
+      "text": "Fast rallies and friendly competition. Good for reflexes, better for unwinding with people."
+    },
+    {
+      "icon": "camera",
+      "title": "Photography",
+      "tag": "Create",
+      "featured": true,
+      "text": "Framing light, detail and atmosphere. It trains the same eye I use when reading a market or a brand."
+    },
+    {
+      "icon": "book-open",
+      "title": "Books Collection & Reading",
+      "tag": "Learn",
+      "text": "A growing shelf and quiet evenings with it. Business, stories and ideas that stretch how I think."
+    },
+    {
+      "icon": "clapperboard",
+      "title": "Watching Movies and TV Series",
+      "tag": "Unwind",
+      "text": "Strong narratives, sharp dialogue and a well-built world. Entertainment that still teaches craft."
+    }
   ],
 
   "contact": {
@@ -789,6 +829,7 @@
     "items": [
       { "id": "email", "label": "Email", "icon": "mail", "value": "sabrinamuqadas@gmail.com", "href": "mailto:sabrinamuqadas@gmail.com", "copy": true },
       { "id": "phone", "label": "Phone", "icon": "phone", "value": "+92 336 665 8222", "href": "tel:+923366658222", "copy": true },
+      { "id": "phone-alt", "label": "Phone", "icon": "phone", "value": "+92 306 665 8222", "href": "tel:+923066658222", "copy": true },
       { "id": "location", "label": "Location", "icon": "map-pin", "value": "Islamabad, Pakistan" },
       { "id": "linkedin", "label": "LinkedIn", "icon": "brand-linkedin", "value": "linkedin.com/in/sabrinamuqadas", "href": "https://www.linkedin.com/in/sabrinamuqadas", "external": true },
       { "id": "github", "label": "GitHub", "icon": "brand-github", "value": "sabrinamuqadas.github.io", "href": "https://sabrinamuqadas.github.io", "external": true },

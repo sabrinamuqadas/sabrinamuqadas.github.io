@@ -1,7 +1,7 @@
 /* ==========================================================================
    Layout: page structure, section scaffolding and grid placement.
    Visual styling of the pieces lives in components.css.
-   Breakpoints (mobile-first): 30rem, 40rem, 48rem, 64rem, 80rem.
+   Breakpoints (mobile-first): 30rem, 40rem, 48rem, 64rem, 72rem (inline nav), 80rem.
    ========================================================================== */
 
 main {
@@ -14,7 +14,7 @@ main {
 }
 
 .container--wide {
-  width: min(100% - var(--gutter) * 2, 80rem);
+  width: min(100% - var(--gutter) * 2, var(--container));
 }
 
 .section {
@@ -32,12 +32,12 @@ main {
 }
 
 .section-head {
-  max-width: 50rem;
+  max-width: 58rem;
   margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .section-head--wide {
-  max-width: 60rem;
+  max-width: 72rem;
 }
 
 .eyebrow {
@@ -84,18 +84,24 @@ main {
   position: fixed;
   inset: 0 0 auto;
   z-index: var(--z-header);
-  padding-top: var(--space-3);
   pointer-events: none;
 }
 
+/* Full-bleed bar; the content inside is aligned to the page container. */
 .site-header__inner {
   position: relative;
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  height: 3.5rem;
-  padding-inline: var(--space-5) var(--space-3);
+  width: 100%;
+  height: var(--header-h);
+  padding-inline: max(var(--gutter), calc((100% - var(--container)) / 2));
   pointer-events: auto;
+  transition: height var(--dur-base) var(--ease-out);
+}
+
+.site-header.is-scrolled .site-header__inner {
+  height: 4rem;
 }
 
 /* Glass surface lives on a pseudo-element so backdrop-filter never traps the fixed mobile menu. */
@@ -104,9 +110,8 @@ main {
   position: absolute;
   inset: 0;
   z-index: -1;
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  background: transparent;
+  border-bottom: 1px solid transparent;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 70%, transparent), transparent);
   transition:
     background-color var(--dur-base) var(--ease-out),
     border-color var(--dur-base) var(--ease-out),
@@ -115,11 +120,11 @@ main {
 
 .site-header.is-scrolled .site-header__inner::before,
 .site-header.is-menu-open .site-header__inner::before {
-  border-color: var(--border);
+  border-bottom-color: var(--border);
   background: var(--glass);
-  box-shadow: var(--shadow-md);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
-  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: 0 10px 30px -18px rgb(0 0 0 / 0.45);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
 }
 
 .site-nav {
@@ -361,7 +366,7 @@ main {
 /* ---- Beyond work ---- */
 .beyond__stage {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-3);
 }
 
@@ -389,15 +394,21 @@ main {
 .site-footer__top {
   display: grid;
   gap: var(--space-7);
-  padding-bottom: var(--space-7);
+  padding-bottom: var(--space-6);
+}
+
+.site-footer__toplink {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
 }
 
 .site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-3) var(--space-5);
   padding-top: var(--space-5);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
@@ -426,7 +437,11 @@ main {
   }
 
   .beyond__stage {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .beyond__stage > .interest-card--featured {
+    grid-column: 1 / -1;
   }
 
   .edu-track {
@@ -447,9 +462,9 @@ main {
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 72rem) {
   .site-header__inner {
-    padding-inline: var(--space-5) var(--space-3);
+    gap: var(--space-5);
   }
 
   .site-nav {
@@ -467,7 +482,9 @@ main {
     transform: none;
     transition: none;
   }
+}
 
+@media (min-width: 64rem) {
   .hero__inner {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   }
@@ -556,7 +573,11 @@ main {
   }
 
   .beyond__stage {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .beyond__stage > .interest-card--featured {
+    grid-column: 1 / -1;
   }
 
   .contact__grid {

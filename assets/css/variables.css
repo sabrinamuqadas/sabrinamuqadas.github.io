@@ -53,14 +53,12 @@
   --glow-a: rgb(45 212 191 / 0.16);
   --glow-b: rgb(129 140 248 / 0.18);
   --map-dot: rgb(148 163 184 / 0.34);
-  --logo-filter: invert(1) hue-rotate(180deg);
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.25);
   --shadow-md: 0 12px 32px -12px rgb(0 0 0 / 0.5);
   --shadow-lg: 0 32px 64px -24px rgb(0 0 0 / 0.6);
 
   /* Typography */
-  --font-heading: "Manrope", "Manrope Fallback", system-ui, sans-serif;
-  --font-body: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Manrope", "Manrope Fallback", system-ui, sans-serif;  --font-body: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --fs-xs: clamp(0.75rem, 0.73rem + 0.1vw, 0.8125rem);
@@ -88,8 +86,8 @@
   --space-8: 4rem;
   --space-9: 6rem;
   --section-pad: clamp(4.5rem, 3rem + 6vw, 8.5rem);
-  --gutter: clamp(1.25rem, 0.5rem + 3.5vw, 3rem);
-  --container: 75rem;
+  --gutter: clamp(1.25rem, 0.5rem + 3.5vw, 4rem);
+  --container: 96rem;
   --header-h: 4.5rem;
 
   /* Radii */
@@ -140,7 +138,6 @@
   --glow-a: rgb(45 212 191 / 0.22);
   --glow-b: rgb(129 140 248 / 0.2);
   --map-dot: rgb(15 23 42 / 0.2);
-  --logo-filter: none;
   --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
   --shadow-md: 0 12px 28px -14px rgb(15 23 42 / 0.2);
   --shadow-lg: 0 28px 56px -24px rgb(15 23 42 / 0.28);

@@ -1,7 +1,8 @@
 /* Entry stylesheet: order matters (tokens, then base, then layout, components, motion, responsive). */
-@import url("./variables.css");
-@import url("./base.css");
-@import url("./layout.css");
-@import url("./components.css");
-@import url("./animations.css");
-@import url("./responsive.css");
+/* Keep the ?v= query in sync with SM_ASSET_VERSION in assets/js/version.js */
+@import url("./variables.css?v=1.0.13");
+@import url("./base.css?v=1.0.13");
+@import url("./layout.css?v=1.0.13");
+@import url("./components.css?v=1.0.13");
+@import url("./animations.css?v=1.0.13");
+@import url("./responsive.css?v=1.0.13");

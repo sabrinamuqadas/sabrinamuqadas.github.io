@@ -1,6 +1,6 @@
-import { debounce, onScroll, qs, qsa } from './utils.js';
+import { debounce, onScroll, qs, qsa } from './utils.js?v=1.0.13';
 
-const MOBILE_QUERY = window.matchMedia('(max-width: 63.99rem)');
+const MOBILE_QUERY = window.matchMedia('(max-width: 71.99rem)');
 
 /** Header state, scroll progress, scrollspy, sliding indicator and the mobile menu. */
 export function initNavigation() {
