@@ -1,11 +1,11 @@
-import { CONFIG } from './config.js?v=1.0.26';
-import { loadPortfolio } from './data.js?v=1.0.26';
-import { renderPortfolio, setupCvLinks, showDataNotice } from './components.js?v=1.0.26';
-import { initAnimations } from './animations.js?v=1.0.26';
-import { initNavigation } from './navigation.js?v=1.0.26';
-import { initTheme } from './theme.js?v=1.0.26';
-import { initContact } from './contact.js?v=1.0.26';
-import { qs, qsa } from './utils.js?v=1.0.26';
+import { CONFIG } from './config.js?v=1.0.27';
+import { loadPortfolio } from './data.js?v=1.0.27';
+import { renderPortfolio, setupCvLinks, showDataNotice } from './components.js?v=1.0.27';
+import { initAnimations } from './animations.js?v=1.0.27';
+import { initNavigation } from './navigation.js?v=1.0.27';
+import { initTheme } from './theme.js?v=1.0.27';
+import { initContact } from './contact.js?v=1.0.27';
+import { qs, qsa } from './utils.js?v=1.0.27';
 
 /** Loads an optional, privacy-friendly analytics script only when explicitly enabled in config.js. */
 function loadAnalytics() {

@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.26';
-import { qs, qsa } from './utils.js?v=1.0.26';
+import { CONFIG } from './config.js?v=1.0.27';
+import { qs, qsa } from './utils.js?v=1.0.27';
 
 const { endpoint, subjectPrefix, minFillMs, cooldownMs } = CONFIG.contact;
 const COOLDOWN_KEY = 'sm-contact-last-sent';
@@ -75,8 +75,8 @@ export function initContact(contact = {}) {
   const submit = qs('[type="submit"]', form);
   const label = qs('.btn__label', submit);
   const purpose = qs('#cf-purpose', form);
-  // Without portfolio.json the static form action still carries the address.
-  const email = contact.email ?? form.getAttribute('action').replace(/^mailto:/, '');
+  // Prefer portfolio.json; fall back to the static data-contact-email attribute.
+  const email = contact.email ?? form.dataset.contactEmail ?? '';
   let firstInteraction = 0;
 
   // Inquiry types come from portfolio.json; the static options remain as a fallback.
