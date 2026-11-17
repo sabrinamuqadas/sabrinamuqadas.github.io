@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.13';
-import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.13';
+import { CONFIG } from './config.js?v=1.0.15';
+import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.15';
 
 /* ==========================================================================
    DOM helpers. All dynamic content is created with createElement/textContent,

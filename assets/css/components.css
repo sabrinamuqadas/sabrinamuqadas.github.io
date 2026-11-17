@@ -2628,13 +2628,13 @@ a.contact-item__value:hover {
   justify-content: space-between;
   gap: var(--space-3);
   padding: 1rem 1rem 1rem 1.25rem;
-  background: #002541;
+  background: #0b1220;
 }
 
 .inixio-modal__logo {
   display: block;
   width: auto;
-  height: 3.15rem;
+  height: 4.15rem;
   object-fit: contain;
 }
 

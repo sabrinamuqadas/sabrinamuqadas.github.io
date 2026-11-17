@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.13';
-import { clamp, finePointer, onScroll, qs, qsa, reducedMotion } from './utils.js?v=1.0.13';
+import { CONFIG } from './config.js?v=1.0.15';
+import { clamp, finePointer, onScroll, qs, qsa, reducedMotion } from './utils.js?v=1.0.15';
 
 const { motion, features } = CONFIG;
 
