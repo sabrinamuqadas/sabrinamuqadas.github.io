@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.36';
-import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.36';
+import { CONFIG } from './config.js?v=1.0.39';
+import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.39';
 
 /* ==========================================================================
    DOM helpers. All dynamic content is created with createElement/textContent,
@@ -235,7 +235,9 @@ function renderNav(list, data) {
 }
 
 function renderFooterNav(list, data) {
-  const items = data.navigation.filter((item) => item.section && sectionEnabled(data, item.section));
+  const items = data.navigation.filter(
+    (item) => item.section && item.section !== 'contact' && sectionEnabled(data, item.section),
+  );
   list.replaceChildren(...items.map((item) => h('li', {}, h('a', { href: item.href, text: item.label }))));
 }
 
@@ -638,7 +640,7 @@ function renderGrowthStrategy(container, data) {
     ...tabs,
   );
 
-  const drawPanel = (index) => {
+  const drawPanel = (index, { animate = true } = {}) => {
     const stage = stages[index];
     const ring = svgElement('svg', { class: 'ring', viewBox: '0 0 64 64', 'aria-hidden': 'true' });
     ring.append(
@@ -680,18 +682,26 @@ function renderGrowthStrategy(container, data) {
       ),
     );
 
-    if (!reducedMotion.matches) {
-      panel.animate(
-        [
-          { opacity: 0, transform: 'translateY(10px)' },
-          { opacity: 1, transform: 'none' },
-        ],
-        { duration: 380, easing: EASE },
-      );
+    // Opacity only — vertical motion here was shifting the page every autoplay tick.
+    if (animate && !reducedMotion.matches) {
+      panel.animate([{ opacity: 0.35 }, { opacity: 1 }], { duration: 280, easing: EASE });
     }
   };
 
-  const AUTO_MS = 2000;
+  /** Keep the panel tall enough for every stage so autoplay never resizes the page. */
+  const lockPanelHeight = () => {
+    const previous = current;
+    panel.style.minHeight = '';
+    let max = 0;
+    stages.forEach((_, index) => {
+      drawPanel(index, { animate: false });
+      max = Math.max(max, panel.getBoundingClientRect().height);
+    });
+    panel.style.minHeight = `${Math.ceil(max)}px`;
+    drawPanel(previous, { animate: false });
+  };
+
+  const AUTO_MS = 3000;
   let current = 0;
   let timer = null;
   const pauseReasons = new Set();
@@ -740,13 +750,13 @@ function renderGrowthStrategy(container, data) {
     else startAuto();
   };
 
-  const select = (index, { focus = false, user = false } = {}) => {
+  const select = (index, { focus = false, user = false, animate = true } = {}) => {
     current = index;
     tabs.forEach((tab, i) => {
       tab.setAttribute('aria-selected', String(i === index));
       tab.tabIndex = i === index ? 0 : -1;
     });
-    drawPanel(index);
+    drawPanel(index, { animate });
     container.style.setProperty('--stage', index);
     if (focus) tabs[index].focus();
     if (user) setPaused('interact', true);
@@ -795,7 +805,17 @@ function renderGrowthStrategy(container, data) {
   });
 
   container.replaceChildren(lifecycle);
-  select(0);
+  select(0, { animate: false });
+  lockPanelHeight();
+  let resizeTimer = 0;
+  window.addEventListener(
+    'resize',
+    () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(lockPanelHeight, 150);
+    },
+    { passive: true },
+  );
   // Autoplay is off when the visitor prefers reduced motion; tabs still work manually.
   if (!reducedMotion.matches) startAuto();
   reducedMotion.addEventListener?.('change', () => {

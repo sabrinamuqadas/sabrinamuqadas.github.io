@@ -3,7 +3,7 @@
  * Bump this value when shipping asset changes, then mirror it in HTML/CSS `?v=` query
  * strings and in ES module import URLs (search the repo for the previous version).
  */
-var SM_ASSET_VERSION = '1.0.36';
+var SM_ASSET_VERSION = '1.0.39';
 
 (function (root) {
   if (!root) return;

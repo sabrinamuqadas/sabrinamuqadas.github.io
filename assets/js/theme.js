@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.36';
-import { qs } from './utils.js?v=1.0.36';
+import { CONFIG } from './config.js?v=1.0.39';
+import { qs } from './utils.js?v=1.0.39';
 
 const { storageKey, metaColors } = CONFIG.theme;
 
