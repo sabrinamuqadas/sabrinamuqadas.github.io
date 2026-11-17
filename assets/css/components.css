@@ -637,7 +637,7 @@
   max-width: none;
   font-size: clamp(2rem, 1rem + 3.6vw, 5.25rem);
   font-weight: 800;
-  line-height: 1.04;
+  line-height: 1.25;
   letter-spacing: -0.04em;
 }
 
@@ -645,7 +645,7 @@
   display: block;
 }
 
-.hero__headline .line:last-child .word__inner {
+.hero__headline .line:last-child .word:last-child .word__inner {
   background: linear-gradient(100deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
