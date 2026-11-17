@@ -788,13 +788,24 @@
 
 .portrait__tag {
   position: absolute;
+  left: 50%;
   bottom: 1.25rem;
+  z-index: 3;
+  translate: -50% 0;
   padding: 0.35rem 0.8rem;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-pill);
   background: var(--glass);
   color: var(--text-muted);
   white-space: nowrap;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.portrait.has-photo .portrait__tag {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border-strong));
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  color: var(--text);
 }
 
 .portrait__img {
