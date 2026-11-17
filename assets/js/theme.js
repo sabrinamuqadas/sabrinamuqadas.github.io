@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.15';
-import { qs } from './utils.js?v=1.0.15';
+import { CONFIG } from './config.js?v=1.0.16';
+import { qs } from './utils.js?v=1.0.16';
 
 const { storageKey, metaColors } = CONFIG.theme;
 const systemLight = window.matchMedia('(prefers-color-scheme: light)');

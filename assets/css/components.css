@@ -2472,8 +2472,9 @@ a.contact-item__value:hover {
 }
 
 .site-footer__sub {
-  font-size: var(--fs-sm);
   max-width: 40rem;
+  font-size: var(--fs-sm);
+  text-align: justify;
 }
 
 .site-footer__heading {

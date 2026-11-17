@@ -460,6 +460,10 @@ main {
     grid-template-columns: 1.4fr 1fr 1fr;
     align-items: start;
   }
+
+  .site-footer__nav {
+    margin-left: clamp(0.75rem, 2vw, 2.5rem);
+  }
 }
 
 @media (min-width: 72rem) {

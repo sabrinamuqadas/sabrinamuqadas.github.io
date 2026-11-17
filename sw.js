@@ -1,8 +1,8 @@
 'use strict';
 
-importScripts('./assets/js/version.js?v=1.0.15');
+importScripts('./assets/js/version.js?v=1.0.16');
 
-var ASSET_VERSION = self.SM_ASSET_VERSION || '1.0.15';
+var ASSET_VERSION = self.SM_ASSET_VERSION || '1.0.16';
 var VERSION = 'sm-' + ASSET_VERSION;
 var PRECACHE = VERSION + '-precache';
 var RUNTIME = VERSION + '-runtime';
