@@ -716,7 +716,7 @@
 /* Hero visual: portrait frame, orbits, growth curve and capability cards */
 .hero__visual {
   position: relative;
-  width: min(100%, clamp(31rem, 28vw, 40rem));
+  width: min(100%, clamp(35rem, 35vw, 35rem));
   aspect-ratio: 1 / 1.02;
   margin-inline: auto;
   transform: translate3d(0, var(--py, 0), 0) perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
