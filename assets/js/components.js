@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.27';
-import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.27';
+import { CONFIG } from './config.js?v=1.0.31';
+import { getPath, qs, qsa, reducedMotion } from './utils.js?v=1.0.31';
 
 /* ==========================================================================
    DOM helpers. All dynamic content is created with createElement/textContent,
@@ -85,11 +85,18 @@ const sectionEnabled = (data, key) =>
    Page-level binding
    ========================================================================== */
 
+/** Normalizes copy for comparison so split headlines with `|` line breaks still match rendered text. */
+function normalizeBindText(value) {
+  return String(value).replace(/\|/g, ' ').trim().replace(/\s+/g, ' ');
+}
+
 /** Fills [data-bind="path.to.value"] elements, leaving them untouched when the text already matches. */
 function bindText(data) {
   qsa('[data-bind]').forEach((element) => {
     const value = getPath(data, element.dataset.bind);
-    if (typeof value === 'string' && element.textContent.trim() !== value) element.textContent = value;
+    if (typeof value !== 'string' || normalizeBindText(element.textContent) === normalizeBindText(value)) return;
+    element.textContent = value;
+    delete element.dataset.splitDone;
   });
 }
 

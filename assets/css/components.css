@@ -634,14 +634,18 @@
 }
 
 .hero__headline {
-  max-width: 20ch;
-  font-size: clamp(2.3rem, 1.1rem + 4.3vw, 6rem);
+  max-width: none;
+  font-size: clamp(2rem, 1rem + 3.6vw, 5.25rem);
   font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.04em;
 }
 
-.hero__headline .word:nth-last-child(-n + 2) .word__inner {
+.hero__headline .line {
+  display: block;
+}
+
+.hero__headline .line:last-child .word__inner {
   background: linear-gradient(100deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;

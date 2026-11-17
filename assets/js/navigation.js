@@ -1,4 +1,4 @@
-import { debounce, onScroll, qs, qsa } from './utils.js?v=1.0.27';
+import { debounce, onScroll, qs, qsa } from './utils.js?v=1.0.31';
 
 const MOBILE_QUERY = window.matchMedia('(max-width: 71.99rem)');
 

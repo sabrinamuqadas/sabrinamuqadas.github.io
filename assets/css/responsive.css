@@ -6,7 +6,7 @@
 /* ---- Small screens ---- */
 @media (max-width: 39.99rem) {
   .hero__headline {
-    max-width: none;
+    font-size: clamp(1.85rem, 7.2vw, 2.35rem);
   }
 
   .hero__actions .btn {

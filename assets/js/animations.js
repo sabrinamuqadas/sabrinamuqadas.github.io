@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js?v=1.0.27';
-import { clamp, finePointer, onScroll, qs, qsa, reducedMotion } from './utils.js?v=1.0.27';
+import { CONFIG } from './config.js?v=1.0.31';
+import { clamp, finePointer, onScroll, qs, qsa, reducedMotion } from './utils.js?v=1.0.31';
 
 const { motion, features } = CONFIG;
 
@@ -136,23 +136,37 @@ export function initAnimations() {
   return { refresh };
 }
 
-/** Wraps each word of [data-split] elements so it can slide up with a stagger. Idempotent. */
+/** Wraps each word of [data-split] elements so it can slide up with a stagger. Idempotent.
+ *  A `|` in the source text becomes a hard line break (kept to two rows for the hero). */
 function splitWords() {
   qsa('[data-split]').forEach((element) => {
     if (element.dataset.splitDone === element.textContent) return;
 
-    const words = element.textContent.trim().split(/\s+/);
+    const lines = element.textContent
+      .trim()
+      .split('|')
+      .map((line) => line.trim())
+      .filter(Boolean);
     element.replaceChildren();
-    words.forEach((word, index) => {
-      const outer = document.createElement('span');
-      outer.className = 'word';
-      const inner = document.createElement('span');
-      inner.className = 'word__inner';
-      inner.style.setProperty('--w', index);
-      inner.textContent = word;
-      outer.append(inner);
-      element.append(outer);
-      if (index < words.length - 1) element.append(' ');
+
+    let wordIndex = 0;
+    lines.forEach((line) => {
+      const row = document.createElement('span');
+      row.className = 'line';
+      const words = line.split(/\s+/).filter(Boolean);
+      words.forEach((word, index) => {
+        const outer = document.createElement('span');
+        outer.className = 'word';
+        const inner = document.createElement('span');
+        inner.className = 'word__inner';
+        inner.style.setProperty('--w', wordIndex);
+        inner.textContent = word;
+        outer.append(inner);
+        row.append(outer);
+        if (index < words.length - 1) row.append(' ');
+        wordIndex += 1;
+      });
+      element.append(row);
     });
     element.dataset.splitDone = element.textContent;
   });
